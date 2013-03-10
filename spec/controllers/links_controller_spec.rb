@@ -129,4 +129,25 @@ describe LinksController do
       end
     end
   end
+
+  describe 'a DELETE to :destroy' do
+    let(:action) { -> { delete :destroy, id: link.id } }
+
+    it 'destroys the link' do
+      action.call
+      expect {
+        link.reload
+      }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+
+    it 'redirects to the links list' do
+      action.call
+      response.should redirect_to links_url
+    end
+
+    it 'sets the flash' do
+      action.call
+      flash[:success].should == 'Link deleted.'
+    end
+  end
 end

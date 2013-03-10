@@ -35,7 +35,7 @@ class LinksController < ApplicationController
 
   def destroy
     @link.destroy
-    redirect_to links_url
+    redirect_to links_url, flash: { success: 'Link deleted.' }
   end
 
   private
