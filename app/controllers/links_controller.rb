@@ -20,6 +20,8 @@ class LinksController < ApplicationController
     @link = current_user.links.new(params[:link])
     if @link.save
       redirect_to link_url(@link), flash: { success: 'Link created.' }
+    elsif @link.link_with_same_url.present?
+      redirect_to link_url(@link.link_with_same_url), flash: { alert: 'Link has already been submitted!' }
     else
       render :new
     end

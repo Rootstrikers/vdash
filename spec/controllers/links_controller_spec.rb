@@ -77,6 +77,21 @@ describe LinksController do
       end
     end
 
+    context 'when a link with the same url already exists' do
+      let!(:old_link) { FactoryGirl.create(:link, url: "http://www.example.com?bananas=true" )}
+      let(:action) { ->{ post :create, link: { url: "http://www.example.com?bananas=true" } } }
+
+      it 'redirects to the old link' do
+        action.call
+        response.should redirect_to link_url(old_link)
+      end
+
+      it 'sets the flash' do
+        action.call
+        flash[:alert].should == 'Link has already been submitted!'
+      end
+    end
+
     context 'when the link is invalid' do
       let(:action) { ->{ post :create, link: { url: nil } } }
 
