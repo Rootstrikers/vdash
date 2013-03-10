@@ -1,4 +1,4 @@
-<%= form_for @link do |f| %>
+<%= form_for @link, html: { class: 'form-horizontal' } do |f| %>
   <% if @link.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
@@ -11,7 +11,28 @@
     </div>
   <% end %>
 
-  <%= f.text_field :url %>
+  <div class='control-group'>
+    <%= f.label :url, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :url %>
+    </div>
+  </div>
 
-  <%= f.submit %>
+  <div class='control-group'>
+    <%= f.label :title, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title %>
+    </div>
+  </div>
+
+  <div class='control-group'>
+    <%= f.label :summary, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :summary %>
+    </div>
+  </div>
+
+  <div class="controls">
+    <%= f.submit %>
+  </div>
 <% end %>
