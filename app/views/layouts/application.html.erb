@@ -24,7 +24,11 @@
 
 <div class="container">
 
-<%= yield %>
+  <% flash.each do |level, message| %>
+    <div class="alert alert-<%= level %>"><%= message %></div>
+  <% end %>
+
+  <%= yield %>
 
 </div> <!-- /container -->
 
