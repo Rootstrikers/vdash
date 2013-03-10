@@ -35,4 +35,16 @@ describe Link do
       new_link.link_with_same_url.should == link
     end
   end
+
+  describe '#display_name' do
+    it 'returns the title when present' do
+      link = FactoryGirl.create(:link, title: 'This is the title')
+      link.display_name.should == 'This is the title'
+    end
+
+    it 'returns the URL otherwise' do
+      link = FactoryGirl.create(:link, title: nil)
+      link.display_name.should == link.url
+    end
+  end
 end

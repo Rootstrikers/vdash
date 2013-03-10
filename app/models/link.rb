@@ -6,7 +6,11 @@ class Link < ActiveRecord::Base
 
   validates :url, presence: true, uniqueness: true
 
-  attr_accessible :url
+  attr_accessible :url, :title, :summary
+
+  def display_name
+    title || url
+  end
 
   def error_due_to_duplicate_url?
     errors[:url] == ["has already been taken"]
