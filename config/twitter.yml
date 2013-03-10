@@ -1,0 +1,11 @@
+development:
+  app_key: OK84UbqSyWjD5fCkL1cw
+  secret: 7vClwJd1cyvAyQ6GLOfexBNx4dM7Mzj8fx1helmUh8
+
+test:
+  app_key: OK84UbqSyWjD5fCkL1cw
+  secret: 7vClwJd1cyvAyQ6GLOfexBNx4dM7Mzj8fx1helmUh8
+
+production:
+  app_key: OK84UbqSyWjD5fCkL1cw
+  secret: 7vClwJd1cyvAyQ6GLOfexBNx4dM7Mzj8fx1helmUh8

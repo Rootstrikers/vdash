@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    # TODO: Fix this after authentication is done
-    @current_user ||= User.first || User.create #User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]  
   end
 
   def require_user

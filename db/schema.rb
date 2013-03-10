@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130310055803) do
+ActiveRecord::Schema.define(:version => 20130310195143) do
 
   create_table "facebook_contents", :force => true do |t|
     t.integer  "link_id"
@@ -70,6 +70,9 @@ ActiveRecord::Schema.define(:version => 20130310055803) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.boolean  "admin"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "provider"
   end
 
 end

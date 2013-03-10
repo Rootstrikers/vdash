@@ -1,6 +1,14 @@
-<ul id="navigation">
-  <li><%= link_to 'Home', root_path %></li>
-  <% if current_user %>
-    <li><%= link_to 'Links', links_path %></li>
-  <% end %>
-</ul>
+<nav>
+	<ul>
+	  <li><%= link_to 'Home', root_path %></li>
+	  <% if current_user %>
+	    <li><%= link_to 'Links', links_path %></li>
+	    <li><%= link_to 'Sign out', signout_path, id: 'sign_out' %></li>
+	  <% else %>
+	  	<li><%= link_to 'Sign in with Twitter', '/auth/twitter', id: 'sign_in' %></li>
+	  <% end %>
+	</ul>
+</nav>
+<% if current_user %>
+  Signed in as <%= current_user.name %>
+<% end %>
