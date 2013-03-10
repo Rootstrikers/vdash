@@ -1,0 +1,6 @@
+<ul id="navigation">
+  <li><%= link_to 'Home', root_path %></li>
+  <% if current_user %>
+    <li><%= link_to 'Links', links_path %></li>
+  <% end %>
+</ul>
