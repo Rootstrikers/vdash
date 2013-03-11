@@ -16,20 +16,21 @@ require 'spec_helper'
 describe Link do
   it { should belong_to :user }
   it { should have_many :likes }
+  it { should have_many(:liked_by_users).through(:likes) }
   it { should have_one :twitter_content }
   it { should have_one :facebook_content }
 
   it { should validate_presence_of :url }
   it { should validate_uniqueness_of :url }
 
+  let(:link) { FactoryGirl.create(:link) }
+
   describe '#error_due_to_duplicate_url?' do
     it 'returns false typically' do
-      link = FactoryGirl.create(:link)
       link.error_due_to_duplicate_url?.should be_false
     end
 
     it 'returns true if attempting to create a new link with the same url as one that already exists' do
-      link = FactoryGirl.create(:link)
       new_link = Link.new(url: link.url)
       new_link.valid?
       new_link.error_due_to_duplicate_url?.should be_true
@@ -38,12 +39,10 @@ describe Link do
 
   describe '#link_with_same_url' do
     it 'returns nil typically' do
-      link = FactoryGirl.create(:link)
       link.link_with_same_url.should be_nil
     end
 
     it 'returns the link that already exists with the same url if present' do
-      link = FactoryGirl.create(:link)
       new_link = Link.new(url: link.url)
       new_link.link_with_same_url.should == link
     end
@@ -58,6 +57,19 @@ describe Link do
     it 'returns the URL otherwise' do
       link = FactoryGirl.create(:link, title: nil)
       link.display_name.should == link.url
+    end
+  end
+
+  describe '#liked_by?(user)' do
+    let(:user) { FactoryGirl.create(:user) }
+
+    it 'returns false if link was not liked by user' do
+      link.should_not be_liked_by(user)
+    end
+
+    it 'returns true if link was liked by user' do
+      FactoryGirl.create(:like, item: link, user: user)
+      link.should be_liked_by(user)
     end
   end
 end
