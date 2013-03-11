@@ -1,7 +1,7 @@
 <% if current_user %>
   <% if link.liked_by?(current_user) %>
-    Liked
+    Liked <%# TODO: ability to unlike %>
   <% else %>
-    Like
+    <%= button_to 'Like', { controller: :likes, action: :create, item_klass: 'Link', item_id: link.id } %>
   <% end %>
 <% end %>
