@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: links
+#
+#  id         :integer          not null, primary key
+#  url        :string(255)
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  title      :string(255)
+#  summary    :text
+#
+
 class Link < ActiveRecord::Base
   belongs_to :user
   has_one :facebook_content
