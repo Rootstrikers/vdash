@@ -1,9 +1,10 @@
-<% if @link.user == current_user %>
-  <div class="pull-right">
-    <%= link_to 'Edit', edit_link_path(@link), class: 'btn btn-primary' %>
+<div class="pull-right">
+  <%= link_to 'All Links', links_path, class: 'btn btn-primary' %>
+  <% if @link.user == current_user %>
+    <%= link_to 'Edit', edit_link_path(@link), class: 'btn' %>
     <%= link_to 'Delete', link_path(@link), method: 'delete', data: { confirm: 'Are you sure you want to destroy this link? This cannot be undone.' }, class: 'btn btn-danger' %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 <h2>
   <%= link_to @link.display_name, @link.url %>
