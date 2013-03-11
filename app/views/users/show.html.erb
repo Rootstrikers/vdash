@@ -1,0 +1,11 @@
+<h2>
+  <%= @user.name %>
+</h2>
+
+<% if @user.links.any? %>
+  <h3>Submitted Links</h3>
+
+  <ul>
+    <%= render @user.links %>
+  </ul>
+<% end %>
