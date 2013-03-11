@@ -17,6 +17,16 @@ describe LikesController do
       }.to change(Link, :count).by(1)
     end
 
+    it 'associates the Like with the current user' do
+      action.call
+      Like.last.user.should == user
+    end
+
+    it 'associates the Like with the item' do
+      action.call
+      Like.last.item.should == item
+    end
+
     it 'redirects to refering url' do
       action.call
       response.should redirect_to 'where_i_came_from'
