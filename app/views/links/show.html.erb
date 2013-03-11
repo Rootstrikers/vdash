@@ -1,1 +1,18 @@
-<%= render @link %>
+<% if @link.user == current_user %>
+  <div class="pull-right">
+    <%= link_to 'Edit', edit_link_path(@link), class: 'btn btn-primary' %>
+    <%= link_to 'Delete', link_path(@link), method: 'delete', data: { confirm: 'Are you sure you want to destroy this link? This cannot be undone.' }, class: 'btn btn-danger' %>
+  </div>
+<% end %>
+
+<h2>
+  <%= link_to @link.display_name, @link.url %>
+</h2>
+
+<p>
+  Submitted by <%= @link.user.name %>
+</p>
+
+<p>
+  <%= @link.summary %>
+</p>
