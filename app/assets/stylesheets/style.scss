@@ -1,3 +1,22 @@
 body {
   padding: 30px
 }
+
+// Please make prettier.
+li.link {
+  list-style: none;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 5px;
+
+  .name {
+    font-size: 1.2em;
+  }
+  .url {
+    font-size: .8em;
+  }
+  .submitter {
+    float: right;
+  }
+}

@@ -1,1 +1,14 @@
-<li><%= link_to link.display_name, link %> (<%= link_to 'external page', link.url, target: '_blank' %>)</li>
+<li class="link">
+  <div class="pull-left">
+    <div class="name">
+      <%= link_to link.display_name, link %>
+    </div>
+    <div class="url">
+      <%= link_to link.url, link.url, target: '_blank' %>
+    </div>
+  </div>
+  <div class="submitter">
+    Submitted by <%= link.user.name %>
+  </div>
+  <br style="clear: both" />
+</li>

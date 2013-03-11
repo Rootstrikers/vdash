@@ -17,9 +17,9 @@ describe LinksController do
   describe 'a GET to :index' do
     let(:action) { ->{ get :index } }
 
-    it 'assigns to @links' do
+    it 'assigns to @links, ordered by newest first' do
       action.call
-      assigns(:links).should == links
+      assigns(:links).should == links.reverse
     end
   end
 
