@@ -1,0 +1,7 @@
+<% if current_user %>
+  <% if link.liked_by?(current_user) %>
+    Liked
+  <% else %>
+    Like
+  <% end %>
+<% end %>

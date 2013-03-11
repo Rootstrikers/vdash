@@ -10,11 +10,22 @@ li.link {
   padding: 5px;
   margin-bottom: 5px;
 
-  .name {
-    font-size: 1.2em;
+  .like {
+    float: left;
+    padding-right: 4px;
   }
-  .url {
-    font-size: .8em;
+
+  .name-and-url {
+    width: 80%;
+    display: inline;
+    float: left;
+
+    .name {
+      font-size: 1.2em;
+    }
+    .url {
+      font-size: .8em;
+    }
   }
   .submitter {
     float: right;

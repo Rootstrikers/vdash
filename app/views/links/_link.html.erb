@@ -1,10 +1,15 @@
 <li class="link">
   <div class="pull-left">
-    <div class="name">
-      <%= link_to link.display_name, link %>
+    <div class="like">
+      <%= render partial: 'like_status', locals: { link: link } %>
     </div>
-    <div class="url">
-      <%= link_to link.url, link.url, target: '_blank' %>
+    <div class="name-and-url">
+      <div class="name">
+        <%= link_to link.display_name, link %>
+      </div>
+      <div class="url">
+        <%= link_to link.url, link.url, target: '_blank' %>
+      </div>
     </div>
   </div>
   <div class="submitter">
