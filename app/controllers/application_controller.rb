@@ -8,7 +8,9 @@ class ApplicationController < ActionController::Base
   end
 
   def require_user
-    redirect_to root_url, alert: 'You must be logged in to access this area.' unless current_user
+    return if current_user
+    session[:after_signin_url] = request.fullpath
+    redirect_to '/signin'
   end
 
   def require_admin

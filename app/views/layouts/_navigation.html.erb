@@ -2,8 +2,8 @@
 	<div class="navbar-inner">
 		<ul class="nav nav-pills">
 			<%= nav_item 'Home', root_path %>
-		  <% if current_user %>
 		    <%= nav_item 'Links', links_path %></li>
+		  <% if current_user %>
 		    <%= nav_item 'Sign out', signout_path, id: 'sign_out' %>
 		  <% end %>
 		</ul>
@@ -19,7 +19,7 @@
 				  </ul>
 				</div>
 			<% else %>
-				<%= link_to 'Sign in with Twitter', '/auth/twitter', id: 'sign_in', class: 'btn btn-primary' %>
+				<%= link_to 'Sign in', '/signin', id: 'sign_in', class: 'btn btn-primary' %>
 			<% end %>
 		</div>
 	</div>
