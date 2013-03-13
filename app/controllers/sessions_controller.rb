@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 	def create
 		user = User.from_omniauth(env["omniauth.auth"])
 		session[:user_id] = user.id
-		redirect_to root_url, notice: "Hey there, #{user.name}!"
+		redirect_to (session[:after_signin_url] || root_url), notice: "Hey there, #{user.name}!"
 	end
 
 	def destroy

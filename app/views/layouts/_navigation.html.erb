@@ -1,14 +1,11 @@
 <nav>
 	<ul class="nav nav-pills">
 		<%= nav_item 'Home', root_path %>
+	  	<%= nav_item 'Links', links_path %>
 	  <% if current_user %>
-	  	<%= nav_item 'Links', links_path %></li>
-	    <%= nav_item 'Sign out', signout_path, id: 'sign_out' %>
+	    <%= nav_item "Sign out (#{current_user.name})", signout_path, id: 'sign_out' %>
 	  <% else %>
-	  	<%= nav_item 'Sign in with Twitter', '/auth/twitter', id: 'sign_in' %>
+	  	<%= nav_item 'Sign in', '/signin', id: 'sign_in' %>
 	  <% end %>
 	</ul>
 </nav>
-<% if current_user %>
-  Signed in as <%= current_user.name %>
-<% end %>
