@@ -2,7 +2,7 @@ Vdash::Application.routes.draw do
   root to: 'home#index'
   resources :links
   resources :users, only: [:show]
-  resources :likes, only: [:create]
+  resources :likes, only: [:create, :destroy]
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'signin', to: 'home#sign_in'

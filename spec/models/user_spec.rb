@@ -20,4 +20,18 @@ describe User do
   it 'is not an admin by default' do
     User.new.should_not be_admin
   end
+
+  let(:user) { FactoryGirl.create(:user) }
+  let(:link) { FactoryGirl.create(:link) }
+
+  describe '#liked?(item)' do
+    it 'returns false' do
+      user.liked?(link).should be_false
+    end
+
+    it 'returns true if user has voted for the item' do
+      user.likes << Like.new(item: link)
+      user.liked?(link).should be_true
+    end
+  end
 end

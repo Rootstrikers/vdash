@@ -31,3 +31,12 @@ li.link {
     float: right;
   }
 }
+
+div.like {
+  a.like-action {
+    text-decoration: none;
+    &.voted {
+      color: red;
+    }
+  }
+}
