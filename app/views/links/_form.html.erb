@@ -19,20 +19,21 @@
   </div>
 
   <div class='control-group'>
-    <%= f.label :title, class: 'control-label' %>
+    <%= f.label :title, "Title (optional)", class: 'control-label' %>
     <div class="controls">
       <%= f.text_field :title %>
     </div>
   </div>
 
   <div class='control-group'>
-    <%= f.label :summary, class: 'control-label' %>
+    <%= f.label :summary, "Summary (optional)", class: 'control-label' %>
     <div class="controls">
       <%= f.text_area :summary %>
     </div>
   </div>
 
   <div class="controls">
-    <%= f.submit %>
+    <%= f.submit "Share link with other volunteers" %>
+    <div>We'll let you know if someone already shared this.</div>
   </div>
 <% end %>
