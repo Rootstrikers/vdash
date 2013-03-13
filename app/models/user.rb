@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
   		user.name = auth["info"]["nickname"]
   	end
   end
+
+  def liked?(item)
+    Like.exists?(user_id: self, item_type: item.class.name, item_id: item.id)
+  end
 end
