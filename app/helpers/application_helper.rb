@@ -4,4 +4,10 @@ module ApplicationHelper
       link_to text, url, options
     end
   end
+
+  def like_action_class(user, item)
+    classes = ['like-action']
+    classes << 'voted' if user.liked?(item)
+    classes.join(' ')
+  end
 end
