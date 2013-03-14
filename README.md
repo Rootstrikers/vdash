@@ -7,6 +7,8 @@ Rootstrikers volunteer dashboard
 Local Setup
 ===========
 Install Postgres, start psqld. On OSX, http://postgresapp.com/ is an easy way to do this.
+
+Then:
 ```
 createuser -h localhost -s vdash
 bundle install
