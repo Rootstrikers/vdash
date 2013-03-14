@@ -46,7 +46,9 @@ Vdash::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( search.js )
+  # TODO Do we actually want to precompile html5-3.6-respond-1.1.0.min, an ie9-only file? does this mean all users
+  # have to download it? maybe we don't want that.
+  config.assets.precompile += %w( html5-3.6-respond-1.1.0.min.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
