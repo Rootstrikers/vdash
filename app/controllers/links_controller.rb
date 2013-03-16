@@ -7,7 +7,9 @@ class LinksController < ApplicationController
   end
 
   def show
-    @link = Link.find(params[:id])
+    @link              = Link.find(params[:id])
+    @twitter_contents  = @link.twitter_contents
+    @facebook_contents = @link.facebook_contents
   end
 
   def new

@@ -17,3 +17,33 @@
 <p>
   <%= @link.summary %>
 </p>
+
+<h3>
+  Tweet Submissions
+  <%= link_to 'Submit New Tweet', '#', class: 'btn pull-right' %>
+</h3>
+
+<% if @twitter_contents.any? %>
+<ul>
+  <% @twitter_contents.each do |twitter_content| %>
+    <li><%= twitter_content.body %></li>
+  <% end %>
+</ul>
+<% else %>
+  <p>There aren't any yet. You should probably submit one (or two).</p>
+<% end %>
+
+<h3>
+  Facebook Submissions
+  <%= link_to 'Submit New Post', '#', class: 'btn pull-right' %>
+</h3>
+
+<% if @facebook_contents.any? %>
+<ul>
+  <% @facebook_contents.each do |facebook_content| %>
+    <li><%= facebook_content.body %></li>
+  <% end %>
+</ul>
+<% else %>
+  <p>There aren't any yet. You should probably submit one (or two).</p>
+<% end %>

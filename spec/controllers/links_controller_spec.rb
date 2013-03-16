@@ -48,11 +48,23 @@ describe LinksController do
   end
 
   describe 'a GET to :show' do
+    let!(:twitter_contents) { [FactoryGirl.create(:twitter_content, link: link), FactoryGirl.create(:twitter_content, link: link)] }
+    let!(:facebook_contents) { [FactoryGirl.create(:facebook_content, link: link), FactoryGirl.create(:facebook_content, link: link)] }
     let(:action) { ->{ get :show, id: link.id } }
 
     it 'assigns to @link' do
       action.call
       assigns(:link).should == link
+    end
+
+    it 'assigns to @twitter_contents' do
+      action.call
+      assigns(:twitter_contents).should == twitter_contents
+    end
+
+    it 'assigns to @facebook_contents' do
+      action.call
+      assigns(:facebook_contents).should == facebook_contents
     end
   end
 
