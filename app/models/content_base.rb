@@ -12,6 +12,6 @@ module ContentBase
 
     validates :body, presence: true
 
-    attr_accessible :body
+    attr_accessible :body, :link_id
   end
 end
