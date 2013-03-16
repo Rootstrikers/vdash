@@ -13,8 +13,8 @@
 
 class Link < ActiveRecord::Base
   belongs_to :user
-  has_one :facebook_content
-  has_one :twitter_content
+  has_many :facebook_contents
+  has_many :twitter_contents
   has_many :likes, as: :item
   has_many :liked_by_users, through: :likes, source: :user, class_name: 'User'
 
