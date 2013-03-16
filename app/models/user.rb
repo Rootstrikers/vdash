@@ -14,6 +14,8 @@
 class User < ActiveRecord::Base
   has_many :links
   has_many :likes
+  has_many :facebook_contents
+  has_many :twitter_contents
 
   def self.from_omniauth(auth)
   	where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
