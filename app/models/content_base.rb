@@ -10,6 +10,8 @@ module ContentBase
 
     has_many :posts, as: :content
 
+    validates :body, presence: true
+
     attr_accessible :body
   end
 end
