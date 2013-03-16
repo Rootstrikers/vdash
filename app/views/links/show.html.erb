@@ -20,7 +20,7 @@
 
 <h3>
   Tweet Submissions
-  <%= link_to 'Submit New Tweet', '#', class: 'btn pull-right' %>
+  <%= link_to 'Submit New Tweet', new_link_twitter_content_path(@link), class: 'btn pull-right' %>
 </h3>
 
 <% if @twitter_contents.any? %>
