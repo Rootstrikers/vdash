@@ -11,13 +11,16 @@ body {
   margin-bottom: 5px;
 }
 
-li.link {
-  @include li-rounded-box;
-
+@mixin likable {
   .like {
     float: left;
     padding-right: 4px;
   }
+}
+
+li.link {
+  @include li-rounded-box;
+  @include likable;
 
   .name-and-url {
     width: 80%;
@@ -39,5 +42,18 @@ div.like {
     &.voted {
       color: red;
     }
+  }
+
+  .body {
+    width: 80%;
+    display: inline;
+    float: left;
+  }
+}
+
+ul.twitter-contents, ul.facebook-contents {
+  li {
+    @include li-rounded-box;
+    @include likable;
   }
 }
