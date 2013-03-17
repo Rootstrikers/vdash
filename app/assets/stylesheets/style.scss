@@ -3,12 +3,16 @@ body {
 }
 
 // Please make prettier.
-li.link {
+@mixin li-rounded-box {
   list-style: none;
   border: 1px solid black;
   border-radius: 10px;
   padding: 5px;
   margin-bottom: 5px;
+}
+
+li.link {
+  @include li-rounded-box;
 
   .like {
     float: left;
@@ -26,9 +30,6 @@ li.link {
     .url {
       font-size: .8em;
     }
-  }
-  .submitter {
-    float: right;
   }
 }
 
