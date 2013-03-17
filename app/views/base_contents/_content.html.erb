@@ -1,0 +1,11 @@
+<li>
+  <div class="pull-left">
+    <div class="like">
+      <%= render partial: 'likes/like_status', locals: { item: content } %>
+    </div>
+    <div class="body">
+      <%= content.body %>
+    </div>
+  </div>
+  <br style="clear: both" />
+</li>

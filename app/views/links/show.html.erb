@@ -24,10 +24,8 @@
 </h3>
 
 <% if @twitter_contents.any? %>
-<ul>
-  <% @twitter_contents.each do |twitter_content| %>
-    <li><%= twitter_content.body %></li>
-  <% end %>
+<ul class="twitter-contents">
+  <%= render partial: 'base_contents/content', collection: @twitter_contents, as: :content %>
 </ul>
 <% else %>
   <p>There aren't any yet. You should probably submit one (or two).</p>
@@ -35,14 +33,12 @@
 
 <h3>
   Facebook Submissions
-  <%= link_to 'Submit New Post', '#', class: 'btn pull-right' %>
+  <%= link_to 'Submit New Post', new_link_facebook_content_path(@link), class: 'btn pull-right' %>
 </h3>
 
 <% if @facebook_contents.any? %>
-<ul>
-  <% @facebook_contents.each do |facebook_content| %>
-    <li><%= facebook_content.body %></li>
-  <% end %>
+<ul class="facebook-contents">
+  <%= render partial: 'base_contents/content', collection: @facebook_contents, as: :content %>
 </ul>
 <% else %>
   <p>There aren't any yet. You should probably submit one (or two).</p>
