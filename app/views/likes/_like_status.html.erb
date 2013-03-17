@@ -1,0 +1,5 @@
+<% if current_user %>
+  <%= link_to '#', data: { item_klass: item.class.name, item_id: item.id }, class: like_action_class(current_user, item) do %>
+    <i class="icon-arrow-up"></i>
+  <% end %>
+<% end %>
