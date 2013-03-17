@@ -12,4 +12,5 @@
 
 class FacebookContent < ActiveRecord::Base
   include ContentBase
+  include Likable
 end

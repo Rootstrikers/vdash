@@ -12,6 +12,7 @@
 
 class TwitterContent < ActiveRecord::Base
   include ContentBase
+  include Likable
 
   validates :body, length: { maximum: 140 }
 end

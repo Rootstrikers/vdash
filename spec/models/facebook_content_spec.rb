@@ -14,4 +14,5 @@ require 'spec_helper'
 
 describe FacebookContent do
   it_behaves_like 'content'
+  it_behaves_like 'it is likable'
 end
