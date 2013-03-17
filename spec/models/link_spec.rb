@@ -14,9 +14,9 @@
 require 'spec_helper'
 
 describe Link do
+  it_behaves_like 'it is likable'
+
   it { should belong_to :user }
-  it { should have_many :likes }
-  it { should have_many(:liked_by_users).through(:likes) }
   it { should have_many :twitter_contents }
   it { should have_many :facebook_contents }
 
