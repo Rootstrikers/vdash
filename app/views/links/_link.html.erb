@@ -12,8 +12,13 @@
       </div>
     </div>
   </div>
-  <div class="submitter">
-    Submitted by <%= link_to link.user.name, link.user %>
+  <div class="pull-right">
+    <div class="submitter">
+      Submitted by <%= link_to link.user.name, link.user %>
+    </div>
+    <div class="ideas">
+      <strong>Ideas:</strong> <%= pluralize link.twitter_contents.count, 'Tweet' %>, <%= pluralize link.facebook_contents.count, 'FB Post' %>
+    </div>
   </div>
   <br style="clear: both" />
 </li>
