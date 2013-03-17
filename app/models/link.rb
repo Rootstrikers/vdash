@@ -12,11 +12,11 @@
 #
 
 class Link < ActiveRecord::Base
+  include Likable
+
   belongs_to :user
   has_many :facebook_contents
   has_many :twitter_contents
-  has_many :likes, as: :item
-  has_many :liked_by_users, through: :likes, source: :user, class_name: 'User'
 
   validates :url, presence: true, uniqueness: true
 
