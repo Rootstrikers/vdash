@@ -7,8 +7,8 @@ describe FacebookContentsController do
   let!(:link) { FactoryGirl.create(:link) }
   let!(:facebook_contents) {
     [
-      FactoryGirl.create(:facebook_content, link: link, user: user),
-      FactoryGirl.create(:facebook_content, link: link, user: user)
+      FactoryGirl.create(:facebook_content, link: link, user: user, like_count: 1),
+      FactoryGirl.create(:facebook_content, link: link, user: user, like_count: 5)
     ]
   }
   let(:facebook_content) { facebook_contents.first }
@@ -16,9 +16,9 @@ describe FacebookContentsController do
   describe 'a GET to :index' do
     let(:action) { -> { get :index } }
 
-    it 'assigns to @contents' do
+    it 'assigns to @contents, ordered' do
       action.call
-      assigns(:contents).should == facebook_contents
+      assigns(:contents).should == facebook_contents.reverse
     end
   end
 

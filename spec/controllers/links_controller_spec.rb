@@ -8,8 +8,8 @@ describe LinksController do
 
   let!(:links) {
     [
-      FactoryGirl.create(:link, user: user),
-      FactoryGirl.create(:link, user: user)
+      FactoryGirl.create(:link, user: user, like_count: 1),
+      FactoryGirl.create(:link, user: user, like_count: 5)
     ]
   }
   let(:link) { links.first }
@@ -17,7 +17,7 @@ describe LinksController do
   describe 'a GET to :index' do
     let(:action) { ->{ get :index } }
 
-    it 'assigns to @links, ordered by newest first' do
+    it 'assigns to @links, ordered by like count' do
       action.call
       assigns(:links).should == links.reverse
     end

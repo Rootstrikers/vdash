@@ -9,6 +9,12 @@ module Likable
     after_touch :set_like_count
   end
 
+  module ClassMethods
+    def ordered
+      order('like_count desc')
+    end
+  end
+
   private
   def set_like_count
     update_attribute(:like_count, likes.count)

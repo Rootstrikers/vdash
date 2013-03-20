@@ -5,7 +5,7 @@ class TwitterContentsController < ApplicationController
   before_filter :get_content, only: [:edit, :update, :destroy]
 
   def index
-    @contents = TwitterContent.all
+    @contents = TwitterContent.ordered
   end
 
   def new
