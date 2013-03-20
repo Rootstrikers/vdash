@@ -1,0 +1,12 @@
+<h2>Top Tweet Ideas</h2>
+
+<ul class="social-media-ideas twitter-contents">
+  <% @contents.each do |content| %>
+    <li>
+      <%= content.body %>
+      <%= link_to '#', class: 'pull-right no-decoration' do %>
+        <i class="icon-twitter-sign"></i>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

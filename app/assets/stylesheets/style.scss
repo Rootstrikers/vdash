@@ -51,9 +51,21 @@ div.like {
   }
 }
 
-ul.twitter-contents, ul.facebook-contents {
+.link-page {
+  ul.twitter-contents, ul.facebook-contents {
+    li {
+      @include li-rounded-box;
+      @include likable;
+    }
+  }
+}
+
+.social-media-ideas {
   li {
     @include li-rounded-box;
-    @include likable;
   }
+}
+
+a.no-decoration {
+  text-decoration: none;
 }

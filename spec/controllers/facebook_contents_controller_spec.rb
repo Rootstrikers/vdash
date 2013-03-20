@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe FacebookContentsController do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:admin) }
   before { sign_in(user) }
 
   let!(:link) { FactoryGirl.create(:link) }
@@ -12,6 +12,15 @@ describe FacebookContentsController do
     ]
   }
   let(:facebook_content) { facebook_contents.first }
+
+  describe 'a GET to :index' do
+    let(:action) { -> { get :index } }
+
+    it 'assigns to @contents' do
+      action.call
+      assigns(:contents).should == facebook_contents
+    end
+  end
 
   describe 'a GET to :new' do
     let(:action) { -> { get :new, link_id: link.id } }

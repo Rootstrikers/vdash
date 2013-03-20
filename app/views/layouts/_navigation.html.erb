@@ -2,7 +2,11 @@
 	<div class="navbar-inner">
 		<ul class="nav nav-pills">
 			<%= nav_item 'Home', root_path %>
-		    <%= nav_item 'Links', links_path %></li>
+			<%= nav_item 'Links', links_path %>
+			<% if current_user.try(:admin?) %>
+				<%= nav_item 'Tweet', twitter_contents_path %>
+				<%= nav_item 'FB Post', facebook_contents_path %>
+			<% end %>
 		  <% if current_user %>
 		    <%= nav_item 'Sign out', signout_path, id: 'sign_out' %>
 		  <% end %>
