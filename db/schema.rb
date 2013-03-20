@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130310195143) do
+ActiveRecord::Schema.define(:version => 20130320063118) do
 
   create_table "facebook_contents", :force => true do |t|
     t.integer  "link_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130310195143) do
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "like_count"
   end
 
   add_index "facebook_contents", ["link_id"], :name => "index_facebook_contents_on_link_id"
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20130310195143) do
     t.datetime "updated_at", :null => false
     t.string   "title"
     t.text     "summary"
+    t.integer  "like_count"
   end
 
   add_index "links", ["user_id"], :name => "index_links_on_user_id"
@@ -61,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20130310195143) do
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "like_count"
   end
 
   add_index "twitter_contents", ["link_id"], :name => "index_twitter_contents_on_link_id"
