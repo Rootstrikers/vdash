@@ -2,6 +2,13 @@ body {
   padding: 30px;
 }
 
+a {
+  color: #cb2027;
+  &:hover {
+    color: #cb2027;
+  }
+}
+
 // Please make prettier.
 @mixin li-rounded-box {
   list-style: none;
