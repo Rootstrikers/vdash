@@ -1,0 +1,18 @@
+<h2>Social Media Posts</h2>
+
+<p>Below are the last posts made from the Volunteer Dashboard.</p>
+
+<ul class="social-media-ideas">
+  <% @posts.each do |post| %>
+    <li>
+      <% if post.content.is_a?(TwitterContent) %>
+        <i class="icon-twitter-sign"></i>
+      <% elsif post.content.is_a?(FacebookContent) %>
+        <i class="icon-facebook-sign"></i>
+      <% end %>
+      <%= post.content.body %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate @posts %>

@@ -4,7 +4,7 @@
   <% @contents.each do |content| %>
     <li>
       <%= content.body %>
-      <%= link_to '#', class: 'pull-right no-decoration' do %>
+      <%= link_to posts_path(content_type: 'facebook', content_id: content.id), class: 'pull-right no-decoration', method: :post do %>
         <i class="icon-facebook-sign"></i>
       <% end %>
     </li>

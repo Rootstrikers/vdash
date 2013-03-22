@@ -2,6 +2,7 @@ Vdash::Application.routes.draw do
   root to: 'home#index'
   resources :twitter_contents, only: [:index]
   resources :facebook_contents, only: [:index]
+  resources :posts, only: [:index, :create]
   resources :links do
     resources :twitter_contents, except: [:show]
     resources :facebook_contents, except: [:index, :show]
