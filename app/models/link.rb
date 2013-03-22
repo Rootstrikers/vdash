@@ -22,6 +22,28 @@ class Link < ActiveRecord::Base
 
   attr_accessible :url, :title, :summary
 
+  # Well, this should be improved. Sorry.
+  def self.unposted
+    where(
+      "not
+      (
+        exists (
+          select 1 from posts inner join twitter_contents
+          on posts.content_id = twitter_contents.id
+            and posts.content_type = 'TwitterContent'
+          where twitter_contents.link_id = links.id
+        )
+        and
+        exists (
+          select 1 from posts inner join facebook_contents
+          on posts.content_id = facebook_contents.id
+            and posts.content_type = 'FacebookContent'
+          where facebook_contents.link_id = links.id
+        )
+      )"
+    )
+  end
+
   def display_name
     title || url
   end

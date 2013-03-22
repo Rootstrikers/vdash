@@ -25,6 +25,34 @@ describe Link do
 
   let(:link) { FactoryGirl.create(:link) }
 
+  describe '.unposted' do
+    before { link }
+
+    it 'includes links with no posts' do
+      Link.unposted.should == [link]
+    end
+
+    it 'includes links only posted to twitter' do
+      content = FactoryGirl.create(:twitter_content, link: link)
+      FactoryGirl.create(:post, content: content)
+      Link.unposted.should == [link]
+    end
+
+    it 'includes links only posted to facebook' do
+      content = FactoryGirl.create(:facebook_content, link: link)
+      FactoryGirl.create(:post, content: content)
+      Link.unposted.should == [link]
+    end
+
+    it 'does not include links posted to twitter and facebook' do
+      twitter_content = FactoryGirl.create(:twitter_content, link: link)
+      FactoryGirl.create(:post, content: twitter_content)
+      facebook_content = FactoryGirl.create(:facebook_content, link: link)
+      FactoryGirl.create(:post, content: facebook_content)
+      Link.unposted.should == []
+    end
+  end
+
   describe '#error_due_to_duplicate_url?' do
     it 'returns false typically' do
       link.error_due_to_duplicate_url?.should be_false

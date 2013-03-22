@@ -3,7 +3,7 @@ class LinksController < ApplicationController
   before_filter :get_link, only: [:edit, :update, :destroy]
 
   def index
-    @links = Link.ordered.paginate(page: params[:page])
+    @links = Link.unposted.ordered.paginate(page: params[:page])
   end
 
   def show

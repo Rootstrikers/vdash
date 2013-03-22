@@ -5,7 +5,7 @@ class FacebookContentsController < ApplicationController
   before_filter :get_content, only: [:edit, :update, :destroy]
 
   def index
-    @contents = FacebookContent.ordered
+    @contents = FacebookContent.unposted.ordered
   end
 
   def new

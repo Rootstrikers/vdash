@@ -15,6 +15,12 @@ module ContentBase
     attr_accessible :body, :link_id
   end
 
+  module ClassMethods
+    def unposted
+      where("not exists (select 1 from posts where content_id = #{table_name}.id and content_type = ?)", name.to_s)
+    end
+  end
+
   def post!
     User.current.posts << Post.create(content: self)
   end

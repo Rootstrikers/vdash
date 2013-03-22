@@ -9,6 +9,16 @@ shared_examples "content" do
   let(:content) { instance_of_described_class }
   before { Thread.current[:current_user] = user }
 
+  describe '.unposted' do
+    it 'only returns unposted content' do
+      posted_content = instance_of_described_class
+      FactoryGirl.create(:post, content: posted_content)
+      unposted_content = instance_of_described_class
+
+      described_class.unposted.should == [unposted_content]
+    end
+  end
+
   describe '#post!' do
     it 'creates a Post' do
       expect {
