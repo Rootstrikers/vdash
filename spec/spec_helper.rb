@@ -37,6 +37,11 @@ RSpec.configure do |config|
   config.order = "random"
 end
 
+# Spec helper methods
 def sign_in(user)
   controller.stub(current_user: user)
+end
+
+def instance_of_described_class
+  FactoryGirl.create(described_class.name.underscore.to_sym)
 end

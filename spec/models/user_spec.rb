@@ -16,6 +16,7 @@ require 'spec_helper'
 describe User do
   it { should have_many :links }
   it { should have_many :likes }
+  it { should have_many :posts }
   it { should have_many :twitter_contents }
   it { should have_many :facebook_contents }
 
@@ -25,6 +26,13 @@ describe User do
 
   let(:user) { FactoryGirl.create(:user) }
   let(:link) { FactoryGirl.create(:link) }
+
+  describe ".current" do
+    it "returns the current user" do
+      Thread.current[:current_user] = user
+      User.current.should == user
+    end
+  end
 
   describe '#liked?(item)' do
     it 'returns false' do

@@ -15,4 +15,9 @@ class TwitterContent < ActiveRecord::Base
   include Likable
 
   validates :body, length: { maximum: 140 }
+
+  def post!
+    super
+    # Actually post to Twitter
+  end
 end

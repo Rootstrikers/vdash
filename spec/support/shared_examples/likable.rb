@@ -21,8 +21,4 @@ shared_examples "it is likable" do
       described_class.ordered.should == [thing_1, thing_3, thing_2]
     end
   end
-
-  def instance_of_described_class
-    FactoryGirl.create(described_class.name.underscore.to_sym)
-  end
 end

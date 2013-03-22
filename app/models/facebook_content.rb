@@ -13,4 +13,9 @@
 class FacebookContent < ActiveRecord::Base
   include ContentBase
   include Likable
+
+  def post!
+    super
+    # Actually post to Facebook
+  end
 end

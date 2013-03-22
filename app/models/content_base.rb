@@ -14,4 +14,8 @@ module ContentBase
 
     attr_accessible :body, :link_id
   end
+
+  def post!
+    User.current.posts << Post.create(content: self)
+  end
 end

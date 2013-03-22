@@ -14,8 +14,13 @@
 class User < ActiveRecord::Base
   has_many :links
   has_many :likes
+  has_many :posts
   has_many :facebook_contents
   has_many :twitter_contents
+
+  def self.current
+    Thread.current[:current_user]
+  end
 
   def self.from_omniauth(auth)
   	where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
