@@ -1,5 +1,8 @@
 Vdash::Application.routes.draw do
+  get "help/index"
+
   root to: 'home#index'
+  get 'help', to: 'help#index'
   resources :twitter_contents, only: [:index]
   resources :facebook_contents, only: [:index]
   resources :posts, only: [:index, :create]

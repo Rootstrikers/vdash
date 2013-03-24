@@ -3,6 +3,7 @@
 		<ul class="nav nav-pills">
 			<%= nav_item 'Home', root_path %>
 			<%= nav_item 'Links', links_path %>
+			<%= nav_item 'Help', help_path %>
 			<% if current_user.try(:admin?) %>
 				<%= nav_item 'Twitter Ideas', twitter_contents_path %>
 				<%= nav_item 'FB Ideas', facebook_contents_path %>
