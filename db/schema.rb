@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320063118) do
+ActiveRecord::Schema.define(:version => 20130324032451) do
 
   create_table "facebook_contents", :force => true do |t|
     t.integer  "link_id"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(:version => 20130320063118) do
   end
 
   add_index "links", ["user_id"], :name => "index_links_on_user_id"
+
+  create_table "notices", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "active",     :default => true
+    t.text     "body"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "notices", ["user_id"], :name => "index_notices_on_user_id"
 
   create_table "posts", :force => true do |t|
     t.integer  "content_id"

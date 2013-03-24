@@ -1,0 +1,29 @@
+<h2>
+  Site-Wide Notices
+  <%= link_to 'Create new Notice', new_admin_notice_path, class: 'btn btn-primary pull-right' %>
+</h2>
+
+<p>
+  An active site-wide notice will be displayed on every page to every user. Use this for important announcements or calls to action.
+</p>
+
+<p>
+  When you create a new active notice, any currently active notice will be deactivated.
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>Active</th>
+      <th>Created By</th>
+      <th>Timestamp</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @notices %>
+  </tbody>
+</table>
+
+<%= will_paginate @notices %>

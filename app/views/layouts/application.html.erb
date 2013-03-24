@@ -23,6 +23,7 @@
 <body>
 
 <%= render 'layouts/header' %>
+<%= render 'layouts/notice' if @site_wide_notice %>
 
 <section id='body-content' class="container">
   <%= render 'layouts/messages' %>

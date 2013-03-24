@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :set_current_user
+  before_filter :set_current_user, :set_notice
 
   private
 
@@ -15,11 +15,15 @@ class ApplicationController < ActionController::Base
   def require_user
     return if current_user
     session[:after_signin_url] = request.fullpath
-    redirect_to '/signin'
+    redirect_to signin_url
   end
 
   def require_admin
-    redirect_to root_url, alert: 'You must be an admin to access this area.' unless current_user.try(:admin?)
+    redirect_to signin_url, alert: 'You must be an admin to access this area.' unless current_user.try(:admin?)
+  end
+
+  def set_notice
+    @site_wide_notice = Notice.active
   end
 
   helper_method :current_user

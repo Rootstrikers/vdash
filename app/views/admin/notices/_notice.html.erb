@@ -1,0 +1,7 @@
+<tr>
+  <td><%= notice.body %></td>
+  <td><%= notice.active? %></td>
+  <td><%= link_to notice.user.name, notice.user %></td>
+  <td><%= notice.created_at %></td>
+  <td><%= link_to 'Edit', edit_admin_notice_path(notice), class: 'btn' %></td>
+</tr>

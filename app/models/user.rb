@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :facebook_contents
   has_many :twitter_contents
+  has_many :notices
 
   def self.current
     Thread.current[:current_user]
