@@ -45,7 +45,7 @@ class Link < ActiveRecord::Base
   end
 
   def display_name
-    title || url
+    title.present? ? title : url
   end
 
   def error_due_to_duplicate_url?

@@ -82,7 +82,12 @@ describe Link do
       link.display_name.should == 'This is the title'
     end
 
-    it 'returns the URL otherwise' do
+    it 'returns the URL when the title is an empty string' do
+      link = FactoryGirl.create(:link, title: '')
+      link.display_name.should == link.url
+    end
+
+    it 'returns the URL when the title is nil' do
       link = FactoryGirl.create(:link, title: nil)
       link.display_name.should == link.url
     end
