@@ -26,8 +26,8 @@ module Admin
 
     def contents_url
       case params[:content_type]
-      when 'twitter' then twitter_contents_url
-      when 'facebook' then facebook_contents_url
+      when 'twitter' then admin_twitter_contents_url
+      when 'facebook' then admin_facebook_contents_url
       end
     end
   end

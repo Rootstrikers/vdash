@@ -3,8 +3,6 @@ Vdash::Application.routes.draw do
 
   root to: 'home#index'
   get 'help', to: 'help#index'
-  resources :twitter_contents, only: [:index]
-  resources :facebook_contents, only: [:index]
   resources :links do
     resources :twitter_contents, except: [:show]
     resources :facebook_contents, except: [:index, :show]
@@ -20,5 +18,7 @@ Vdash::Application.routes.draw do
   namespace :admin do
     resources :posts, only: [:index, :create]
     resources :notices
+    resources :twitter_contents, only: [:index]
+    resources :facebook_contents, only: [:index]
   end
 end

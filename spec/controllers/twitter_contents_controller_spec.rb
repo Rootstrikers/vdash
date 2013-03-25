@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe TwitterContentsController do
-  let(:user) { FactoryGirl.create(:admin) }
+  let(:user) { FactoryGirl.create(:user) }
   before { sign_in(user) }
 
   let!(:link) { FactoryGirl.create(:link) }
@@ -12,15 +12,6 @@ describe TwitterContentsController do
     ]
   }
   let(:twitter_content) { twitter_contents.first }
-
-  describe 'a GET to :index' do
-    let(:action) { -> { get :index } }
-
-    it 'assigns to @contents, ordered by link_count' do
-      action.call
-      assigns(:contents).should == twitter_contents.reverse
-    end
-  end
 
   describe 'a GET to :new' do
     let(:action) { -> { get :new, link_id: link.id } }

@@ -1,12 +1,7 @@
 class FacebookContentsController < ApplicationController
   before_filter :require_user
-  before_filter :require_admin, only: [:index]
   before_filter :get_link, except: [:index]
   before_filter :get_content, only: [:edit, :update, :destroy]
-
-  def index
-    @contents = FacebookContent.unposted.ordered
-  end
 
   def new
     @content = @link.facebook_contents.new
