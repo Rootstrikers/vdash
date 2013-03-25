@@ -1,11 +1,19 @@
 <li>
-  <div class="pull-left">
-    <div class="like">
-      <%= render partial: 'likes/like_status', locals: { item: content } %>
-    </div>
-    <div class="body">
-      <%= content.body %>
-    </div>
+  <div class="like">
+    <%= render partial: 'likes/like_status', locals: { item: content } %>
   </div>
+  <div class="body">
+    <%= content.body %>
+  </div>
+  <% if current_user.try(:admin?) %>
+    <div class="delete-content">
+      <div class="pull-right">
+        Admin:
+        <%= link_to [content.link, content], method: :delete, class: 'no-decoration', data: { confirm: 'Are you sure you want to delete this content?' } do %>
+          <i class="icon-trash"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
   <br style="clear: both" />
 </li>
