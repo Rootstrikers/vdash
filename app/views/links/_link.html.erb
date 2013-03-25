@@ -19,6 +19,14 @@
     <div class="ideas">
       <strong>Ideas:</strong> <%= pluralize link.twitter_contents.count, 'Tweet' %>, <%= pluralize link.facebook_contents.count, 'FB Post' %>
     </div>
+    <% if current_user.try(:admin?) %>
+      <div class="delete-link">
+        Admin:
+        <%= link_to link, method: :delete, class: 'no-decoration', data: { confirm: 'Are you sure you want to delete this link?' } do %>
+          <i class="icon-trash"></i>
+        <% end %>
+      </div>
+    <% end %>
   </div>
   <br style="clear: both" />
 </li>

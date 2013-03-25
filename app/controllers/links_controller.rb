@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   before_filter :require_user
-  before_filter :get_link, only: [:edit, :update, :destroy]
+  before_filter :get_link, only: [:edit, :update]
 
   def index
     @links = Link.unposted.ordered.paginate(page: params[:page])
@@ -38,7 +38,9 @@ class LinksController < ApplicationController
   end
 
   def destroy
-    @link.destroy
+    link = current_user.links.find_by_id(params[:id])
+    link = Link.find(params[:id]) if current_user.try(:admin) and link.nil?
+    link.destroy
     redirect_to links_url, flash: { success: 'Link deleted.' }
   end
 
