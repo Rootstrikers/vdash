@@ -8,9 +8,9 @@ shared_examples "it is deletable" do
     end
   end
 
-  describe '#delete' do
+  describe '#fake_delete' do
     it 'does not delete the thing' do
-      thing.delete
+      thing.fake_delete
       expect {
         thing.reload
       }.not_to raise_error
@@ -18,7 +18,7 @@ shared_examples "it is deletable" do
 
     it 'sets deleted_at' do
       Timecop.freeze(Time.now) do
-        thing.delete
+        thing.fake_delete
         thing.reload.deleted_at.should == Time.now
       end
     end

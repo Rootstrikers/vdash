@@ -7,7 +7,7 @@ module Deletable
     default_scope where(deleted_at: nil)
   end
 
-  def delete
+  def fake_delete
     update_attribute(:deleted_at, Time.now)
   end
 end

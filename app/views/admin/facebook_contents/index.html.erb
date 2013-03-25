@@ -3,10 +3,17 @@
 <ul class="social-media-ideas facebook-contents">
   <% @contents.each do |content| %>
     <li>
+      <div class="pull-left">
+        <%= link_to admin_posts_path(content_type: 'facebook', content_id: content.id), class: 'pull-right no-decoration', method: :post do %>
+          <i class="icon-facebook-sign"></i>
+        <% end %>
+      </div>
       <%= content.body %>
-      <%= link_to admin_posts_path(content_type: 'facebook', content_id: content.id), class: 'pull-right no-decoration', method: :post do %>
-        <i class="icon-facebook-sign"></i>
-      <% end %>
+      <div class="pull-right">
+        <%= link_to link_facebook_content_path(link_id: content.link.id, id: content.id), method: :delete, class: 'no-decoration', data: { confirm: 'Are you sure you want to delete this idea?' } do %>
+          <i class="icon-trash"></i>
+        <% end %>
+      </div>
     </li>
   <% end %>
 </ul>

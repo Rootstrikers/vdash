@@ -160,11 +160,11 @@ describe LinksController do
   describe 'a DELETE to :destroy' do
     let(:action) { -> { delete :destroy, id: link.id } }
 
-    it 'destroys the link' do
-      action.call
-      expect {
-        link.reload
-      }.to raise_error(ActiveRecord::RecordNotFound)
+    it 'marks the link as deleted' do
+      Timecop.freeze(Time.now) do
+        action.call
+        Link.unscoped.find(link.id).deleted_at.should == Time.now
+      end
     end
 
     it 'redirects to the links list' do

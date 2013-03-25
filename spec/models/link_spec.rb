@@ -15,6 +15,7 @@ require 'spec_helper'
 
 describe Link do
   it_behaves_like 'it is likable'
+  it_behaves_like 'it is deletable'
 
   it { should belong_to :user }
   it { should have_many :twitter_contents }

@@ -40,7 +40,7 @@ class LinksController < ApplicationController
   def destroy
     link = current_user.links.find_by_id(params[:id])
     link = Link.find(params[:id]) if current_user.try(:admin) and link.nil?
-    link.destroy
+    link.fake_delete
     redirect_to links_url, flash: { success: 'Link deleted.' }
   end
 
