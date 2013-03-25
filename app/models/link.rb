@@ -13,6 +13,7 @@
 
 class Link < ActiveRecord::Base
   include Likable
+  include Deletable
 
   belongs_to :user
   has_many :facebook_contents

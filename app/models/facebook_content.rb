@@ -13,6 +13,7 @@
 class FacebookContent < ActiveRecord::Base
   include ContentBase
   include Likable
+  include Deletable
 
   def post!
     super

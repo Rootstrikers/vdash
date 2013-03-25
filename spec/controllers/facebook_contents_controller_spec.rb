@@ -119,11 +119,11 @@ describe FacebookContentsController do
   describe 'a DELETE to :destroy' do
     let(:action) { -> { delete :destroy, link_id: link.id, id: facebook_content.id } }
 
-    it 'destroys the link' do
-      action.call
-      expect {
-        facebook_content.reload
-      }.to raise_error(ActiveRecord::RecordNotFound)
+    it 'sets deleted_at on the content' do
+      Timecop.freeze(Time.now) do
+        action.call
+        facebook_content.reload.deleted_at.should == Time.now
+      end
     end
 
     it 'redirects to the link' do

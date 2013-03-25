@@ -13,6 +13,7 @@
 class TwitterContent < ActiveRecord::Base
   include ContentBase
   include Likable
+  include Deletable
 
   validates :body, length: { maximum: 140 }
 

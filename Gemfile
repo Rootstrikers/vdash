@@ -28,10 +28,11 @@ end
 gem 'jquery-rails'
 
 group :test do
-  gem "factory_girl_rails"
+  gem 'factory_girl_rails'
   gem 'autotest-rails'
   gem 'rspec-rails'
   gem 'shoulda'
+  gem 'timecop'
 end
 
 # To use ActiveModel has_secure_password

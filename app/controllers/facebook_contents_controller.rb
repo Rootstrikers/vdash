@@ -27,7 +27,7 @@ class FacebookContentsController < ApplicationController
   end
 
   def destroy
-    @content.destroy
+    @content.delete
     redirect_to link_url(@link), flash: { success: 'Facebook post submission deleted.' }
   end
 

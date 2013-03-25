@@ -27,7 +27,7 @@ class TwitterContentsController < ApplicationController
   end
 
   def destroy
-    @content.destroy
+    @content.delete
     redirect_to link_url(@link), flash: { success: 'Tweet submission deleted.' }
   end
 
