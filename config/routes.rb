@@ -5,7 +5,6 @@ Vdash::Application.routes.draw do
   get 'help', to: 'help#index'
   resources :twitter_contents, only: [:index]
   resources :facebook_contents, only: [:index]
-  resources :posts, only: [:index, :create]
   resources :links do
     resources :twitter_contents, except: [:show]
     resources :facebook_contents, except: [:index, :show]
@@ -19,6 +18,7 @@ Vdash::Application.routes.draw do
   match 'auth/failure', to: 'sessions#failure'
 
   namespace :admin do
+    resources :posts, only: [:index, :create]
     resources :notices
   end
 end
