@@ -1,0 +1,11 @@
+development:
+  app_key: 502776923103473
+  secret: 6013bac7b77c75f4ede9c00269e4dadf
+
+test:
+  app_key: 502776923103473
+  secret: 6013bac7b77c75f4ede9c00269e4dadf
+
+production:
+  app_key: 502776923103473
+  secret: 6013bac7b77c75f4ede9c00269e4dadf
