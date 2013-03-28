@@ -32,4 +32,5 @@ heroku git:remote --app vdash # --app arg tells is the heroku app to link to
 Then to deploy:
 ```
 git push heroku master
+heroku run rake db:migrate
 ```
