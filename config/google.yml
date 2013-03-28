@@ -1,0 +1,11 @@
+development:
+  app_key: 546782264845.apps.googleusercontent.com
+  secret: ASuFH8WlE9lyk1k1FpcEzi8R
+
+test:
+  app_key: 546782264845.apps.googleusercontent.com
+  secret: ASuFH8WlE9lyk1k1FpcEzi8R
+
+production:
+  app_key: 546782264845-kujbhlrlhnaqbbebs3vvgslpu20suec7.apps.googleusercontent.com
+  secret: 2mcjIdLI4bGROU7YCeJv_tut

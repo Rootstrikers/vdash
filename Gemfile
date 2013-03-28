@@ -4,6 +4,7 @@ gem 'rails', '3.2.12'
 gem 'pg'
 
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'koala'
 gem 'will_paginate'

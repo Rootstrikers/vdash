@@ -27,12 +27,13 @@ class User < ActiveRecord::Base
   	where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
   end
 
+  # TODO: Capture as much information as we can here
   def self.create_from_omniauth(auth)
-  	create! do |user|
-  		user.provider = auth["provider"]
-  		user.uid = auth["uid"]
-  		user.name = auth["info"]["nickname"]
-  	end
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid      = auth["uid"]
+      user.name     = auth["info"]["nickname"] || auth["info"]["name"]
+    end
   end
 
   def liked?(item)
