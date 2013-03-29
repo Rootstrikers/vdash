@@ -1,5 +1,8 @@
 <h2>
   Peruse the News
+
+  <%= link_to 'Deleted Links', admin_deleted_things_links_path, class: 'btn pull-right' if current_user.try(:admin?) %>
+
   <%= link_to 'Submit New Article', new_link_path, class: 'btn btn-primary pull-right' %>
 </h2>
 

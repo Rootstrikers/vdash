@@ -1,4 +1,7 @@
-<h2>Top Tweet Ideas</h2>
+<h2>
+  Top Tweet Ideas
+  <%= link_to 'Deleted Ideas', admin_deleted_things_twitter_contents_path, class: 'btn pull-right' %>
+</h2>
 
 <ul class="social-media-ideas twitter-contents">
   <% @contents.each do |content| %>

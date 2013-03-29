@@ -9,7 +9,7 @@ module Deletable
 
   module ClassMethods
     def deleted
-      unscoped.where('deleted_at is not null')
+      unscoped.where('deleted_at is not null').order('deleted_at desc')
     end
   end
 

@@ -15,6 +15,7 @@ module ContentBase
     attr_accessible :body, :link_id
 
     delegate :url, :domain, to: :link, prefix: true
+    delegate :name, to: :user, prefix: true
   end
 
   module ClassMethods

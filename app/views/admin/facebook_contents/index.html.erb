@@ -1,4 +1,7 @@
-<h2>Top Facebook Post Ideas</h2>
+<h2>
+  Top Facebook Post Ideas
+  <%= link_to 'Deleted Ideas', admin_deleted_things_facebook_contents_path, class: 'btn pull-right' %>
+</h2>
 
 <ul class="social-media-ideas facebook-contents">
   <% @contents.each do |content| %>

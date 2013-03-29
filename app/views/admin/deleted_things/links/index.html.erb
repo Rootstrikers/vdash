@@ -1,0 +1,26 @@
+<h2>Deleted Links</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>URL</th>
+      <th>Title</th>
+      <th>Summary</th>
+      <th>Submitted By</th>
+      <th>Deleted At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @links.each do |link| %>
+      <tr>
+        <td><%= link_to link.domain, link.url %></td>
+        <td><%= link.title %></td>
+        <td><%= link.summary %></td>
+        <td><%= link_to link.user_name, link.user %></td>
+        <td><%= link.deleted_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @links %>

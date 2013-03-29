@@ -32,5 +32,12 @@ Vdash::Application.routes.draw do
     resources :notices
     resources :twitter_contents, only: [:index]
     resources :facebook_contents, only: [:index]
+
+    # Deleted things
+    namespace :deleted_things do
+      resources :facebook_contents, only: [:index]
+      resources :twitter_contents, only: [:index]
+      resources :links, only: [:index]
+    end
   end
 end

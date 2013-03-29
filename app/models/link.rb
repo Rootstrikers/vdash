@@ -23,6 +23,8 @@ class Link < ActiveRecord::Base
 
   attr_accessible :url, :title, :summary
 
+  delegate :name, to: :user, prefix: true
+
   # Well, this should be improved. Sorry.
   def self.unposted
     where(

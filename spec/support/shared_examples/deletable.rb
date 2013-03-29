@@ -17,6 +17,13 @@ shared_examples "it is deletable" do
 
       described_class.deleted.should == [deleted_thing]
     end
+
+    it 'returns newly deleted things first' do
+      deleted_thing_one = instance_of_described_class.tap { |thing| thing.update_attribute(:deleted_at, 2.days.ago) }
+      deleted_thing_two = instance_of_described_class.tap { |thing| thing.update_attribute(:deleted_at, 1.days.ago) }
+
+      described_class.deleted.should == [deleted_thing_two, deleted_thing_one]
+    end
   end
 
   describe '#fake_delete' do
