@@ -62,4 +62,35 @@ class Link < ActiveRecord::Base
   def liked_by?(user)
     liked_by_users.exists?(['users.id = ?', user.id])
   end
+
+  def domain
+    DomainName.new(url).to_s
+  end
+
+  private
+  class DomainName < Struct.new(:url)
+    def to_s
+      strip_protocol
+      strip_www
+      strip_path
+      strip_parameters
+      url
+    end
+
+    def strip_protocol
+      self.url = url.split('//')[1]
+    end
+
+    def strip_www
+      self.url = url.sub('www.', '')
+    end
+
+    def strip_path
+      self.url = url.split('/').first
+    end
+
+    def strip_parameters
+      self.url = url.split('?').first
+    end
+  end
 end

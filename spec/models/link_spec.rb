@@ -106,4 +106,26 @@ describe Link do
       link.should be_liked_by(user)
     end
   end
+
+  describe '#domain' do
+    it 'strips out the protocol' do
+      link.url = 'http://example.com'
+      link.domain.should == 'example.com'
+    end
+
+    it 'strips out www' do
+      link.url = 'http://www.example.com'
+      link.domain.should == 'example.com'
+    end
+
+    it 'strips out the path if it starts with a slash' do
+      link.url = 'http://www.example.com/stuff'
+      link.domain.should == 'example.com'
+    end
+
+    it 'strips out parameters' do
+      link.url = 'http://www.example.com?stuff=things'
+      link.domain.should == 'example.com'
+    end
+  end
 end
