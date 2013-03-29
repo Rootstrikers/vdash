@@ -4,4 +4,8 @@ FactoryGirl.define do
     association :user
     body "MyText"
   end
+
+  factory :posted_twitter_content, parent: :twitter_content do
+    after(:create) { |t| t.posts << Post.new }
+  end
 end
