@@ -13,6 +13,8 @@ module ContentBase
     validates :body, presence: true
 
     attr_accessible :body, :link_id
+
+    delegate :url, :domain, to: :link, prefix: true
   end
 
   module ClassMethods
