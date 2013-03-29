@@ -127,5 +127,10 @@ describe Link do
       link.url = 'http://www.example.com?stuff=things'
       link.domain.should == 'example.com'
     end
+
+    it 'returns the plain url if already only the domain' do
+      link.url = 'example.com'
+      link.domain.should == 'example.com'
+    end
   end
 end

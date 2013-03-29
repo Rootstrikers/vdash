@@ -78,7 +78,7 @@ class Link < ActiveRecord::Base
     end
 
     def strip_protocol
-      self.url = url.split('//')[1]
+      self.url = url.split('//').last
     end
 
     def strip_www
