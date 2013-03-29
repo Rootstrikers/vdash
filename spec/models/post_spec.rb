@@ -15,4 +15,13 @@ require 'spec_helper'
 describe Post do
   it { should belong_to :user }
   it { should belong_to :content }
+
+  describe '.newest_first' do
+    it 'returns the newest posts first' do
+      post_one = FactoryGirl.create(:post)
+      post_two = FactoryGirl.create(:post)
+
+      Post.newest_first.should == [post_two, post_one]
+    end
+  end
 end

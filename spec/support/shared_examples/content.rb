@@ -19,6 +19,28 @@ shared_examples "content" do
     end
   end
 
+  describe '.posted' do
+    it 'only returns posted content' do
+      posted_content = instance_of_described_class
+      FactoryGirl.create(:post, content: posted_content)
+      unposted_content = instance_of_described_class
+
+      described_class.posted.should == [posted_content]
+    end
+  end
+
+  describe '.newest_post_first' do
+    it 'returns content in order they were posted (most recent first)' do
+      content_one = instance_of_described_class
+      content_two = instance_of_described_class
+
+      FactoryGirl.create(:post, content: content_two)
+      FactoryGirl.create(:post, content: content_one)
+
+      described_class.posted.should == [content_two, content_one]
+    end
+  end
+
   describe '#post!' do
     it 'creates a Post' do
       expect {

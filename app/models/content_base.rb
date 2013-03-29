@@ -19,6 +19,14 @@ module ContentBase
     def unposted
       where("not exists (select 1 from posts where content_id = #{table_name}.id and content_type = ?)", name.to_s)
     end
+
+    def posted
+      joins(:posts)
+    end
+
+    def newest_post_first
+      posted.merge(Post.newest_first)
+    end
   end
 
   def post!

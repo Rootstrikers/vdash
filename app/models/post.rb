@@ -15,4 +15,8 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :content, polymorphic: true
   attr_accessible :content
+
+  def self.newest_first
+    order('posts.created_at desc')
+  end
 end
