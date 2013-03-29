@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_filter :require_user
+  before_filter :require_user, except: [:index]
   before_filter :get_link, only: [:edit, :update]
 
   def index

@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe LinksController do
-  it_behaves_like "it requires a user"
-
   let(:user) { FactoryGirl.create(:user) }
   before { sign_in(user) }
 
