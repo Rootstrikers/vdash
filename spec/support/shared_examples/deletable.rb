@@ -3,8 +3,19 @@ shared_examples "it is deletable" do
 
   describe 'default scope' do
     it 'excludes things marked as deleted' do
-      deleted_thing = instance_of_described_class.update_attribute(:deleted_at, Time.now)
+      deleted_thing = instance_of_described_class
+      deleted_thing.update_attribute(:deleted_at, Time.now)
+
       described_class.all.should == [thing]
+    end
+  end
+
+  describe '.deleted' do
+    it 'returns things marked as deleted' do
+      deleted_thing = instance_of_described_class
+      deleted_thing.update_attribute(:deleted_at, Time.now)
+
+      described_class.deleted.should == [deleted_thing]
     end
   end
 
