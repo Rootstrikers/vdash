@@ -1,11 +1,29 @@
-<h2>
-  <%= @user.name %>
-</h2>
+<div class="user-profile">
+  <h2>
+    <%= @user.name %>
+  </h2>
 
-<% if @user.links.any? %>
-  <h3>Submitted Links</h3>
+  <% if @user.links.any? %>
+    <h3>Submitted Links</h3>
 
-  <ul>
-    <%= render @user.links %>
-  </ul>
-<% end %>
+    <ul>
+      <%= render @user.links %>
+    </ul>
+  <% end %>
+
+  <% if @user.twitter_contents.any? %>
+    <h3>Submitted Tweets</h3>
+
+    <ul class="twitter-contents">
+      <%= render partial: 'base_contents/content', collection: @user.twitter_contents %>
+    </ul>
+  <% end %>
+
+  <% if @user.facebook_contents.any? %>
+    <h3>Submitted Facebook Posts</h3>
+
+    <ul class="facebook-contents">
+      <%= render partial: 'base_contents/content', collection: @user.facebook_contents %>
+    </ul>
+  <% end %>
+</div>

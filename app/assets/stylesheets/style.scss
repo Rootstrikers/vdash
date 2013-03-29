@@ -58,7 +58,7 @@ div.like {
   }
 }
 
-.link-page {
+.link-page, .user-profile {
   ul.twitter-contents, ul.facebook-contents {
     li {
       @include li-rounded-box;
