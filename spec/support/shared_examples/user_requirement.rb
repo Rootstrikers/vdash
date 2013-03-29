@@ -6,5 +6,10 @@ shared_examples "it requires a user" do
       get :index
       response.should redirect_to '/signin'
     end
+
+    it 'sets the flash' do
+      get :index
+      flash[:alert].should == 'You must sign in to access this area.'
+    end
   end
 end
