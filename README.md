@@ -34,3 +34,9 @@ Then to deploy:
 git push heroku master
 heroku run rake db:migrate
 ```
+
+If you need to make yourself an admin:
+```
+heroku run rails c
+User.find_by_name('your_name').update_attribute(:admin, true)
+```
