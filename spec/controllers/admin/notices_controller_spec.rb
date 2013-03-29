@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module Admin
   describe NoticesController do
-    it_behaves_like "it requires a user"
+    it_behaves_like "it requires an admin"
 
     let(:user) { FactoryGirl.create(:admin) }
     before { sign_in(user) }
