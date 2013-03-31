@@ -107,6 +107,11 @@ describe Link do
       link = FactoryGirl.create(:link, title: nil)
       link.display_name.should == link.url_without_protocol
     end
+
+    it "doesn't include the protocol if displaying the url" do
+      link = FactoryGirl.create(:link, title: '', url: 'http://foo.com/bar?baz=1#shoo')
+      link.display_name.should == 'foo.com/bar?baz=1#shoo'
+    end
   end
 
   describe '#liked_by?(user)' do
