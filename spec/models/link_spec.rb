@@ -21,10 +21,15 @@ describe Link do
   it { should have_many :twitter_contents }
   it { should have_many :facebook_contents }
 
-  it { should validate_presence_of :url }
   it { should validate_uniqueness_of :url }
 
   let(:link) { FactoryGirl.create(:link) }
+
+  it 'requires a url' do
+    link = Link.new(url: '')
+    link.valid?.should == false
+    link.errors[:url].should == ["can't be blank"]
+  end
 
   describe '.unposted' do
     before { link }
@@ -131,6 +136,28 @@ describe Link do
     it 'returns the plain url if already only the domain' do
       link.url = 'example.com'
       link.domain.should == 'example.com'
+    end
+  end
+
+  describe '#url=(new_url)' do
+    it 'prepends http:// if protocol is missing' do
+      link.url = 'cnn.com'
+      link.url.should == 'http://cnn.com'
+    end
+
+    it 'prepends http:// if protocol is missing in mass assignment' do
+      link.update_attributes(url: 'cnn.com')
+      link.url.should == 'http://cnn.com'
+    end
+
+    it "doesn't prepend protocol if http given" do
+      link.url = 'http://cnn.com'
+      link.url.should == 'http://cnn.com'
+    end
+
+    it "doesn't prepend protocol if https given" do
+      link.url = 'https://cnn.com'
+      link.url.should == 'https://cnn.com'
     end
   end
 end

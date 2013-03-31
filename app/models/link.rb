@@ -19,7 +19,8 @@ class Link < ActiveRecord::Base
   has_many :facebook_contents
   has_many :twitter_contents
 
-  validates :url, presence: true, uniqueness: true
+  validates :url, uniqueness: true
+  validate :url_present
 
   attr_accessible :url, :title, :summary
 
@@ -48,7 +49,7 @@ class Link < ActiveRecord::Base
   end
 
   def display_name
-    title.present? ? title : url
+    title.present? ? title : DomainName.new(url).strip_protocol
   end
 
   def error_due_to_duplicate_url?
@@ -67,6 +68,17 @@ class Link < ActiveRecord::Base
 
   def domain
     DomainName.new(url).to_s
+  end
+
+  def url_present
+    errors.add(:url, "can't be blank") if url.split('://').size < 2
+  end
+
+  def url=(new_url)
+    if !(new_url.present? && new_url.start_with?('http')) # don't change https either
+      new_url = "http://#{new_url}"
+    end
+    write_attribute(:url, new_url)
   end
 
   private
