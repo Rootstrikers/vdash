@@ -49,7 +49,7 @@ class Link < ActiveRecord::Base
   end
 
   def display_name
-    title.present? ? title : DomainName.new(url).strip_protocol
+    title.present? ? title : url_without_protocol
   end
 
   def error_due_to_duplicate_url?
@@ -68,6 +68,10 @@ class Link < ActiveRecord::Base
 
   def domain
     DomainName.new(url).to_s
+  end
+
+  def url_without_protocol
+    DomainName.new(url).strip_protocol
   end
 
   def url_present

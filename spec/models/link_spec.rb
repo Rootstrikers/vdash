@@ -82,6 +82,16 @@ describe Link do
     end
   end
 
+  describe '#url_without_protocol' do
+    it 'initializes a new DomainName and only calls strip_protocol on it' do
+      domain_name = mock
+      domain_name.should_receive(:strip_protocol).and_return('www.example.com')
+      Link::DomainName.should_receive(:new).with(link.url).and_return(domain_name)
+
+      link.url_without_protocol.should == 'www.example.com'
+    end
+  end
+
   describe '#display_name' do
     it 'returns the title when present' do
       link = FactoryGirl.create(:link, title: 'This is the title')
@@ -90,12 +100,12 @@ describe Link do
 
     it 'returns the URL when the title is an empty string' do
       link = FactoryGirl.create(:link, title: '')
-      link.display_name.should == link.url
+      link.display_name.should == link.url_without_protocol
     end
 
     it 'returns the URL when the title is nil' do
       link = FactoryGirl.create(:link, title: nil)
-      link.display_name.should == link.url
+      link.display_name.should == link.url_without_protocol
     end
   end
 
