@@ -50,16 +50,19 @@ div.like {
       color: red;
     }
   }
-
-  .body {
-    width: 80%;
-    display: inline;
-    float: left;
-  }
+}
+div.service {
+  display: inline;
+  float: left;
+}
+div.body {
+  width: 80%;
+  display: inline;
+  float: left;
 }
 
 .link-page, .user-profile {
-  ul.twitter-contents, ul.facebook-contents {
+  ul.mixed-contents, ul.twitter-contents, ul.facebook-contents {
     li {
       @include li-rounded-box;
       @include likable;

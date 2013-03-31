@@ -2,6 +2,13 @@
   <div class="like">
     <%= render partial: 'likes/like_status', locals: { item: content } %>
   </div>
+  <div class="service">
+    <% if content.class == TwitterContent %>
+      <img src="/assets/twitter-logo.png" alt="Twitter logo" width="30em">
+    <% elsif content.class == FacebookContent %>
+      <img src="/assets/facebook-logo.png" alt="Facebook logo" width="30em">
+    <% end %>
+  </div>
   <div class="body">
     <%= content.body %>
   </div>

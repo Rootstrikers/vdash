@@ -7,9 +7,8 @@ class LinksController < ApplicationController
   end
 
   def show
-    @link              = Link.find(params[:id])
-    @twitter_contents  = @link.twitter_contents
-    @facebook_contents = @link.facebook_contents
+    @link  = Link.find(params[:id])
+    @posts = @link.twitter_contents + @link.facebook_contents # TODO sort better. reddit algorithm?
   end
 
   def new

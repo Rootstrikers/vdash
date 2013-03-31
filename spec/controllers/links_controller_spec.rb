@@ -55,14 +55,9 @@ describe LinksController do
       assigns(:link).should == link
     end
 
-    it 'assigns to @twitter_contents' do
+    it 'assigns to @posts' do
       action.call
-      assigns(:twitter_contents).should == twitter_contents
-    end
-
-    it 'assigns to @facebook_contents' do
-      action.call
-      assigns(:facebook_contents).should == facebook_contents
+      assigns(:posts).should == twitter_contents + facebook_contents
     end
   end
 

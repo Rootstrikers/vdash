@@ -22,51 +22,18 @@
   <%= @link.summary %>
 </p>
 
-<h3>Social Media Post Submissions</h3>
+<p><strong>Help us figure out what post should go along with this link on Facebook or Twitter:</strong></p>
 
-<p>Below, you can review current ideas for Twitter and Facebook posts that volunteers have submitted.</p>
+<%= link_to 'Submit New Tweet', new_link_twitter_content_path(@link) %>
+or
+<%= link_to 'Submit New Facebook Post', new_link_facebook_content_path(@link) %>
 
-<p>Please submit some more ideas!</p>
-
-<ul id="post-submissions" class="nav nav-tabs">
-  <li class="active">
-    <a href="#twitter-tab" data-toggle="tag">
-      Tweets
-      <span class="badge"><%= @twitter_contents.count %></span>
-    </a>
-  </li>
-  <li>
-    <a href="#facebook-tab" data-toggle="tag">
-      FB Posts
-      <span class="badge"><%= @facebook_contents.count %></span>
-    </a>
-  </li>
-</ul>
-<div class="tab-content link-page">
-  <div class="tab-pane fade active in" id="twitter-tab">
-    <h4>
-      Tweet Submissions
-      <%= link_to 'Submit New Tweet', new_link_twitter_content_path(@link), class: 'btn pull-right' %>
-    </h4>
-    <% if @twitter_contents.any? %>
-    <ul class="twitter-contents">
-      <%= render partial: 'base_contents/content', collection: @twitter_contents, as: :content %>
-    </ul>
-    <% else %>
-      <p>There aren't any yet. You should probably submit one (or two).</p>
-    <% end %>
-  </div>
-  <div class="tab-pane fade" id="facebook-tab">
-    <h4>
-      Facebook Submissions
-      <%= link_to 'Submit New Post', new_link_facebook_content_path(@link), class: 'btn pull-right' %>
-    </h4>
-    <% if @facebook_contents.any? %>
-    <ul class="facebook-contents">
-      <%= render partial: 'base_contents/content', collection: @facebook_contents, as: :content %>
-    </ul>
-    <% else %>
-      <p>There aren't any yet. You should probably submit one (or two).</p>
-    <% end %>
-  </div>
+<div class="link-page">
+  <% if @posts.any? %>
+  <ul class="mixed-contents">
+    <%= render partial: 'base_contents/content', collection: @posts, as: :content %>
+  </ul>
+  <% else %>
+    <p>There aren't any posts yet. You should probably submit one (or two).</p>
+  <% end %>
 </div>
