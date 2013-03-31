@@ -15,11 +15,11 @@ class ApplicationController < ActionController::Base
   def require_user
     return if current_user
     session[:after_signin_url] = request.fullpath
-    redirect_to signin_url, alert: 'You must sign in to access this area.'
+    redirect_to signin_url, alert: 'Please sign in.'
   end
 
   def require_admin
-    redirect_to signin_url, alert: 'You must be an admin to access this area.' unless current_user.try(:admin?)
+    redirect_to signin_url, alert: 'You must be an admin to access this page.' unless current_user.try(:admin?)
   end
 
   def set_notice

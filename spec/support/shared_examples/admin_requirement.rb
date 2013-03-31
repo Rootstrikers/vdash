@@ -9,7 +9,7 @@ shared_examples "it requires an admin" do
 
     it 'sets the flash' do
       get :index
-      flash[:alert].should == 'You must be an admin to access this area.'
+      flash[:alert].should == 'You must be an admin to access this page.'
     end
   end
 end
