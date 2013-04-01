@@ -16,7 +16,7 @@ module Admin
 
     describe 'a POST to :create' do
       let(:content) { FactoryGirl.create(:content) }
-      let(:action) { ->{ post :create, content_type: 'twitter', content_id: content.id }}
+      let(:action) { ->{ post :create, type: 'twitter', content_id: content.id }}
 
       it 'calls post on the content' do
         Content.stub(:find).with(content.id.to_s).and_return(content)
