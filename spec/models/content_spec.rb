@@ -99,4 +99,19 @@ describe Content do
       Post.last.type.should == 'Posts::Twitter'
     end
   end
+
+  describe '#valid_for_twitter?' do
+    it 'returns true if body is less than 120 characters long' do
+      Content.new(body: 'This is a short string.').should be_valid_for_twitter
+    end
+
+    it 'returns true if body is 120 characters long' do
+      Content.new(body: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa').should be_valid_for_twitter
+    end
+
+    it 'returns false if body is greater than 120 characters long' do
+      Content.new(body: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.').should_not be_valid_for_twitter
+
+    end
+  end
 end

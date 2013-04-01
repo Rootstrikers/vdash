@@ -1,4 +1,6 @@
 class Content < ActiveRecord::Base
+  TWITTER_LENGTH_LIMIT = 120
+
   include Likable
   include Deletable
 
@@ -39,7 +41,7 @@ class Content < ActiveRecord::Base
   end
 
   def valid_for_twitter?
-    true
+    body.length <= TWITTER_LENGTH_LIMIT
   end
 
   private
