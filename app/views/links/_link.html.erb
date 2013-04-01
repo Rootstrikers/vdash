@@ -17,7 +17,7 @@
       Submitted by <%= link_to link.user.name, link.user %>
     </div>
     <div class="ideas">
-      <strong>Ideas:</strong> <%= pluralize link.twitter_contents.count, 'Tweet' %>, <%= pluralize link.facebook_contents.count, 'FB Post' %>
+      <%= pluralize link.contents.count, 'Post Idea' %>
     </div>
     <% if current_user.try(:admin?) %>
       <div class="delete-link">

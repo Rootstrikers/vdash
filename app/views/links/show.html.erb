@@ -24,14 +24,12 @@
 
 <p><strong>Help us figure out what post should go along with this link on Facebook or Twitter:</strong></p>
 
-<%= link_to 'Submit New Tweet', new_link_twitter_content_path(@link) %>
-or
-<%= link_to 'Submit New Facebook Post', new_link_facebook_content_path(@link) %>
+<%= link_to 'Suggest New Post', new_link_content_path(@link) %>
 
 <div class="link-page">
-  <% if @posts.any? %>
+  <% if @contents.any? %>
   <ul class="mixed-contents">
-    <%= render partial: 'base_contents/content', collection: @posts, as: :content %>
+    <%= render @contents %>
   </ul>
   <% else %>
     <p>There aren't any posts yet. You should probably submit one (or two).</p>

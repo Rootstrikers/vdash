@@ -5,12 +5,14 @@
 <ul class="social-media-ideas">
   <% @posts.each do |post| %>
     <li>
-      <% if post.content.is_a?(TwitterContent) %>
+      <% if post.is_a?(Posts::Twitter) %>
         <i class="icon-twitter-sign"></i>
-      <% elsif post.content.is_a?(FacebookContent) %>
+      <% elsif post.is_a?(Posts::Facebook) %>
         <i class="icon-facebook-sign"></i>
       <% end %>
       <%= post.content.body %>
+      <br />
+      <%= link_to post.content.link_domain, post.content.link_url %>
     </li>
   <% end %>
 </ul>

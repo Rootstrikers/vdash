@@ -11,20 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325032716) do
+ActiveRecord::Schema.define(:version => 20130401161120) do
 
-  create_table "facebook_contents", :force => true do |t|
+  create_table "contents", :force => true do |t|
     t.integer  "link_id"
     t.integer  "user_id"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
     t.integer  "like_count"
     t.datetime "deleted_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "facebook_contents", ["link_id"], :name => "index_facebook_contents_on_link_id"
-  add_index "facebook_contents", ["user_id"], :name => "index_facebook_contents_on_user_id"
+  add_index "contents", ["link_id"], :name => "index_contents_on_link_id"
+  add_index "contents", ["user_id"], :name => "index_contents_on_user_id"
 
   create_table "likes", :force => true do |t|
     t.integer  "item_id"
@@ -61,26 +61,13 @@ ActiveRecord::Schema.define(:version => 20130325032716) do
 
   create_table "posts", :force => true do |t|
     t.integer  "content_id"
-    t.string   "content_type"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "type"
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
-
-  create_table "twitter_contents", :force => true do |t|
-    t.integer  "link_id"
-    t.integer  "user_id"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "like_count"
-    t.datetime "deleted_at"
-  end
-
-  add_index "twitter_contents", ["link_id"], :name => "index_twitter_contents_on_link_id"
-  add_index "twitter_contents", ["user_id"], :name => "index_twitter_contents_on_user_id"
 
   create_table "users", :force => true do |t|
     t.datetime "created_at", :null => false

@@ -15,8 +15,7 @@ class User < ActiveRecord::Base
   has_many :links
   has_many :likes
   has_many :posts
-  has_many :facebook_contents
-  has_many :twitter_contents
+  has_many :contents
   has_many :notices
 
   def self.current

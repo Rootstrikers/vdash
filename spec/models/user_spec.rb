@@ -17,8 +17,7 @@ describe User do
   it { should have_many :links }
   it { should have_many :likes }
   it { should have_many :posts }
-  it { should have_many :twitter_contents }
-  it { should have_many :facebook_contents }
+  it { should have_many :contents }
   it { should have_many :notices }
 
   it 'is not an admin by default' do

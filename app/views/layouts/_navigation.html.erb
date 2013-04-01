@@ -6,8 +6,7 @@
 			<%= nav_item 'Vote on Links & Posts', links_path %>
 			<%= nav_item 'Help', help_path %>
 			<% if current_user.try(:admin?) %>
-				<%= nav_item 'Twitter Ideas', admin_twitter_contents_path %>
-				<%= nav_item 'FB Ideas', admin_facebook_contents_path %>
+				<%= nav_item 'Top Ideas', admin_contents_path %>
 				<%= nav_item 'Previous Posts', admin_posts_path %>
 				<%= nav_item 'Notices', admin_notices_path %>
 			<% end %>

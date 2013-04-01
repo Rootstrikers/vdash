@@ -1,7 +1,7 @@
 module Feeds
   class TweetsController < ApplicationController
     def index
-      @tweets = TwitterContent.newest_post_first
+      @tweets = Content.posted_to_twitter.newest_post_first
     end
   end
 end

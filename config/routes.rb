@@ -9,8 +9,7 @@ Vdash::Application.routes.draw do
 
   # User-submitted content
   resources :links do
-    resources :twitter_contents, except: [:show]
-    resources :facebook_contents, except: [:index, :show]
+    resources :contents, except: [:index, :show]
   end
 
   # User stuff
@@ -30,13 +29,11 @@ Vdash::Application.routes.draw do
   namespace :admin do
     resources :posts, only: [:index, :create]
     resources :notices
-    resources :twitter_contents, only: [:index]
-    resources :facebook_contents, only: [:index]
+    resources :contents, only: [:index]
 
     # Deleted things
     namespace :deleted_things do
-      resources :facebook_contents, only: [:index]
-      resources :twitter_contents, only: [:index]
+      resources :contents, only: [:index]
       resources :links, only: [:index]
     end
   end

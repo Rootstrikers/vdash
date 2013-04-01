@@ -16,8 +16,7 @@ class Link < ActiveRecord::Base
   include Deletable
 
   belongs_to :user
-  has_many :facebook_contents
-  has_many :twitter_contents
+  has_many :contents
 
   validates :url, uniqueness: true
   validate :url_present
@@ -32,17 +31,17 @@ class Link < ActiveRecord::Base
       "not
       (
         exists (
-          select 1 from posts inner join twitter_contents
-          on posts.content_id = twitter_contents.id
-            and posts.content_type = 'TwitterContent'
-          where twitter_contents.link_id = links.id
+          select 1 from posts inner join contents
+          on posts.content_id = contents.id
+          where contents.link_id = links.id
+          and posts.type = 'Posts::Twitter'
         )
         and
         exists (
-          select 1 from posts inner join facebook_contents
-          on posts.content_id = facebook_contents.id
-            and posts.content_type = 'FacebookContent'
-          where facebook_contents.link_id = links.id
+          select 1 from posts inner join contents
+          on posts.content_id = contents.id
+          where contents.link_id = links.id
+          and posts.type = 'Posts::Facebook'
         )
       )"
     )

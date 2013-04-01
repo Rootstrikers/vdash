@@ -18,8 +18,7 @@ describe Link do
   it_behaves_like 'it is deletable'
 
   it { should belong_to :user }
-  it { should have_many :twitter_contents }
-  it { should have_many :facebook_contents }
+  it { should have_many :contents }
 
   it { should validate_uniqueness_of :url }
 
@@ -39,22 +38,22 @@ describe Link do
     end
 
     it 'includes links only posted to twitter' do
-      content = FactoryGirl.create(:twitter_content, link: link)
-      FactoryGirl.create(:post, content: content)
+      content = FactoryGirl.create(:content, link: link)
+      FactoryGirl.create(:post, type: 'Posts::Twitter', content: content)
       Link.unposted.should == [link]
     end
 
     it 'includes links only posted to facebook' do
-      content = FactoryGirl.create(:facebook_content, link: link)
-      FactoryGirl.create(:post, content: content)
+      content = FactoryGirl.create(:content, link: link)
+      FactoryGirl.create(:post, type: 'Posts::Facebook', content: content)
       Link.unposted.should == [link]
     end
 
     it 'does not include links posted to twitter and facebook' do
-      twitter_content = FactoryGirl.create(:twitter_content, link: link)
-      FactoryGirl.create(:post, content: twitter_content)
-      facebook_content = FactoryGirl.create(:facebook_content, link: link)
-      FactoryGirl.create(:post, content: facebook_content)
+      content = FactoryGirl.create(:content, link: link)
+      FactoryGirl.create(:post, type: 'Posts::Twitter', content: content)
+      FactoryGirl.create(:post, type: 'Posts::Facebook', content: content)
+
       Link.unposted.should == []
     end
   end

@@ -15,18 +15,18 @@ module Admin
     end
 
     describe 'a POST to :create' do
-      let(:content) { FactoryGirl.create(:twitter_content) }
+      let(:content) { FactoryGirl.create(:content) }
       let(:action) { ->{ post :create, content_type: 'twitter', content_id: content.id }}
 
       it 'calls post on the content' do
-        TwitterContent.stub(:find).with(content.id.to_s).and_return(content)
+        Content.stub(:find).with(content.id.to_s).and_return(content)
         content.should_receive :post!
         action.call
       end
 
       it 'redirects to the posts index' do
         action.call
-        response.should redirect_to admin_twitter_contents_url
+        response.should redirect_to admin_contents_url
       end
 
       it 'sets the flash' do

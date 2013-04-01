@@ -13,10 +13,18 @@
 # Record when a moderator has posted a piece of content
 class Post < ActiveRecord::Base
   belongs_to :user
-  belongs_to :content, polymorphic: true
+  belongs_to :content
   attr_accessible :content
 
   def self.newest_first
     order('posts.created_at desc')
+  end
+
+  def self.facebook
+    where(type: 'Posts::Facebook')
+  end
+
+  def self.twitter
+    where(type: 'Posts::Twitter')
   end
 end
