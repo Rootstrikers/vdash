@@ -16,8 +16,9 @@ ActiveRecord::Schema.define(:version => 20130402043426) do
   create_table "bans", :force => true do |t|
     t.integer  "user_id"
     t.integer  "created_by_id"
-    t.datetime "created_at",    :null => false
+    t.datetime "lifted_at"
     t.text     "reason"
+    t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
 

@@ -3,7 +3,7 @@ class CreateBans < ActiveRecord::Migration
     create_table :bans do |t|
       t.references :user
       t.references :created_by
-      t.datetime :created_at
+      t.datetime :lifted_at
       t.text :reason
 
       t.timestamps
