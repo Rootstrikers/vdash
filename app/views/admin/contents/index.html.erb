@@ -12,7 +12,7 @@
         <% end %>
         <%= link_to admin_posts_path(type: 'twitter', content_id: content.id), class: 'pull-right no-decoration', method: :post do %>
           <i class="icon-twitter-sign"></i>
-        <% end %>
+        <% end if content.valid_for_twitter? %>
       </div>
       <%= content.body %>
       <br />
