@@ -8,7 +8,6 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'koala'
 gem 'will_paginate'
-gem 'bootstrap-will_paginate'
 
 group :development do
   gem 'annotate'
@@ -21,9 +20,11 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+  gem 'less'
+  gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'bourbon'
 end
 
 gem 'jquery-rails'

@@ -1,0 +1,190 @@
+#global-sidebar {
+  padding: 0;
+  div#suggest-article {
+    background: #db0d16;
+    height: 60px;
+    text-align: center;
+    padding: 12px 16px 0;
+    border-right: 1px solid #C10911;
+    a.button {
+      background: #db0d16;
+      border-radius: 3px;
+      border: 1px solid #D20B13;
+      -webkit-box-shadow: inset 0 1px 0 #F6686E, 
+                  inset 0 -1px 0 #C10911, 
+                  inset 1px 0 0 #C70109, 
+                  inset -1px 0 0 #C70109;
+      -moz-box-shadow: inset 0 1px 0 #F6686E, 
+                  inset 0 -1px 0 #C10911, 
+                  inset 1px 0 0 #C70109, 
+                  inset -1px 0 0 #C70109;
+      -o-box-shadow: inset 0 1px 0 #F6686E, 
+                  inset 0 -1px 0 #C10911, 
+                  inset 1px 0 0 #C70109, 
+                  inset -1px 0 0 #C70109;
+      box-shadow: inset 0 1px 0 #F6686E, 
+                  inset 0 -1px 0 #C10911, 
+                  inset 1px 0 0 #C70109, 
+                  inset -1px 0 0 #C70109;
+      /*
+      background: -o-linear-gradient(top, #db0d16, #D10C15);
+      background: -moz-linear-gradient(top, #db0d16, #D10C15);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #db0d16), color-stop(1, #D10C15));
+      filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#db0d1600,EndColorStr=#D10C1500);
+      -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#db0d1600,EndColorStr=#D10C1500)";
+      */
+      padding: 8px 20px 11px 20px;
+      height: 36px;
+      width: 100%;
+      &:hover {
+        background: -o-linear-gradient(top, #db0d16, #D10C15);
+        background: -moz-linear-gradient(top, #db0d16, #D10C15);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #db0d16), color-stop(1, #D10C15));
+        filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#db0d1600,EndColorStr=#D10C1500);
+        -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#db0d1600,EndColorStr=#D10C1500)";
+      }
+      h4 {
+        margin: 0;
+        line-height: 16px;
+        font-size: 16px;
+        font-weight: 200;
+        color: white;
+        text-shadow: 0px 1px 1px #C70109;
+      }
+    }
+  }
+  div#sidebar-main {
+    position: relative;
+    background: #F5F6F7;
+    border-right: 1px solid #D3D5D5;
+    height: 100%;
+    nav {
+      margin-top: 0;
+      padding-top: 32px;
+      padding-bottom: 32px;
+      -webkit-box-shadow: inset 0 -1px 0 #B0BABA, 
+                  0 1px 0 rgba(250,250,250,.9);
+      -webkit-box-shadow: inset 0 -1px 0 #B0BABA, 
+                  0 1px 0 rgba(250,250,250,.9);
+      -o-box-shadow: inset 0 -1px 0 #B0BABA, 
+                  0 1px 0 rgba(250,250,250,.9);
+      box-shadow: inset 0 -1px 0 #B0BABA, 
+                  0 1px 0 rgba(250,250,250,.9);
+      ul {
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        li {
+          width: 100%;
+          &:first-child {
+            margin-top: 0;
+          }
+          a {
+            padding: 0 0 0 16px;
+            height: 32px;
+            background: transparent;
+            display: block;
+            -webkit-transition-property: padding, border-width;   
+            -webkit-transition-duration: .3s, .3s;   
+            -webkit-transition-timing-function: linear, ease-in; 
+               -moz-transition-property: padding, border-width;   
+               -moz-transition-duration: .3s, .3s;   
+               -moz-transition-timing-function: linear, ease-in; 
+                 -o-transition-property: padding, border-width;   
+                 -o-transition-duration: .3s, .3s;   
+                 -o-transition-timing-function: linear, ease-in; 
+                    transition-property: padding, border-width;   
+                    transition-duration: .3s, .3s;   
+                    transition-timing-function: linear, ease-in;  
+            &:hover {
+              border-left: 4px solid #626173;
+              padding-left: 20px;
+              background: #CCD0D5;
+              text-decoration: none;
+            }
+            embed {
+              height: auto;
+              float: left;
+              height: 50px;
+              width: 50px;
+              margin-right: 16px;
+            }
+            img {
+              float: left;
+              height: 18px;
+              margin-top: 6px;
+              margin: 6px 8px 0px -4px;
+            }
+            h4 {
+              font-size: 14px;
+              line-height: 32px;
+              margin: 0;
+            }
+          }
+          &.active a {
+            background: #CCD0D5;
+            border-left: 4px solid #626173;
+            padding-left: 20px;
+          }
+        }
+      }
+    }
+
+    footer {
+      margin-top: 64px;
+      padding: 0 16px;
+      address {
+        font-size: 10px;
+        line-height: 15px;
+        font-style: normal;
+      }
+      p {
+        margin-top: 16px;
+        font-size: 10px;
+        line-height: 15px;
+        color: #c2c8d2;
+      }
+    }
+  }
+}
+
+
+/* Responsive
+-------------------------------------------------- */
+
+/* Desktop
+------------------------- */
+@media (max-width: 980px) {
+  /* When affixed, space properly */
+  #global-sidebar {
+    top: 0;
+    margin-top: 0;
+    margin-right: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Tablet to desktop
+------------------------- */
+@media (min-width: 768px) and (max-width: 979px) {
+  /* Adjust sidenav width */
+  #global-sidebar {
+    margin-top: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Tablet
+------------------------- */
+@media (max-width: 767px) {
+  /* Sidenav */
+  #global-sidebar {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+    height: auto!important;
+  }
+}

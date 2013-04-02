@@ -1,15 +1,22 @@
-<h2>
-  Peruse the News
+<div class="row">
+  <div class="small-12 columns horizontal-divider red">
+      <!-- empty -->
+  </div><!-- small-12 columsn horizontal-divider red -->
+</div><!-- row -->
+<div class="row">
+  <div class="div small-12 columns content-box">
+    <h2>
+        <%= link_to 'Deleted Links', admin_deleted_things_links_path, class: 'btn pull-right' if current_user.try(:admin?) %>
+        <%#= link_to 'Peruse the News', '#' %>
+        <%= link_to '<span>+</span> Add Article'.html_safe, new_link_path, class: 'button btn-submit-link' %>
+    </h2>
 
-  <%= link_to 'Deleted Links', admin_deleted_things_links_path, class: 'btn pull-right' if current_user.try(:admin?) %>
+    <p>Take a look at links that people have submitted and help chose the most important ones to share with everyone.</p>
 
-  <%= link_to 'Submit New Article', new_link_path, class: 'btn btn-primary pull-right' %>
-</h2>
+    <ul>
+      <%= render @links %>
+    </ul>
 
-<p>Take a look at links that people have submitted and help chose the most important ones to share with everyone.</p>
-
-<ul>
-  <%= render @links %>
-</ul>
-
-<%= will_paginate @links %>
+    <%= will_paginate @links %>
+  </div><!-- div small-12 columns content-box -->
+</div><!-- row -->

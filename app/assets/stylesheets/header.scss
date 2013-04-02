@@ -1,0 +1,70 @@
+header#masthead {
+	background: #626173;
+	background: -o-linear-gradient(left, #626173, #534F5E);
+	background: -moz-linear-gradient(left, #626173, #534F5E);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0, #626173), color-stop(1, #534F5E));
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr=#62617300,EndColorStr=#534F5E00);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr=#62617300,EndColorStr=#534F5E00)";
+	border-bottom: 1px solid #1B1B21;
+	box-shadow: inset 0 -1px 0px rgba(44, 43, 54, 0.2);
+	position: relative;
+  hgroup {
+    position: relative;
+    display: block;
+    padding-left: 16px;
+    a {
+      h1 {
+        line-height: 30px;
+        margin: 0;
+        padding: 0;
+        font-weight: 200;
+        color: white;
+        font-size: 14px;
+      }
+      h2 {
+        color: white;
+        font-size: 10px;
+        margin-left: 2px;
+        margin-top: 5px;
+      }
+    }
+  }
+  div#session-controls-wrapper {
+  	padding-right: 16px;
+	  div#session-controls {
+	  	width: 200px;
+	    height: 30px;
+	    float: right;
+	    h4 {
+	      margin: 0;
+	      font-size: 11px;
+	      color: white;
+	      display: block;
+	      line-height: 31px;
+	      margin-left: 27px;
+	      float: left;
+	    }
+	    ul#sign-in-options {
+	      list-style: none;
+	      margin: 0;
+	      position: relative;
+	      float: right;
+	      li {
+	        float: left;
+	        padding: 0;
+	        a {
+	          i {
+	            font-size: 20px;
+	            border-radius: 0;
+	            padding: 0;
+	            height: 30px;
+	            padding-top: 5px;
+	            width: 33px;
+	            padding-left: 2px;
+	          }
+	        }
+	      }
+	    }
+	  }
+	}
+}

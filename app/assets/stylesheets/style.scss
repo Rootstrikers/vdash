@@ -1,16 +1,39 @@
-body {
-  padding: 30px;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oxygen', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serifsans-serif;  
+    font-weight: 200; 
+    color: #32324E; 
 }
 
-a {
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  background-color: #FEFEFE; 
+  color: #32324E;   
+}
+
+.full-width {
+  width: 100%;
+  max-width: 100%;
+}
+a {    
   color: #cb2027;
   &:hover {
     color: #cb2027;
   }
 }
 
+p {
+  margin: 0;
+  margin-top: 16px;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
 // Please make prettier.
-@mixin li-rounded-box {
+.li-rounded-box {
   list-style: none;
   border: 1px solid black;
   border-radius: 10px;
@@ -18,7 +41,7 @@ a {
   margin-bottom: 5px;
 }
 
-@mixin likable {
+.likable {
   .like {
     float: left;
     padding-right: 4px;
@@ -26,9 +49,6 @@ a {
 }
 
 li.link {
-  @include li-rounded-box;
-  @include likable;
-
   .name-and-url {
     width: 80%;
     display: inline;
@@ -61,21 +81,156 @@ div.body {
   float: left;
 }
 
-.link-page, .user-profile {
-  ul.mixed-contents, ul.twitter-contents, ul.facebook-contents {
-    li {
-      @include li-rounded-box;
-      @include likable;
-    }
-  }
-}
-
-.social-media-ideas {
-  li {
-    @include li-rounded-box;
-  }
-}
 
 a.no-decoration {
   text-decoration: none;
+}
+
+.control-label {
+  font-size: 24px;
+}
+
+
+.horizontal-divider {
+  height: 18px;
+  margin-top: 40px;
+  @include border-top-radius(3px);
+}
+.red {
+  background-color: $secondary-color;
+}
+.black {
+  background-color: $primary-color;
+}
+.social-icon {  
+  span { 
+    padding-left: 30px;
+    font-size: 30px;
+  }
+  font-weight: 400;
+}
+.icon-3x {
+  width: 54px;
+  height: 54px;
+  font-size: 2em;
+  border-radius: 4px;
+  color: #ffffff;
+  padding-top: 11px;
+  text-align: center;
+
+}
+.icon-twitter {
+  background-color: #4099FF;  
+}
+  .social-icon:hover > .icon-twitter {
+    background-color: #3887E1;   
+  }
+.icon-facebook {
+  background-color: #3b5999;
+}
+ .social-icon:hover > .icon-facebook {
+  background-color: #2D4578;
+
+}
+.icon-google-plus {
+  background-color: #D54330;
+}
+  .social-icon:hover > .icon-google-plus {
+    background-color: #C33E2D;
+  }
+
+input[type="submit"].button,
+a.button.btn-submit-link {
+  color: #ffffff;  
+  font-weight: 400;
+  padding: 2px 19px 10px 19px;
+  span {
+    font-size: 52px;
+  }
+  border-radius: 4px;  
+  border-color: $secondary-color;
+  
+  background: $secondary-color;
+  background: -moz-linear-gradient(top,  $secondary-color 0%, $secondary-color 54%, #930911 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$secondary-color), color-stop(54%,$secondary-color), color-stop(100%,#930911));
+  background: -webkit-linear-gradient(top,  $secondary-color 0%,$secondary-color 54%,#930911 100%);
+  background: -o-linear-gradient(top,  $secondary-color 0%,$secondary-color 54%,#930911 100%);
+  background: -ms-linear-gradient(top,  $secondary-color 0%,$secondary-color 54%,#930911 100%);
+  background: linear-gradient(to bottom,  $secondary-color 0%,$secondary-color 54%,#930911 100%);
+}
+input[type="text"], 
+input[type="password"], 
+input[type="date"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="month"], 
+input[type="week"], 
+input[type="email"], 
+input[type="number"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="time"], 
+input[type="url"], 
+textarea {
+  height: 2.6em; 
+  font-size: 24px;
+}
+textarea {
+  height: 6em;
+}
+  input[type="submit"].button {
+    font-size: 24px;
+    padding: 20px;    
+  }
+input[type="submit"].button:hover,  
+a.button.btn-submit-link:hover {
+  background: $primary-color;
+  border-color: $primary-color;
+  cursor: pointer;
+  @include transition (background 1ms ease-in);
+}
+ 
+
+
+/* Main Content Area
+-------------------------------------------------- */
+section#body-content {
+  /*background: #ECEDF7;*/
+  background: #F0EEE7;
+  padding-top: 60px;
+  .columns.content-box {
+    background-color: white;
+    padding: 0;
+    border-radius: 2px;
+  }
+}
+
+
+/* Miscellaneous 
+-------------------------------------------------- */
+.hacking-axe{
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 2s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 2s;
+    -webkit-animation-name: hack; 
+    -webkit-animation-duration: 2s; 
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: hack; 
+    -moz-animation-duration: 2s; 
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+}
+
+@-webkit-keyframes hack {
+      0% { -webkit-transform: rotate(0deg); }
+     50% { -webkit-transform: rotate(45deg); }
+    100% { -webkit-transform: rotate(0deg); }
+}
+
+@-moz-keyframes hack {
+      0% {-moz-transform: rotate(0deg);}
+     50% {-moz-transform: rotate(45deg);}
+    100% {-moz-transform: rotate(0deg); }
 }
