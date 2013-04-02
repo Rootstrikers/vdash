@@ -38,10 +38,21 @@ describe LinksController do
       assigns(:link).should == link
     end
 
-    it 'raises an exception if user not allowed to edit link' do
-      expect {
-        get :edit, id: FactoryGirl.create(:link).id
-      }.to raise_error(ActiveRecord::RecordNotFound)
+    context 'when the link is not modifiable by the current user' do
+      before do
+        Link.stub(:find).with(link.id.to_s).and_return(link)
+        link.stub(:modifiable_by?).with(user).and_return(false)
+      end
+
+      it 'redirects to the links_url' do
+        action.call
+        response.should redirect_to links_url
+      end
+
+      it 'sets the flash' do
+        action.call
+        flash[:error].should == 'This link is not currently modifiable.'
+      end
     end
   end
 
@@ -131,6 +142,23 @@ describe LinksController do
         action.call
         flash[:success].should == 'Link updated.'
       end
+
+      context 'when the link is not modifiable by the current user' do
+        before do
+          Link.stub(:find).with(link.id.to_s).and_return(link)
+          link.stub(:modifiable_by?).with(user).and_return(false)
+        end
+
+        it 'redirects to the links_url' do
+          action.call
+          response.should redirect_to links_url
+        end
+
+        it 'sets the flash' do
+          action.call
+          flash[:error].should == 'This link is not currently modifiable.'
+        end
+      end
     end
 
     context 'when the link is invalid' do
@@ -167,6 +195,23 @@ describe LinksController do
     it 'sets the flash' do
       action.call
       flash[:success].should == 'Link deleted.'
+    end
+
+    context 'when the link is not modifiable by the current user' do
+      before do
+        Link.stub(:find).with(link.id.to_s).and_return(link)
+        link.stub(:modifiable_by?).with(user).and_return(false)
+      end
+
+      it 'redirects to the links_url' do
+        action.call
+        response.should redirect_to links_url
+      end
+
+      it 'sets the flash' do
+        action.call
+        flash[:error].should == 'This link is not currently modifiable.'
+      end
     end
   end
 end

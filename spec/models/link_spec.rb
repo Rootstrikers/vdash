@@ -58,6 +58,29 @@ describe Link do
     end
   end
 
+  describe '#modifiable_by?(user)' do
+    it 'returns false for a nil user' do
+      link.should_not be_modifiable_by(nil)
+    end
+
+    it 'returns false for a random user' do
+      link.should_not be_modifiable_by(FactoryGirl.create(:user))
+    end
+
+    it 'returns true for an admin' do
+      link.should be_modifiable_by(FactoryGirl.create(:admin))
+    end
+
+    it 'returns true for the creator if no contents attached' do
+      link.should be_modifiable_by(link.user)
+    end
+
+    it 'returns false for the creator if contents attached' do
+      FactoryGirl.create(:content, link: link)
+      link.should_not be_modifiable_by(link.user)
+    end
+  end
+
   describe '#error_due_to_duplicate_url?' do
     it 'returns false typically' do
       link.error_due_to_duplicate_url?.should be_false

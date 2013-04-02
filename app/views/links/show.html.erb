@@ -3,7 +3,7 @@
   <% if @link.user == current_user %>
     <%= link_to 'Edit', edit_link_path(@link), class: 'btn' %>
   <% end %>
-  <% if @link.user == current_user or current_user.try(:admin?) %>
+  <% if @link.modifiable_by?(current_user) %>
     <%= link_to link_path(@link), method: 'delete', data: { confirm: 'Are you sure you want to destroy this link? This cannot be undone.' }, class: 'btn btn-danger' do %>
       <i class="icon-trash"></i> Delete
     <% end %>

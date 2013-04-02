@@ -47,6 +47,10 @@ class Link < ActiveRecord::Base
     )
   end
 
+  def modifiable_by?(user)
+    user.present? && (user.admin? || (!self.contents.exists? && self.user == user))
+  end
+
   def display_name
     title.present? ? title : url_without_protocol
   end

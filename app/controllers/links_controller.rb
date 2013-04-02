@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   before_filter :require_user, except: [:index]
-  before_filter :get_link, only: [:edit, :update]
+  before_filter :get_link_and_ensure_modifiable, only: [:edit, :update, :destroy]
 
   def index
     @links = Link.unposted.ordered.paginate(page: params[:page])
@@ -37,15 +37,14 @@ class LinksController < ApplicationController
   end
 
   def destroy
-    link = current_user.links.find_by_id(params[:id])
-    link = Link.find(params[:id]) if current_user.try(:admin) and link.nil?
-    link.fake_delete
+    @link.fake_delete
     redirect_to links_url, flash: { success: 'Link deleted.' }
   end
 
   private
-  def get_link
-    @link = current_user.links.find(params[:id])
+  def get_link_and_ensure_modifiable
+    @link = Link.find(params[:id])
+    redirect_to links_url, flash: { error: 'This link is not currently modifiable.' } unless @link.modifiable_by?(current_user)
   end
 
 end
