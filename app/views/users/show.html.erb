@@ -11,19 +11,11 @@
     </ul>
   <% end %>
 
-  <% if @user.twitter_contents.any? %>
-    <h3>Submitted Tweets</h3>
+  <% if @user.contents.any? %>
+    <h3>Submitted Post Ideas</h3>
 
-    <ul class="twitter-contents">
-      <%= render partial: 'base_contents/content', collection: @user.twitter_contents %>
-    </ul>
-  <% end %>
-
-  <% if @user.facebook_contents.any? %>
-    <h3>Submitted Facebook Posts</h3>
-
-    <ul class="facebook-contents">
-      <%= render partial: 'base_contents/content', collection: @user.facebook_contents %>
+    <ul class="mixed-contents">
+      <%= render @user.contents %>
     </ul>
   <% end %>
 </div>
