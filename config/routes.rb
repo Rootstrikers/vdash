@@ -36,5 +36,10 @@ Vdash::Application.routes.draw do
       resources :contents, only: [:index]
       resources :links, only: [:index]
     end
+
+    # User-specific things
+    namespace :users do
+      resources :bans, only: [:index, :new, :create, :destroy]
+    end
   end
 end

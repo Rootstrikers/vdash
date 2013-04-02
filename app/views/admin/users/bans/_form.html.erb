@@ -1,0 +1,24 @@
+<%= form_for [:admin, @user, @ban], html: { class: 'form-horizontal' } do |f| %>
+  <% if @ban.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ban.errors.count, "error") %> prohibited this ban from being saved:</h2>
+
+      <ul>
+      <% @ban.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='control-group'>
+    <%= f.label :reason, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :reason %>
+    </div>
+  </div>
+
+  <div class="controls">
+    <%= f.submit  %>
+  </div>
+<% end %>

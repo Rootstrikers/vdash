@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :contents
   has_many :notices
+  has_many :bans
 
   def self.current
     Thread.current[:current_user]

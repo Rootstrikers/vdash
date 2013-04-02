@@ -19,6 +19,7 @@ describe User do
   it { should have_many :posts }
   it { should have_many :contents }
   it { should have_many :notices }
+  it { should have_many :bans }
 
   it 'is not an admin by default' do
     User.new.should_not be_admin
