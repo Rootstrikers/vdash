@@ -1,11 +1,20 @@
 <div id='session-controls-wrapper' class="small-12 large-4 offset-4 columns">
 	<div id='session-controls'>
-		<% if !current_user %>
+		<% if current_user %>
+			<ul id='session-links'>
+			  <li>
+					<%= link_to raw("<i class='icon-user'></i> #{current_user.name}"), current_user %>
+				</li>
+				<li>
+					<%= link_to 'Sign out', signout_path %>
+				</li>
+			</ul>
+		<% else %>
 			<h4>sign in with</h4>
 		  <ul id='sign-in-options'>
 		    <li>
 		      <a href="/auth/twitter" title="Sign in with Twitter" class="social-icon">
-		        <i class="icon-twitter icon-3x"></i>  
+		        <i class="icon-twitter icon-3x"></i>
 		      </a>
 		    </li>
 		    <li>
@@ -19,15 +28,6 @@
 		      </a>
 		    </li>
 		  </ul>
-		<% else %>
-			<ul id='session-links'>
-			  <li>
-					<%= link_to raw("<i class='icon-user'></i> #{current_user.name}"), current_user %>
-				</li>
-				<li>
-					<%= link_to 'Sign out', signout_path %>
-				</li>
-			</ul>
 	  <% end %>
 	</div>
 </div>
