@@ -1,11 +1,11 @@
 <nav>
 	<ul>
-		<%= nav_item 'Browse & Vote', "/assets/book_dark.svg", links_path %>		
+		<%= nav_item 'Browse & Vote', "/assets/book_dark.svg", links_path %>
 		<%= nav_item 'Learn More', "/assets/bulb_dark.svg", help_path %>
 		<% if current_user.try(:admin?) %>
-				<%= nav_item 'Top Ideas', admin_contents_path %>
-				<%= nav_item 'Previous Posts', admin_posts_path %>
-				<%= nav_item 'Notices', admin_notices_path %>
+				<%= nav_item 'Top Ideas', nil, admin_contents_path %>
+				<%= nav_item 'Previous Posts', nil, admin_posts_path %>
+				<%= nav_item 'Notices', nil, admin_notices_path %>
 			<% end %>
 	</ul>
 </nav>
