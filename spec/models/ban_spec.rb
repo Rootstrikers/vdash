@@ -13,4 +13,13 @@ describe Ban do
     end
   end
 
+  describe '.newest_first' do
+    it 'returns the newest posts first' do
+      ban_one = FactoryGirl.create(:ban, created_at: 2.days.ago)
+      ban_two = FactoryGirl.create(:ban, created_at: 1.day.ago)
+
+      Ban.newest_first.should == [ban_two, ban_one]
+    end
+  end
+
 end

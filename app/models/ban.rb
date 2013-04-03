@@ -9,6 +9,10 @@ class Ban < ActiveRecord::Base
     where(lifted_at: nil)
   end
 
+  def self.newest_first
+    order('bans.created_at desc')
+  end
+
   def lifted?
     lifted_at.present?
   end
