@@ -1,15 +1,11 @@
 <h2>
-  Bans for <%= link_to @user.name, [:admin, @user] %>
-  <%= link_to 'Add new Ban', new_admin_user_ban_path(@user), class: 'btn btn-primary pull-right' %>
+  All Historical Bans
 </h2>
-
-<p>
-  This page shows all the times a user has been banned.
-</p>
 
 <table class="table">
   <thead>
     <tr>
+      <th>User</th>
       <th>Timestamp</th>
       <th>Lifted At</th>
       <th>Duration</th>
@@ -20,6 +16,7 @@
   <tbody>
     <% @bans.each do |ban| %>
     <tr>
+      <td><%= link_to ban.user.name, [:admin, ban.user] %></td>
       <td><%= ban.created_at %></td>
       <td><%= ban.lifted_at %></td>
       <td><%= distance_of_time_in_words(ban.created_at, (ban.lifted_at || Time.now)) %></td>
@@ -29,5 +26,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= will_paginate @bans %>

@@ -30,6 +30,7 @@ Vdash::Application.routes.draw do
     resources :posts, only: [:index, :create]
     resources :notices
     resources :contents, only: [:index]
+    resources :bans, only: [:index]
 
     # Deleted things
     namespace :deleted_things do
