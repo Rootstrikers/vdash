@@ -1,9 +1,7 @@
 module ApplicationHelper
   def nav_item(text, image, url, options = {})
     content_tag(:li, class: (current_page?(url) ? 'active' : '' )) do
-      if (image)
-        icon = "<img src='#{image}' type='image/svg+xml'>"
-      end
+      icon = image ? "<img src='#{image}' type='image/svg+xml'>" : ''
       link_to raw("#{icon}<h4>#{text}</h4>"), url, options
     end
   end
