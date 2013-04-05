@@ -1,29 +1,43 @@
-section#new-link {
-	header.section-header {
-		height: 36px;
-		background: royalblue;
-		border-radius: 2px 2px 0 0;
-		img.header-icon {
+#new-link > :not(header) {
+    padding: 12px;    
+}
+#new-link > .more-info {
+	padding: 0;
+}
+header.section-header {
+	height: 36px;
+	background: royalblue;
+	border-radius: 2px 2px 0 0;			
+}
+	img.header-icon {
 			width: 24px;
 			height: 24px;
 			margin: 7px 6px 6px 11px;
 			float: left;
 			display: inline-block;
-		}
-		h2 {
-			display: inline-block;
-			font-size: 16px;
-			line-height: 36px;
-			margin: 0;
-			color: white;
-			margin-left: 4px;
-		}
 	}
+	.section-title {
+		display: inline-block;
+		font-size: 16px;
+		line-height: 36px;
+		margin: 0;
+		color: white;
+		margin-left: 4px;
+	}	
 	div.more-info {
- 		padding: 0;
- 		a.more-info-toggle {
- 			display: none;
- 			font-size: 10px;
+ 		padding: 0; 				
+		&.opened-info a.more-info-toggle{
+			h4 {
+				display: none;
+				&.opened-message {
+					display: block;
+				}
+			}
+		}
+	}/* more-info */
+	a.more-info-toggle {
+			display: none;
+			font-size: 10px;
 			text-align: right;
 			padding: 2px 16px;
 			line-height: 10px;
@@ -33,45 +47,39 @@ section#new-link {
 			box-shadow: inset 0 -1px 0 #b0baba, 0 1px 0 rgba(250, 250, 250, 0.9);
 			border-right: 1px solid #D3D5D5;
 			border-left: 1px solid #D3D5D5;
-			h4 {
+			&:hover {
+				background: #ECECEC;
+			}			
+ 		}/* more info toggle */
+ 			.more-info-title {
 				float: right;
-				color: #c2c8d2;
+				color: #83878D;
 				padding: 0;
 				margin: 0;
 				&:hover {
-	
-				}
-				&.opened-message {
-					display: none;
-				}
+					color: #727272;
+				}				
 				i {
 					width: 17px;
 					font-size: 16px;
 					margin-right: 8px;
 					margin-top: 1px;
 				}
+			}/* more-info-title */
+			.opened-message {
+					display: none;
 			}
- 		}
-		div.more-info-content {
-			margin: 0;
-			padding: 32px;
-			p {
-				font-size: 16px;
-				line-height: 20px;
-				font-weight: 200;
-			}
-		}
-		&.opened-info a.more-info-toggle{
-			h4 {
+			div.more-info-content {
+				margin: 0;
+				padding: 32px;
 				display: none;
-				&.opened-message {
-					display: block;
+				p {
+					font-size: 16px;
+					line-height: 20px;
+					font-weight: 200;
 				}
-			}
-		}
-	}
-	
+			} /* more-info-content */
+
 	form {
 
 	}
-}

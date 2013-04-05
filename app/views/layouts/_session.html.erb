@@ -1,33 +1,33 @@
 <div id='session-controls-wrapper' class="small-12 large-4 offset-4 columns">
 	<div id='session-controls'>
-		<% if current_user %>
-			<ul id='session-links'>
-			  <li>
-					<%= link_to raw("<i class='icon-user'></i> #{current_user.name}"), current_user %>
-				</li>
-				<li>
-					<%= link_to 'Sign out', signout_path %>
-				</li>
-			</ul>
-		<% else %>
-			<h4>sign in with</h4>
-		  <ul id='sign-in-options'>
-		    <li>
-		      <a href="/auth/twitter" title="Sign in with Twitter" class="social-icon">
-		        <i class="icon-twitter icon-3x"></i>
-		      </a>
-		    </li>
-		    <li>
-		      <a href="/auth/facebook" title="Sign in with Facebook" class="social-icon">
-		        <i class="icon-facebook icon-3x"></i>
-		      </a>
-		    </li>
-		    <li>
-		      <a href="/auth/google_oauth2"  title="Sign in with Google+" class="social-icon">
-		        <i class="icon-google-plus icon-3x"></i>
-		      </a>
-		    </li>
-		  </ul>
-	  <% end %>
-	</div>
-</div>
+			<% if current_user %>	
+				<ul class='menu-options logged-in'>			
+				  <li>
+						<%= link_to raw("<i class='icon-user'></i> #{current_user.name}"), current_user %>
+					</li>
+					<li>
+						<%= link_to 'Sign out', signout_path %>
+					</li>
+				</ul><!-- menu-options logged-in -->
+			<% else %>
+				<ul class='menu-options'>		
+					<h6 class="sign-in-with">sign in with</h6>
+				    <li>
+				      <a href="/auth/twitter" title="Sign in with Twitter" class="social-icon">
+				        <i class="icon-twitter icon-3x"></i>
+				      </a>
+				    </li>
+				    <li>
+				      <a href="/auth/facebook" title="Sign in with Facebook" class="social-icon">
+				        <i class="icon-facebook icon-3x"></i>
+				      </a>
+				    </li>
+				    <li>
+				      <a href="/auth/google_oauth2"  title="Sign in with Google+" class="social-icon">
+				        <i class="icon-google-plus icon-3x"></i>
+				      </a>
+				    </li>		  
+				  </ul><!-- menu-items logged-out -->
+		  <% end %>	  
+	</div><!-- session-controls -->
+</div><!-- session-controls-wrapper -->

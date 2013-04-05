@@ -11,29 +11,29 @@
     </div>
   <% end %>
 
-  <div class='control-group'>
-    <%= f.label :url, class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :url %>
-    </div>
-  </div>
+        <div class='row'>
+          <div class="small-12 columns">
+            <%= f.label :url %>
+              <%= f.text_field :url %>
+          </div><!-- small-12 columns -->
+        </div><!-- row -->
 
-  <div class='control-group'>
-    <%= f.label :title, "Title (optional)", class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :title %>
-    </div>
-  </div>
+        <div class='row'>
+          <div class="small-12 columns">
+            <%= f.label :title, "Title (optional)" %>
+              <%= f.text_field :title %>
+          </div><!-- small-12 columns -->
+        </div><!-- row -->
 
-  <div class='control-group'>
-    <%= f.label :summary, "Summary (optional)", class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :summary %>
-    </div>
-  </div>
+        <div class='row'>
+          <div class="small-12 columns">
+          <%= f.label :summary, "Summary (optional)" %>
+            <%= f.text_area :summary %>
+          </div><!-- small-12 columns -->
+        </div><!-- row -->    
 
-  <div class="controls">
-    <%= f.submit 'Share link with other volunteers', :class => "button" %>
-    <div>We'll let you know if someone already shared this.</div>
-  </div>
+        
+          <%= f.submit 'Share link with other volunteers', :class => "button" %>
+          <div>We'll let you know if someone already shared this.</div>
+        
 <% end %>

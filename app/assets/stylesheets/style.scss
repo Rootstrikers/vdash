@@ -32,7 +32,7 @@ p {
   }
 }
 
-// Please make prettier.
+/*  Please make prettier. */
 .li-rounded-box {
   list-style: none;
   border: 1px solid black;
@@ -80,17 +80,9 @@ div.body {
   display: inline;
   float: left;
 }
-
-
 a.no-decoration {
   text-decoration: none;
 }
-
-.control-label {
-  font-size: 24px;
-}
-
-
 .horizontal-divider {
   height: 18px;
   margin-top: 40px;
@@ -102,61 +94,14 @@ a.no-decoration {
 .black {
   background-color: $primary-color;
 }
-.social-icon {  
-  span { 
-    padding-left: 30px;
-    font-size: 30px;
-  }
-  font-weight: 400;
-}
-.icon-3x {
-  width: 54px;
-  height: 54px;
-  font-size: 2em;
-  border-radius: 4px;
-  color: #ffffff;
-  padding-top: 11px;
-  text-align: center;
-
-}
-.icon-twitter {
-  background-color: #4099FF;  
-}
-  .social-icon:hover > .icon-twitter {
-    background-color: #3887E1;   
-  }
-.icon-facebook {
-  background-color: #3b5999;
-}
- .social-icon:hover > .icon-facebook {
-  background-color: #2D4578;
-
-}
-.icon-google-plus {
-  background-color: #D54330;
-}
-  .social-icon:hover > .icon-google-plus {
-    background-color: #C33E2D;
-  }
-
 input[type="submit"].button,
 a.button.btn-submit-link {
   color: #ffffff;  
   font-weight: 400;
   padding: 2px 19px 10px 19px;
-  span {
-    font-size: 52px;
-  }
+ 
   border-radius: 4px;  
-  border-color: $secondary-color;
-  
-  background: $secondary-color;
-  background: -moz-linear-gradient(top,  $secondary-color 0%, $secondary-color 54%, #930911 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$secondary-color), color-stop(54%,$secondary-color), color-stop(100%,#930911));
-  background: -webkit-linear-gradient(top,  $secondary-color 0%,$secondary-color 54%,#930911 100%);
-  background: -o-linear-gradient(top,  $secondary-color 0%,$secondary-color 54%,#930911 100%);
-  background: -ms-linear-gradient(top,  $secondary-color 0%,$secondary-color 54%,#930911 100%);
-  background: linear-gradient(to bottom,  $secondary-color 0%,$secondary-color 54%,#930911 100%);
+  background: $primary-color;
 }
 input[type="text"], 
 input[type="password"], 
@@ -172,15 +117,14 @@ input[type="tel"],
 input[type="time"], 
 input[type="url"], 
 textarea {
-  height: 2.6em; 
-  font-size: 24px;
+  
 }
 textarea {
-  height: 6em;
+  height: 32px;
 }
   input[type="submit"].button {
-    font-size: 24px;
-    padding: 20px;    
+    font-size: 14px;
+    padding: 10px;    
   }
 input[type="submit"].button:hover,  
 a.button.btn-submit-link:hover {
@@ -198,13 +142,12 @@ section#body-content {
   /*background: #ECEDF7;*/
   background: #F0EEE7;
   padding-top: 60px;
+}
   .columns.content-box {
     background-color: white;
     padding: 0;
-    border-radius: 2px;
+    border-radius: 2px;  
   }
-}
-
 
 /* Miscellaneous 
 -------------------------------------------------- */
