@@ -77,9 +77,10 @@
         width: 100%;
         li {
           width: 100%;
-          &:first-child {
-            margin-top: 0;
-          }
+            &:first-child {
+              margin-top: 0;
+            }
+          h6 { padding-left: 12px;}
           a {
             padding: 0 0 0 16px;
             height: 32px;

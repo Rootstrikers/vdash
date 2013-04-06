@@ -12,7 +12,19 @@ body {
   background-color: #FEFEFE; 
   color: #32324E;   
 }
-
+ul {
+  list-style-type: none;
+}
+.alert-box {
+  position: absolute;
+  width: 80%;
+  margin-left: -40%;
+  left: 50%;
+  top: 0px;
+  @include border-bottom-radius(4px);
+  background-color: $secondary-color;
+  border: none;
+}
 .full-width {
   width: 100%;
   max-width: 100%;
@@ -31,51 +43,11 @@ p {
     margin-top: 0;
   }
 }
-
-/*  Please make prettier. */
-.li-rounded-box {
-  list-style: none;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 5px;
-  margin-bottom: 5px;
-}
-
-.likable {
-  .like {
-    float: left;
-    padding-right: 4px;
-  }
-}
-
-li.link {
-  .name-and-url {
-    width: 80%;
-    display: inline;
-    float: left;
-
-    .name {
-      font-size: 1.2em;
-    }
-    .url {
-      font-size: .8em;
-    }
-  }
-}
-
-div.like {
-  a.like-action {
-    text-decoration: none;
-    &.voted {
-      color: red;
-    }
-  }
-}
-div.service {
+.service {
   display: inline;
   float: left;
 }
-div.body {
+.body {
   width: 80%;
   display: inline;
   float: left;
@@ -94,8 +66,7 @@ a.no-decoration {
 .black {
   background-color: $primary-color;
 }
-input[type="submit"].button,
-a.button.btn-submit-link {
+input[type="submit"].button {
   color: #ffffff;  
   font-weight: 400;
   padding: 2px 19px 10px 19px;
@@ -126,15 +97,12 @@ textarea {
     font-size: 14px;
     padding: 10px;    
   }
-input[type="submit"].button:hover,  
-a.button.btn-submit-link:hover {
+input[type="submit"].button:hover {
   background: $primary-color;
   border-color: $primary-color;
   cursor: pointer;
   @include transition (background 1ms ease-in);
 }
- 
-
 
 /* Main Content Area
 -------------------------------------------------- */
@@ -148,6 +116,103 @@ section#body-content {
     padding: 0;
     border-radius: 2px;  
   }
+.content-box > :not(header) {
+    padding: 12px;    
+}
+.content-box > .more-info {
+  padding: 0;
+}
+header.section-header {
+  background: royalblue;
+  border-radius: 2px 2px 0 0;     
+
+    height: 36px;
+  .button.btn-submit-link {
+    height: 36px;
+    float: right;
+    background: rgb(58, 92, 192);
+    &:hover {
+      background: rgb(78, 120, 245);
+    }
+    border:none;
+    border-left:1px solid #333;
+    box-shadow: none;
+    font-weight: 200;
+    font-size: 14px;
+     margin-bottom: -1px; /* (so it doesnt interact with 'add "more info" bit ) */
+  }/* button submit link */
+}
+
+  img.header-icon {
+      width: 24px;
+      height: 24px;
+      margin: 7px 6px 6px 11px;
+      float: left;
+      display: inline-block;
+  }
+  .section-title {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 36px;
+    margin: 0;
+    color: white;
+    margin-left: 4px;
+  } 
+  div.more-info {
+    padding: 0;         
+    &.opened-info a.more-info-toggle{
+      h4 {
+        display: none;
+        &.opened-message {
+          display: block;
+        }
+      }
+    }
+  }/* more-info */
+  a.more-info-toggle {
+      display: none;
+      font-size: 10px;
+      text-align: right;
+      padding: 2px 16px;
+      line-height: 10px;
+      height: 24px;
+      text-decoration: none;
+      background: #F5F6F7;
+      box-shadow: inset 0 -1px 0 #b0baba, 0 1px 0 rgba(250, 250, 250, 0.9);
+      border-right: 1px solid #D3D5D5;
+      border-left: 1px solid #D3D5D5;
+      &:hover {
+        background: #ECECEC;
+      }     
+    }/* more info toggle */
+      .more-info-title {
+        float: right;
+        color: #83878D;
+        padding: 0;
+        margin: 0;
+        &:hover {
+          color: #727272;
+        }       
+        i {
+          width: 17px;
+          font-size: 16px;
+          margin-right: 8px;
+          margin-top: 1px;
+        }
+      }/* more-info-title */
+      .opened-message {
+          display: none;
+      }
+      div.more-info-content {
+        margin: 0;
+        padding: 32px;
+        display: none;
+        p {
+          font-size: 16px;
+          line-height: 20px;
+          font-weight: 200;
+        }
+      } /* more-info-content */
 
 /* Miscellaneous 
 -------------------------------------------------- */

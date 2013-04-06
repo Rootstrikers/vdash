@@ -1,32 +1,23 @@
-<li class="link">
-  <div class="pull-left">
-    <div class="like">
+<li class="links-list">
+  <div class="row">
+    <div class="small-12 large-1 columns like-arrow">
       <%= render partial: 'likes/like_status', locals: { item: link } %>
     </div>
-    <div class="name-and-url">
-      <div class="name">
+    <div class="small-12 large-8 columns name-and-url">
         <%= link_to link.display_name, link %>
-      </div>
-      <div class="url">
         <%= link_to link.domain, link.url, target: '_blank' %>
-      </div>
-    </div>
-  </div>
-  <div class="pull-right">
-    <div class="submitter">
+    </div><!-- name-and-url -->
+    <div class="small-12 large-3 columns submitter-info"
       Submitted by <%= link_to link.user.name, link.user %>
-    </div>
-    <div class="ideas">
       <%= pluralize link.contents.count, 'Post Idea' %>
-    </div>
-    <% if current_user.try(:admin?) %>
-      <div class="delete-link">
-        Admin:
-        <%= link_to link, method: :delete, class: 'no-decoration', data: { confirm: 'Are you sure you want to delete this link?' } do %>
-          <i class="icon-trash"></i>
+      <% if current_user.try(:admin?) %>
+        <div class="delete-link">
+          Admin:
+          <%= link_to link, method: :delete, class: 'no-decoration', data: { confirm: 'Are you sure you want to delete this link?' } do %>
+            <i class="icon-trash"></i>
+        </div>
         <% end %>
-      </div>
-    <% end %>
-  </div>
-  <br style="clear: both" />
+    </div><!-- submitter-info -->
+  </div><!-- row -->  
+  <% end %>
 </li>
