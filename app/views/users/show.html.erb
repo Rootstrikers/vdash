@@ -1,21 +1,28 @@
-<div class="user-profile">
-  <h2>
-    <%= @user.name %>
-  </h2>
+<div class="row">  
+  <section class="small-12 columns content-box">
+      <header class='section-header'>
+        <img src="/assets/?" class='header-icon ?'>
+        <h2 class="section-title"><%= @user.name %>'s profile</h2>
+        <%#= ?? maybe put here link_to '<span>+</span> Suggest Article'.html_safe, new_link_path, class: 'button btn-submit-link' %>
+      </header>
 
-  <% if @user.links.any? %>
-    <h3>Submitted Links</h3>
+        <% if @user.links.any? %>
+          <h6>Submitted Links</h6>
+          <ul>
+            <%= render @user.links %>
+          </ul>
+        <% end %>
 
-    <ul>
-      <%= render @user.links %>
-    </ul>
-  <% end %>
+        <% if @user.contents.any? %>
+          <h6>Submitted Post Ideas</h6>
 
-  <% if @user.contents.any? %>
-    <h3>Submitted Post Ideas</h3>
+          <ul class="mixed-contents">
+            <%= render @user.contents %>
+          </ul>
+        <% end %>
+  </section><!-- small-12 columns content-box -->
+</div><!-- row -->
 
-    <ul class="mixed-contents">
-      <%= render @user.contents %>
-    </ul>
-  <% end %>
-</div>
+      
+
+
