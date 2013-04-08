@@ -23,8 +23,12 @@ class User < ActiveRecord::Base
     Thread.current[:current_user]
   end
 
+  def self.existing_user(auth)
+    where(auth.slice("provider", "uid")).first
+  end
+
   def self.from_omniauth(auth)
-  	where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
+  	existing_user(auth) || create_from_omniauth(auth)
   end
 
   # TODO: Capture as much information as we can here

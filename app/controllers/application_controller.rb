@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :set_current_user, :set_notice
+  before_filter :set_current_user, :set_notice, :set_can_signup
 
   private
 
@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
 
   def set_notice
     @site_wide_notice = Notice.active
+  end
+
+  def set_can_signup
+    session[:can_sign_up] ||= (params[:secret] == SIGNUP_TOKEN)
   end
 
   helper_method :current_user
