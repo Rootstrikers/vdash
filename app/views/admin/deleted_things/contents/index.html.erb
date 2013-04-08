@@ -1,24 +1,43 @@
-<h2>Deleted Post Ideas</h2>
+<div class="row">  
+  <section class="small-12 columns content-box">
+      <header class='section-header'>
+        <img src="/assets/?" class='header-icon ?'>
+        <h2 class="section-title">Deleted Post Ideas</h2>
+      </header>
+      <div class='more-info'>
+        <a class='more-info-toggle' href='#'>
+          <h4 class="more-info-title">
+            <i class='icon-info-sign'></i>Need a little more information? Click here.
+          </h4>
+          <h4 class='opened-message more-info-title'><i class='icon-minus-sign'></i>Hide</h4>
+        </a>
+        <div class='more-info-content'>
+          <p>The posts below have been deleted by an admin.</p>
+        </div>
+      </div>              
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Body</th>
+              <th>Submitted By</th>
+              <th>Link</th>
+              <th>Deleted At</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @contents.each do |content| %>
+              <tr>
+                <td><%= content.body %></td>
+                <td><%= link_to content.user_name, content.user %></td>
+                <td><%= link_to content.link_domain, content.link_url %></td>
+                <td><%= content.deleted_at %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th>Submitted By</th>
-      <th>Link</th>
-      <th>Deleted At</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @contents.each do |content| %>
-      <tr>
-        <td><%= content.body %></td>
-        <td><%= link_to content.user_name, content.user %></td>
-        <td><%= link_to content.link_domain, content.link_url %></td>
-        <td><%= content.deleted_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <%= will_paginate @contents %>
 
-<%= will_paginate @contents %>
+  </section><!-- small-12 columns content-box -->
+</div><!-- row -->
+

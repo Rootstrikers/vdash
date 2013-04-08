@@ -1,29 +1,38 @@
-<h2>
-  Site-Wide Notices
-  <%= link_to 'Create new Notice', new_admin_notice_path, class: 'btn btn-primary pull-right' %>
-</h2>
+<div class="row">  
+  <section class="small-12 columns content-box">
+      <header class='section-header'>
+        <img src="/assets/?" class='header-icon ?'>
+        <h2 class="section-title">Site-Wide Notices</h2>
+        <%= link_to '+ Create new Notice', new_admin_notice_path, class: 'button btn-section-header' %>
+      </header>
+      <div class='more-info'>
+        <a class='more-info-toggle' href='#'>
+          <h4 class="more-info-title">
+            <i class='icon-info-sign'></i>Need a little more information? Click here.
+          </h4>
+          <h4 class='opened-message more-info-title'><i class='icon-minus-sign'></i>Hide</h4>
+        </a>
+        <div class='more-info-content'>
+          <h3>Create site-wide notices for all to see.</h3>
+          <p>An active site-wide notice will be displayed on every page to every user. Use this for important announcements or calls to action.</p>
+        </div>
+      </div>              
+        <p>When you create a new active notice, any currently active notice will be deactivated.</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Body</th>
+              <th>Active</th>
+              <th>Created By</th>
+              <th>Timestamp</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @notices %>
+          </tbody>
+        </table>
+        <%= will_paginate @notices %>
+  </section><!-- small-12 columns content-box -->
+</div><!-- row -->
 
-<p>
-  An active site-wide notice will be displayed on every page to every user. Use this for important announcements or calls to action.
-</p>
-
-<p>
-  When you create a new active notice, any currently active notice will be deactivated.
-</p>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th>Active</th>
-      <th>Created By</th>
-      <th>Timestamp</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @notices %>
-  </tbody>
-</table>
-
-<%= will_paginate @notices %>

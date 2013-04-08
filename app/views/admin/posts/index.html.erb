@@ -1,20 +1,38 @@
-<h2>Social Media Posts</h2>
+<div class="row">  
+  <section class="small-12 columns content-box">
+      <header class='section-header'>
+        <img src="/assets/?" class='header-icon ?'>
+        <h2 class="section-title">Social Media Posts</h2>
+      </header>
+      <div class='more-info'>
+        <a class='more-info-toggle' href='#'>
+          <h4 class="more-info-title">
+            <i class='icon-info-sign'></i>Need a little more information? Click here.
+          </h4>
+          <h4 class='opened-message more-info-title'><i class='icon-minus-sign'></i>Hide</h4>
+        </a>
+        <div class='more-info-content'>
+          <p>Below are the last posts made from the Volunteer Dashboard.</p>
+        </div>
+      </div> 
 
-<p>Below are the last posts made from the Volunteer Dashboard.</p>
+        <ul class="social-media-ideas">
+        <% @posts.each do |post| %>
+          <li>
+            <% if post.is_a?(Posts::Twitter) %>
+              <i class="icon-twitter-sign"></i>
+            <% elsif post.is_a?(Posts::Facebook) %>
+              <i class="icon-facebook-sign"></i>
+            <% end %>
+            <%= post.content.body %>
+            <br />
+            <%= link_to post.content.link_domain, post.content.link_url %>
+          </li>
+        <% end %>
+      </ul>
 
-<ul class="social-media-ideas">
-  <% @posts.each do |post| %>
-    <li>
-      <% if post.is_a?(Posts::Twitter) %>
-        <i class="icon-twitter-sign"></i>
-      <% elsif post.is_a?(Posts::Facebook) %>
-        <i class="icon-facebook-sign"></i>
-      <% end %>
-      <%= post.content.body %>
-      <br />
-      <%= link_to post.content.link_domain, post.content.link_url %>
-    </li>
-  <% end %>
-</ul>
+      <%= will_paginate @posts %>
 
-<%= will_paginate @posts %>
+  </section><!-- small-12 columns content-box -->
+</div><!-- row -->
+

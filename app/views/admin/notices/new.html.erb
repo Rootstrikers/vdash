@@ -1,3 +1,24 @@
-<h2>New Notice</h2>
+<div class="row">  
+  <section class="small-12 columns content-box">
+      <header class='section-header'>
+        <img src="/assets/?" class='header-icon ?'>
+        <h2 class="section-title">Create New Notice</h2>
+      </header>
+      <div class='more-info'>
+        <a class='more-info-toggle' href='#'>
+          <h4 class="more-info-title">
+            <i class='icon-info-sign'></i>Need a little more information? Click here.
+          </h4>
+          <h4 class='opened-message more-info-title'><i class='icon-minus-sign'></i>Hide</h4>
+        </a>
+        <div class='more-info-content'>
+          <h3>Create site-wide notices for all to see.</h3>
+          <p>An active site-wide notice will be displayed on every page to every user. Use this for important announcements or calls to action.</p>
+        </div>
+      </div>              
+        
+        <%= render 'form' %>
+        
+  </section><!-- small-12 columns content-box -->
+</div><!-- row -->
 
-<%= render 'form' %>

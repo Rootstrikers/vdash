@@ -125,9 +125,9 @@ section#body-content {
 header.section-header {
   background: royalblue;
   border-radius: 2px 2px 0 0;     
-
-    height: 36px;
-  .button.btn-submit-link {
+    height: 36px; /* maybe make into mixin, but keep btn-section-header the same as this */
+}
+ .button.btn-section-header {
     height: 36px;
     float: right;
     background: rgb(58, 92, 192);
@@ -141,7 +141,6 @@ header.section-header {
     font-size: 14px;
      margin-bottom: -1px; /* (so it doesnt interact with 'add "more info" bit ) */
   }/* button submit link */
-}
 
   img.header-icon {
       width: 24px;
