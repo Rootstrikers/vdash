@@ -7,6 +7,8 @@ class RemoteLink
   def initialize(url)
     self.url      = url
     self.document = Nokogiri::HTML(open url)
+
+    complain_if_bad_url
   end
 
   def title
@@ -22,5 +24,10 @@ class RemoteLink
       title:           title,
       first_paragraph: first_paragraph
     }
+  end
+
+  private
+  def complain_if_bad_url
+    raise "Invalid URL" if URI.parse(url).host.nil?
   end
 end

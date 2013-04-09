@@ -2,7 +2,10 @@ require 'spec_helper'
 
 describe RemoteLinksController do
   let(:user) { FactoryGirl.create(:user) }
-  before { sign_in user }
+  before do
+    sign_in user
+    RemoteLink.any_instance.stub(:complain_if_bad_url)
+  end
 
   describe 'a GET to :show' do
     it 'renders the remote link as json' do
