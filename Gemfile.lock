@@ -88,6 +88,7 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.6.1)
     multipart-post (1.2.0)
+    nokogiri (1.5.9)
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -195,6 +196,7 @@ DEPENDENCIES
   jquery-rails
   koala
   less
+  nokogiri
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter

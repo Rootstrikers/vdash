@@ -8,6 +8,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'koala'
 gem 'will_paginate'
+gem 'nokogiri'
 
 group :development do
   gem 'annotate'
