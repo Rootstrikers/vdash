@@ -14,4 +14,13 @@ describe RemoteLink do
       remote_link.first_paragraph.should == 'This is my paragraph.'
     end
   end
+
+  describe '#as_json' do
+    it 'returns the title and first_paragraph as json' do
+      remote_link.as_json.should == {
+        title:           "This is my title",
+        first_paragraph: "This is my paragraph."
+      }
+    end
+  end
 end

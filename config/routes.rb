@@ -24,6 +24,7 @@ Vdash::Application.routes.draw do
 
   # Misc
   get 'help', to: 'help#index'
+  resource :remote_link
 
   # Admin things
   namespace :admin do
