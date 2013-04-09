@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130402043426) do
+ActiveRecord::Schema.define(:version => 20130409035703) do
 
   create_table "bans", :force => true do |t|
     t.integer  "user_id"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20130402043426) do
     t.string   "title"
     t.text     "summary"
     t.integer  "like_count"
-    t.boolean  "approved"
     t.datetime "deleted_at"
+    t.boolean  "approved"
   end
 
   add_index "links", ["user_id"], :name => "index_links_on_user_id"
@@ -83,12 +83,25 @@ ActiveRecord::Schema.define(:version => 20130402043426) do
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.boolean  "admin"
     t.string   "uid"
     t.string   "name"
     t.string   "provider"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "full_name"
+    t.string   "email"
+    t.string   "birthday"
+    t.text     "description"
+    t.string   "image"
+    t.string   "location"
+    t.string   "gender"
+    t.string   "twitter_url"
+    t.string   "facebook_url"
+    t.string   "google_url"
+    t.string   "website_url"
   end
 
 end
