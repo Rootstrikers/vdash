@@ -1,4 +1,4 @@
-class Url < String
+class Url
   attr_accessor :raw_url, :url
 
   def initialize(raw_url)

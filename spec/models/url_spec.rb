@@ -27,7 +27,7 @@ describe Url do
     end
 
     it 'returns "" if given ""' do
-      Url.new('').should == ''
+      Url.new('').to_s.should == ''
     end
   end
 
