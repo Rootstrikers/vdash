@@ -77,18 +77,16 @@ class Link < ActiveRecord::Base
     DomainName.new(url).strip_protocol
   end
 
+  def url=(url)
+    self[:url] = Url.new(url).to_s
+  end
+
+  private
+
   def url_present
     errors.add(:url, "can't be blank") if url.split('://').size < 2
   end
 
-  def url=(new_url)
-    if !(new_url.present? && new_url.start_with?('http')) # don't change https either
-      new_url = "http://#{new_url}"
-    end
-    write_attribute(:url, new_url)
-  end
-
-  private
   class DomainName < Struct.new(:url)
     def to_s
       strip_protocol

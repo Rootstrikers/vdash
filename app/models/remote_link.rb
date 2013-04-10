@@ -5,7 +5,7 @@ class RemoteLink
 
   # Throws SocketError if URL cannot be resolved. Not sure about timeouts.
   def initialize(url)
-    self.url      = url
+    self.url      = Url.new(url).to_s
     self.document = Nokogiri::HTML(open url)
 
     complain_if_bad_url
@@ -28,6 +28,6 @@ class RemoteLink
 
   private
   def complain_if_bad_url
-    raise "Invalid URL" if URI.parse(url).host.nil?
+    raise "Invalid URL" unless url =~ URI::regex
   end
 end
