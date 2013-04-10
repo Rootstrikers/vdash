@@ -56,4 +56,8 @@ class User < ActiveRecord::Base
   def liked?(item)
     Like.exists?(user_id: self, item_type: item.class.name, item_id: item.id)
   end
+
+  def banned?
+    bans.unlifted.exists?
+  end
 end

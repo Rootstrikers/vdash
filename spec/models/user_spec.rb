@@ -45,4 +45,20 @@ describe User do
       user.liked?(link).should be_true
     end
   end
+
+  describe '#banned?' do
+    it 'returns false' do
+      user.should_not be_banned
+    end
+
+    it 'returns false if user has a lifted ban' do
+      FactoryGirl.create(:ban, user: user, lifted_at: 1.day.ago)
+      user.should_not be_banned
+    end
+
+    it 'returns true if user has a current ban' do
+      FactoryGirl.create(:ban, user: user, lifted_at: nil)
+      user.should be_banned
+    end
+  end
 end
