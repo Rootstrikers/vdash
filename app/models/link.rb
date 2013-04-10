@@ -18,8 +18,7 @@ class Link < ActiveRecord::Base
   belongs_to :user
   has_many :contents
 
-  validates :url, uniqueness: true
-  validate :url_present
+  validates :url, uniqueness: true, presence: true
 
   attr_accessible :url, :title, :summary
 
@@ -82,10 +81,6 @@ class Link < ActiveRecord::Base
   end
 
   private
-
-  def url_present
-    errors.add(:url, "can't be blank") if url.split('://').size < 2
-  end
 
   class DomainName < Struct.new(:url)
     def to_s

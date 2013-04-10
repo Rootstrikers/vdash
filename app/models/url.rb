@@ -6,6 +6,8 @@ class Url < String
   end
 
   def to_s
+    return url if url.blank?
+
     ensure_protocol
     url
   end

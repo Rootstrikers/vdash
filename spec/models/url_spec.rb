@@ -14,14 +14,20 @@ describe Url do
   end
 
   describe '#to_s' do
-    context 'when given a valid url' do
-      it 'just returns the url' do
-        Url.new('http://www.example.com').to_s.should == 'http://www.example.com'
-      end
+    it 'just returns the url when given a complete url' do
+      Url.new('http://www.example.com').to_s.should == 'http://www.example.com'
+    end
 
-      it 'defaults to http if no scheme given' do
-        Url.new('www.example.com').to_s.should == 'http://www.example.com'
-      end
+    it 'defaults to http if no scheme given' do
+      Url.new('www.example.com').to_s.should == 'http://www.example.com'
+    end
+
+    it 'returns nil if given nil' do
+      Url.new(nil).to_s.should be_nil
+    end
+
+    it 'returns "" if given ""' do
+      Url.new('').should == ''
     end
   end
 end
