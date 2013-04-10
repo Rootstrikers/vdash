@@ -21,13 +21,17 @@ describe Link do
   it { should have_many :contents }
 
   it { should validate_uniqueness_of :url }
+  it { should validate_presence_of :url }
 
   let(:link) { FactoryGirl.create(:link) }
 
-  it 'requires a url' do
-    link = Link.new(url: '')
-    link.valid?.should == false
-    link.errors[:url].should == ["can't be blank"]
+  context 'validations' do
+    let(:link) { Link.new(url: 'apples') }
+    before { link.valid? }
+
+    it 'will not accept invald urls' do
+      link.errors[:url].should == ["looks like it's not quite right."]
+    end
   end
 
   describe '.unposted' do

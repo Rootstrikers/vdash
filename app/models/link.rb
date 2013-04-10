@@ -19,6 +19,7 @@ class Link < ActiveRecord::Base
   has_many :contents
 
   validates :url, uniqueness: true, presence: true
+  validate :url_valid
 
   attr_accessible :url, :title, :summary
 
@@ -81,6 +82,10 @@ class Link < ActiveRecord::Base
   end
 
   private
+
+  def url_valid
+    errors[:url] << "looks like it's not quite right." unless Url.new(url).valid?
+  end
 
   class DomainName < Struct.new(:url)
     def to_s

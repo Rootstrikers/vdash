@@ -3,13 +3,20 @@ class Url < String
 
   def initialize(raw_url)
     self.raw_url = self.url = raw_url
+    ensure_protocol if url.present?
   end
 
   def to_s
     return url if url.blank?
 
-    ensure_protocol
     url
+  end
+
+  def valid?
+    uri = URI.parse(url)
+    looks_valid?
+  rescue URI::InvalidURIError
+    false
   end
 
   private
@@ -19,5 +26,9 @@ class Url < String
 
   def has_protocol?
     url.split('://').size > 1
+  end
+
+  def looks_valid?
+    url =~ URI::regexp and url.include?('.')
   end
 end
