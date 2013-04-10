@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :set_current_user, :set_notice, :set_can_signup
+  before_filter :set_current_user, :set_notice, :set_can_signup, :ensure_not_banned
 
   private
 
@@ -28,6 +28,10 @@ class ApplicationController < ActionController::Base
 
   def set_can_signup
     session[:can_sign_up] ||= (params[:secret] == SIGNUP_TOKEN)
+  end
+
+  def ensure_not_banned
+    redirect_to root_url, flash: { error: "You are banned." } if current_user.try(:banned?)
   end
 
   helper_method :current_user
