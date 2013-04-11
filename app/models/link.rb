@@ -16,7 +16,7 @@ class Link < ActiveRecord::Base
   include Deletable
 
   belongs_to :user
-  has_many :contents
+  has_many :contents, dependent: :destroy
 
   validates :url, uniqueness: true, presence: true
   validate :url_valid
