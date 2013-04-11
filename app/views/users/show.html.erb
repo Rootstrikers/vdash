@@ -1,10 +1,17 @@
-<div class="row">  
+<div class="row">
   <section class="small-12 columns content-box">
       <header class='section-header'>
         <img src="/assets/?" class='header-icon ?'>
         <h2 class="section-title"><%= @user.name %>'s profile</h2>
         <%#= ?? maybe put here link_to '<span>+</span> Suggest Article'.html_safe, new_link_path, class: 'button btn-submit-link' %>
+        <div class="pull-right">
+          <% if @user.admin? %>
+            <div class="label">Admin</div>
+          <% end %>
+        </div>
       </header>
+        <%= render 'admin_tools' if current_user.try(:admin?) %>
+        <%= render 'banned' if @user.banned? %>
 
         <% if @user.links.any? %>
           <h6>Submitted Links</h6>
@@ -23,6 +30,6 @@
   </section><!-- small-12 columns content-box -->
 </div><!-- row -->
 
-      
+
 
 

@@ -40,8 +40,8 @@ Vdash::Application.routes.draw do
     end
 
     # User-specific things
-    namespace :users do
-      resources :bans, only: [:index, :new, :create, :destroy]
+    resources :users, only: [] do
+      resources :bans, only: [:index, :new, :create, :destroy], controller: 'users/bans'
     end
   end
 end
