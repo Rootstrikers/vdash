@@ -1,11 +1,11 @@
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oxygen', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serifsans-serif;  
+    font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serifsans-serif;  
     font-weight: 200; 
     color: #32324E; 
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   font-weight: 300;
   margin: 0;
   padding: 0;
@@ -66,14 +66,6 @@ a.no-decoration {
 .black {
   background-color: $primary-color;
 }
-input[type="submit"].button {
-  color: #ffffff;  
-  font-weight: 400;
-  padding: 2px 19px 10px 19px;
- 
-  border-radius: 4px;  
-  background: $primary-color;
-}
 input[type="text"], 
 input[type="password"], 
 input[type="date"], 
@@ -92,16 +84,6 @@ textarea {
 }
 textarea {
   height: 32px;
-}
-  input[type="submit"].button {
-    font-size: 14px;
-    padding: 10px;    
-  }
-input[type="submit"].button:hover {
-  background: $primary-color;
-  border-color: $primary-color;
-  cursor: pointer;
-  @include transition (background 1ms ease-in);
 }
 
 /* Main Content Area
@@ -240,4 +222,50 @@ header.section-header {
       0% {-moz-transform: rotate(0deg);}
      50% {-moz-transform: rotate(45deg);}
     100% {-moz-transform: rotate(0deg); }
+}
+
+.button, input[type="submit"].button {
+  border: 0;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  padding: 0 15px;
+  background: #db0d16;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(246, 104, 110, 0.5), 
+              inset 0 -1px 0 #C10911, 
+              inset 1px 0 0 #C70109, 
+              inset -1px 0 0 #C70109;
+  -moz-box-shadow: inset 0 1px 0 rgba(246, 104, 110, 0.5), 
+              inset 0 -1px 0 #C10911, 
+              inset 1px 0 0 #C70109, 
+              inset -1px 0 0 #C70109;
+  -o-box-shadow: inset 0 1px 0 rgba(246, 104, 110, 0.5), 
+              inset 0 -1px 0 #C10911, 
+              inset 1px 0 0 #C70109, 
+              inset -1px 0 0 #C70109;
+  box-shadow: inset 0 1px 0 rgba(246, 104, 110, 0.5), 
+              inset 0 -1px 0 #C10911, 
+              inset 1px 0 0 #C70109, 
+              inset -1px 0 0 #C70109;
+  border-bottom: 3px solid #c70109;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 35px;
+  font-weight: bold;
+  color: white;
+  &:hover, &:active {
+    @include transition (background 1ms ease-in);
+    background: -o-linear-gradient(top, #db0d16, #D10C15);
+    background: -moz-linear-gradient(top, #db0d16, #D10C15);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #db0d16), color-stop(1, #D10C15));
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#db0d1600,EndColorStr=#D10C1500);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#db0d1600,EndColorStr=#D10C1500)";
+  }
+  &:active{
+    @include transition (border 1ms ease-in);
+    @include transition (margin 1ms ease-in);
+    border: 0;
+    margin-top: 2px;
+  }
 }

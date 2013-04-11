@@ -13,8 +13,8 @@
     <%= content_for?(:title) ? yield(:title) : "dash.Rootstrikers" %>
   </title>
 
-  <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
-  
+  <!--<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'> -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag "application", :media => "all" %>  
   <!--[if lt IE 9]>
       <%= javascript_include_tag "html5-3.6-respond-1.1.0.min" %>
@@ -24,8 +24,7 @@
 <body>
   <%= render 'layouts/header' %>
   <div class="row full-width">
-    <%= render 'layouts/sidebar' %>
-    <section id='body-content' class="small-12 large-10 columns layout-col">
+    <section id='body-content' class="small-12 large-12 columns layout-col">
       <%= render 'layouts/notice' if @site_wide_notice %>
       <%= render 'layouts/messages' %>
       <div class="row">  

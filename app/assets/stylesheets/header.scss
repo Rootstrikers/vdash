@@ -1,99 +1,141 @@
 header#masthead {
 	background: #626173;
-  @include linear-gradient(left, #626173, #534F5E);
+  height: 65px;
+  @include linear-gradient(left, #223141, #243343);
 	border-bottom: 1px solid #1B1B21;
 	box-shadow: inset 0 -1px 0px rgba(44, 43, 54, 0.2);
 	position: relative;
   hgroup {
     position: relative;
     display: block;
-    padding-left: 16px;    
+    padding-left: 16px;   
+    a {
+      img {
+        height: 30px;
+        margin-top: 17px;
+      }
+    } 
   }
-}
-div#session-controls-wrapper {
-  padding-right: 16px;
-}
- div#session-controls {
-    width: 200px;
-    height: 30px;
-    float: right;   
-  }
-  ul.menu-options {
-        list-style: none;
-        margin: 0;
-        position: relative;
-        float: right;      
-  }
-  .menu-options li {
-      float: left;
+
+  nav {
+    ul {
+      margin: 0;
       padding: 0;
+      list-style: none;
+      li {
+        float: left;
+        margin: 13px 8px;
+        a {
+          margin-bottom: 0;
+          img {
+            height: 24px;
+            float: left;
+            margin: 6px 8px 6px -8px;
+          }
+          h4 {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: white;
+            font-size: 14px;
+            line-height: 35px;
+            margin: 0;
+            float: left;
+          }
+        }
+      }
+    }
   }
-  .menu-options.logged-in li {
-    margin: 3px 14px 0 0;
+
+  div#session-controls-wrapper {
+    padding-right: 16px;
+    div#session-controls {
+      width: 200px;
+      height: 30px;
+      float: right;   
+    }
+    ul.menu-options {
+          list-style: none;
+          margin: 0;
+          position: relative;
+          float: right;      
+    }
+    .menu-options li {
+        float: left;
+        padding: 0;
+    }
+    .menu-options.logged-in li {
+      margin-left: 16px;
+      &:first-child {
+        margin-left: 0px;
+      }
       a {
+        line-height: 65px;
         font-size: 13.5px;
         color: #ffffff;
         &:hover {
           color: silver;
         }
       }
-  }
-.home-link {
-    line-height: 30px;
-    margin: 0;
-    padding: 0;
-    font-weight: 200;
-    color: white;
-    font-size: 14px;
-}
- .sign-in-with {
-    margin: 0 20px;
-    font-size: 11px;
-    color: white;
-    display: block;
-    line-height: 31px;
-    margin-left: 27px;
-    float: left;
-  }
-.social-icon {  
-  font-weight: 400;
-  color: #ffffff;
-  &:hover {
-    color: #fff;
-  }
-}
-.icon-3x {
-   font-size: 20px;
-   border-radius: 0;
-   padding: 0;
-   height: 30px;
-   padding-top: 5px;
-   width: 33px;
-   padding-left: 2px;
-}
+    }
+    .home-link {
+      line-height: 30px;
+      margin: 0;
+      padding: 0;
+      font-weight: 200;
+      color: white;
+      font-size: 14px;
+    }
+    .sign-in-with {
+      margin: 0 20px;
+      font-size: 11px;
+      color: white;
+      display: block;
+      line-height: 31px;
+      margin-left: 27px;
+      float: left;
+    }
+    .social-icon {  
+      font-weight: 400;
+      color: #ffffff;
+      &:hover {
+        color: #fff;
+      }
+    }
+    .icon-3x {
+       font-size: 20px;
+       border-radius: 0;
+       padding: 0;
+       height: 30px;
+       padding-top: 5px;
+       width: 33px;
+       padding-left: 2px;
+    }
     li [class^="icon-"], 
     li [class*=" icon-"], 
     .nav li [class^="icon-"], 
     .nav li [class*=" icon-"] {
         width: 33px;
     }
-.social-icon > .icon-twitter {
-  background-color: #4099FF;  
-  &:hover {
-    background-color: #3887E1;
+    .social-icon > .icon-twitter {
+      background-color: #4099FF;  
+      &:hover {
+        background-color: #3887E1;
+      }
+    }
+    .social-icon > .icon-facebook {
+      background-color: #3b5999;
+      &:hover {
+        background-color: #2D4578;
+      }
+    }
+    .social-icon > .icon-google-plus {
+      background-color: #D54330;
+      &:hover {
+        background-color: #C33E2D;
+      }
+    }
   }
 }
-.social-icon > .icon-facebook {
-  background-color: #3b5999;
-  &:hover {
-    background-color: #2D4578;
-  }
-}
-.social-icon > .icon-google-plus {
-  background-color: #D54330;
-  &:hover {
-    background-color: #C33E2D;
-  }
-}
+
 
  

@@ -1,7 +1,8 @@
-<nav>
+<nav class="small-12 large-5 columns">
 	<ul>
-		<%= nav_item 'Browse & Vote', "/assets/book_dark.svg", links_path %>
-		<%= nav_item 'Learn More', "/assets/bulb_dark.svg", help_path %>
+		<%= nav_item 'Suggest Article', "/assets/axe_white.svg", "/links/new", {:class => 'button'} %>
+		<%= nav_item 'Browse & Vote', "/assets/book_white.svg", links_path %>
+		<%= nav_item 'Learn More', "/assets/bulb_white.svg", help_path  %>
 		<% if current_user.try(:admin?) %>
     <li><h6>Admin:</h6></li>
 				<%= nav_item 'Top Ideas', nil, admin_contents_path %>

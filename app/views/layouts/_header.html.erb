@@ -1,6 +1,11 @@
 <header id='masthead' class="row full-width">
 	<hgroup class="small-12 large-4 columns">
-		<a href='/' class="home-link">Dash</a>
+		<a href='/' class="home-link">
+			<img src='/assets/logo.svg' alt='Rootstrikers'></img>
+		</a>
 	</hgroup>
+	<% if current_user %>	
+		<%= render 'layouts/navigation' %>
+	<% end %>
 	<%= render 'layouts/session' %>
 </header>
