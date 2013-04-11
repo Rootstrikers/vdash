@@ -4,7 +4,7 @@ module Likable
   extend ActiveSupport::Concern
 
   included do
-    has_many :likes, as: :item
+    has_many :likes, as: :item, dependent: :destroy
     has_many :liked_by_users, through: :likes, source: :user, class_name: 'User'
     after_touch :set_like_count
   end

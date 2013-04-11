@@ -1,0 +1,8 @@
+<h6>Admin Stuff</h6>
+<div>
+  <% if @user.banned? %>
+    <%= link_to 'Unban User', admin_user_ban_path(@user, @user.ban), method: :delete, data: { confirm: 'Are you sure you want to unban this user?' }, class: 'button tiny' %>
+  <% else %>
+    <%= link_to 'Ban User', new_admin_user_ban_path(@user), class: 'button tiny' %>
+  <% end %>
+</div>

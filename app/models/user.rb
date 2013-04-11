@@ -28,8 +28,7 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
-    Rails.logger.debug auth.inspect
-  	existing_user(auth) || create_from_omniauth(auth)
+    existing_user(auth) || create_from_omniauth(auth)
   end
 
   def self.create_from_omniauth(auth)
@@ -59,5 +58,9 @@ class User < ActiveRecord::Base
 
   def banned?
     bans.unlifted.exists?
+  end
+
+  def ban
+    bans.unlifted.newest_first.first
   end
 end

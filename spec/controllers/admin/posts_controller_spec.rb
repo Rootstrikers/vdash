@@ -26,7 +26,7 @@ module Admin
 
       it 'redirects to the posts index' do
         action.call
-        response.should redirect_to admin_contents_url
+        response.should redirect_to contents_url
       end
 
       it 'sets the flash' do

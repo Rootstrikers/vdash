@@ -7,7 +7,7 @@ class Content < ActiveRecord::Base
   belongs_to :link
   belongs_to :user
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   validates :body, presence: true
 
@@ -16,8 +16,25 @@ class Content < ActiveRecord::Base
   delegate :url, :domain, to: :link, prefix: true
   delegate :name, to: :user, prefix: true
 
+  # TODO: Need to enable filtering to things that have not been posted to all places they are eligible
+  # (The below won't work since some things aren't eligible for posting to Twitter, so they'd never match.)
+  # def self.unposted
+  #   where("not (
+  #     exists (
+  #       select 1 from posts where content_id = contents.id and type = :facebook_type
+  #     )
+  #     and
+  #     exists (
+  #       select 1 from posts where content_id = contents.id and type = :twitter_type
+  #     )
+  #   )", {
+  #     facebook_type: 'Posts::Facebook',
+  #     twitter_type:  'Posts::Twitter'
+  #   })
+  # end
+
   def self.unposted
-    where("not exists (select 1 from posts where content_id = contents.id)")
+    where('not exists (select 1 from posts where content_id = contents.id)')
   end
 
   def self.posted

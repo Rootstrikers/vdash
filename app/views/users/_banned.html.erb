@@ -1,0 +1,9 @@
+<h6>Banned!</h6>
+<p>
+  Banned by <%= link_to @user.ban.created_by_name, @user.ban.created_by %>
+</p>
+<% if @user.ban.reason.present? %>
+  <p>
+    Reason: <%= @user.ban.reason %>
+  </p>
+<% end %>

@@ -5,7 +5,6 @@
 		<%= nav_item 'Learn More', "/assets/bulb_white.svg", help_path  %>
 		<% if current_user.try(:admin?) %>
     <li><h6>Admin:</h6></li>
-				<%= nav_item 'Top Ideas', nil, admin_contents_path %>
 				<%= nav_item 'Previous Posts', nil, admin_posts_path %>
 				<%= nav_item 'Notices', nil, admin_notices_path %>
 			<% end %>

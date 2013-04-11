@@ -3,6 +3,10 @@ class ContentsController < ApplicationController
   before_filter :get_link, except: [:index]
   before_filter :get_content, only: [:edit, :update, :destroy]
 
+  def index
+    @contents = Content.unposted.ordered.paginate(page: params[:page])
+  end
+
   def new
     @content = @link.contents.new
   end
