@@ -11,6 +11,7 @@ Vdash::Application.routes.draw do
   resources :links do
     resources :contents, except: [:index, :show]
   end
+  resources :contents, only: [:index]
 
   # User stuff
   resources :users, only: [:show]
@@ -30,7 +31,6 @@ Vdash::Application.routes.draw do
   namespace :admin do
     resources :posts, only: [:index, :create]
     resources :notices
-    resources :contents, only: [:index]
     resources :bans, only: [:index]
 
     # Deleted things

@@ -13,6 +13,15 @@ describe ContentsController do
   }
   let(:content) { contents.first }
 
+  describe 'a GET to :index, ordered by like_count' do
+    let(:action) { -> { get :index } }
+
+    it 'assigns to @contents, ordered' do
+      action.call
+      assigns(:contents).should == contents.reverse
+    end
+  end
+
   describe 'a GET to :new' do
     let(:action) { -> { get :new, link_id: link.id } }
 

@@ -2,9 +2,9 @@
 	<ul>
 		<%= nav_item 'Browse & Vote', "/assets/book_dark.svg", links_path %>
 		<%= nav_item 'Learn More', "/assets/bulb_dark.svg", help_path %>
+		<%= nav_item 'Top Ideas', nil, contents_path %>
 		<% if current_user.try(:admin?) %>
     <li><h6>Admin:</h6></li>
-				<%= nav_item 'Top Ideas', nil, admin_contents_path %>
 				<%= nav_item 'Previous Posts', nil, admin_posts_path %>
 				<%= nav_item 'Notices', nil, admin_notices_path %>
 			<% end %>

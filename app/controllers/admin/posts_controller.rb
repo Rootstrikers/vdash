@@ -8,7 +8,7 @@ module Admin
 
     def create
       @content.post!(service: params[:type].to_sym)
-      redirect_to admin_contents_url, flash: { success: 'Posted!' }
+      redirect_to contents_url, flash: { success: 'Posted!' }
     end
 
     private

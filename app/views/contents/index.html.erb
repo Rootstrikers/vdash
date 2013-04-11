@@ -1,0 +1,28 @@
+<div class="row">
+  <section class="small-12 columns content-box">
+      <header class='section-header'>
+        <img src="/assets/?" class='header-icon ?'>
+        <h2 class="section-title">Top Post Ideas</h2>
+        <%= link_to '- Deleted Ideas', admin_deleted_things_contents_path, class: 'button btn-section-header' if current_user.try(:admin?) %>
+      </header>
+      <div class='more-info'>
+        <a class='more-info-toggle' href='#'>
+          <h4 class="more-info-title">
+            <i class='icon-info-sign'></i>Need a little more information? Click here.
+          </h4>
+          <h4 class='opened-message more-info-title'><i class='icon-minus-sign'></i>Hide</h4>
+        </a>
+        <div class='more-info-content'>
+          <p>Displayed below are the top social media post suggestions, as voted on by rootstrikers.</p>
+        </div>
+      </div>
+
+      <ul class="social-media-ideas mixed-contents">
+        <%= render @contents %>
+      </ul>
+
+  </section><!-- small-12 columns content-box -->
+</div><!-- row -->
+
+
+
