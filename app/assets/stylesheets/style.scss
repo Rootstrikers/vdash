@@ -22,10 +22,11 @@ ul {
   width: 30%;
   margin-left: -15%;
   left: 50%;
-  top: 0px;
-  @include border-bottom-radius(4px);
-  background-color: $secondary-color;
+  top: 7px;
+  background-color: transparent;
   border: none;
+  font-size: 18px;
+  color: #333333;
 }
 .full-width {
   width: 100%;
@@ -307,7 +308,7 @@ ul.home-options {
       border-radius: 2px;
   }
   .home-upvote {
-      margin: 40px 0 12px 0;
+      margin: 60px 0 12px 0;
       border-radius: 2px;
   }
   a.button.btn-home {

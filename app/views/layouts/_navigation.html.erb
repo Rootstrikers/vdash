@@ -2,8 +2,8 @@
 	<ul>
 		<% if !current_page?(root_url) %>	
 			<%= nav_item 'Suggest Article', "/assets/axe_white.svg", "/links/new", {:class => 'button'} %>
-			<%= nav_item 'Browse & Vote', "/assets/book_white.svg", links_path %>
-			<%= nav_item 'Learn More', "/assets/bulb_white.svg", help_path  %>				
+			<%= nav_item 'Write', "/assets/book_white.svg", '/' %>
+			<%= nav_item 'Vote', "/assets/bulb_white.svg", links_path  %>				
 		<% else %>
 			<h4 class="welcome-message">Hey <%= link_to raw("#{current_user.name}"), current_user %>. What do you feel like doing?!</h4>
 		<% end %>
