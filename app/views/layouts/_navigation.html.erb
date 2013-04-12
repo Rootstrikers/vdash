@@ -1,12 +1,23 @@
-<nav class="small-12 large-5 columns">
+<nav class="small-12 large-6 columns main-nav">
 	<ul>
-		<%= nav_item 'Suggest Article', "/assets/axe_white.svg", "/links/new", {:class => 'button'} %>
-		<%= nav_item 'Browse & Vote', "/assets/book_white.svg", links_path %>
-		<%= nav_item 'Learn More', "/assets/bulb_white.svg", help_path  %>
-		<% if current_user.try(:admin?) %>
-    <li><h6>Admin:</h6></li>
-				<%= nav_item 'Previous Posts', nil, admin_posts_path %>
-				<%= nav_item 'Notices', nil, admin_notices_path %>
-			<% end %>
+		<% if !current_page?(root_url) %>	
+			<%= nav_item 'Suggest Article', "/assets/axe_white.svg", "/links/new", {:class => 'button'} %>
+			<%= nav_item 'Browse & Vote', "/assets/book_white.svg", links_path %>
+			<%= nav_item 'Learn More', "/assets/bulb_white.svg", help_path  %>				
+		<% else %>
+			<h4 class="welcome-message">Hey <%= link_to raw("#{current_user.name}"), current_user %>. What do you feel like doing?!</h4>
+		<% end %>
 	</ul>
 </nav>
+
+<% if current_user.try(:admin?) %>
+<nav class="small-12 large-6 columns">
+	<ul>
+	  <li>
+	  	<h6>Admin:</h6>
+	  </li>
+			<%= nav_item 'Previous Posts', nil, admin_posts_path %>
+			<%= nav_item 'Notices', nil, admin_notices_path %>
+	</ul>
+</nav>
+<% end %>

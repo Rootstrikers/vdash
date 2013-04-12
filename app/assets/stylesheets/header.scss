@@ -1,6 +1,6 @@
 header#masthead {
 	background: #626173;
-  height: 65px;
+  min-height: 65px;
   @include linear-gradient(left, #223141, #243343);
 	border-bottom: 1px solid #1B1B21;
 	box-shadow: inset 0 -1px 0px rgba(44, 43, 54, 0.2);
@@ -49,7 +49,6 @@ header#masthead {
   div#session-controls-wrapper {
     padding-right: 16px;
     div#session-controls {
-      width: 200px;
       height: 30px;
       float: right;   
     }
@@ -86,8 +85,8 @@ header#masthead {
       font-size: 14px;
     }
     .sign-in-with {
-      margin: 0 20px;
-      font-size: 11px;
+      margin: 20px 20px;
+      font-size: 18px;
       color: white;
       display: block;
       line-height: 31px;
@@ -97,6 +96,9 @@ header#masthead {
     .social-icon {  
       font-weight: 400;
       color: #ffffff;
+
+      width: 75px;
+      height: 65px;
       &:hover {
         color: #fff;
       }
@@ -104,17 +106,21 @@ header#masthead {
     .icon-3x {
        font-size: 20px;
        border-radius: 0;
-       padding: 0;
-       height: 30px;
-       padding-top: 5px;
-       width: 33px;
        padding-left: 2px;
+       padding-top: 24px;
     }
     li [class^="icon-"], 
     li [class*=" icon-"], 
     .nav li [class^="icon-"], 
     .nav li [class*=" icon-"] {
         width: 33px;
+    
+    }
+    .social-icon > .icon-twitter,
+    .social-icon > .icon-facebook,
+    .social-icon > .icon-google-plus {
+      height: 75px;
+      width: 64px;
     }
     .social-icon > .icon-twitter {
       background-color: #4099FF;  
@@ -134,8 +140,9 @@ header#masthead {
         background-color: #C33E2D;
       }
     }
-  }
+  } /* div#session-controls-wrapper */
+} /* header#masthead */
+
+.main-nav ul {
+  float: right;
 }
-
-
- 
