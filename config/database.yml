@@ -3,7 +3,7 @@ development:
   host: localhost
   database: vdash_development
   username: vdash
-
+  password: vdash
 test:
   adapter: postgresql
   host: localhost
