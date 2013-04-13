@@ -42,10 +42,10 @@ a {
     color: #cb2027;
   }
 }
-
 p {
   margin: 0;
-  margin-top: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   &:first-child {
     margin-top: 0;
   }
@@ -94,13 +94,6 @@ textarea {
 }
 
 
-
-
-
-
-
-
-
 /* Main Content Area
 -------------------------------------------------- */
 section#body-content {
@@ -113,25 +106,26 @@ section#body-content {
     border-radius: 2px;  
   }
 .content-box > :not(header) {
-    padding: 12px;    
+    padding-left: 12px;
+    padding-right: 12px;
 }
 .content-box > .more-info {
   padding: 0;
 }
 header.section-header {
-  background: royalblue;
+  background: #243343;
   border-radius: 2px 2px 0 0;     
     height: 36px; /* maybe make into mixin, but keep btn-section-header the same as this */
 }
 .button.btn-section-header {
   height: 36px;
   float: right;
-  background: rgb(58, 92, 192);
+  background: #243343;
   &:hover {
-    background: rgb(78, 120, 245);
+    background: rgb(87, 121, 156);
   }
   border:none;
-  border-left:1px solid #333;
+  border-left:1px solid #777;
   box-shadow: none;
   font-weight: 200;
   font-size: 14px;
@@ -178,6 +172,7 @@ a.more-info-toggle {
   border-left: 1px solid #D3D5D5;
   &:hover {
     background: #ECECEC;
+    border-bottom: 1px solid rgb(200, 200, 200);
   }     
 }/* more info toggle */
 .more-info-title {

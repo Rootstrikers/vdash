@@ -7,14 +7,14 @@
       <header class='section-header'>
         <img src="/assets/?" class='header-icon ?'>
         <h2 class="section-title">Vote on articles</h2>
-        <%= link_to '<span>+</span> Suggest Article'.html_safe, new_link_path, class: 'button btn-section-header' %>
+        <%= link_to '<i class="icon-plus-sign"></i> Suggest Article'.html_safe, new_link_path, class: 'button btn-section-header' %>
       </header>
       <div class='more-info'>
         <a class='more-info-toggle' href='#'>
           <h4 class="more-info-title">
-            <i class='icon-info-sign'></i>More info.
+            More info <i class='icon-chevron-down'></i>
           </h4>
-          <h4 class='opened-message more-info-title'><i class='icon-minus-sign'></i>Hide</h4>
+          <h4 class='opened-message more-info-title'>Hide <i class='icon-chevron-up'></i></h4>
         </a>
         <div class='more-info-content'>
 	  <h3>Where did these links come from?</h3>
@@ -26,7 +26,10 @@
 	</div>
       </div>
       
-      <p>Vote for the articles you think Rootstrikers should share over social media, or submit a link of your own to be added to this list.</p>
+      <p>Vote for the articles you think Rootstrikers should share over social media.
+
+      <p>You can also submit a link of your own to be added to this list.</p>
+      
         <ul>
           <%= render @links %>
         </ul>
