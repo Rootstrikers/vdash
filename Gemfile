@@ -28,7 +28,7 @@ group :assets do
   gem 'bourbon'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', "~> 2.2.1"
 
 group :test do
   gem 'factory_girl_rails'

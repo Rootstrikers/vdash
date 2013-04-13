@@ -20,6 +20,7 @@
       <%= javascript_include_tag "html5-3.6-respond-1.1.0.min" %>
   <![endif]-->
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag "application" %>
 </head>
 <body>
   <%= render 'layouts/header' %>
@@ -41,7 +42,5 @@
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
-
-  <%= javascript_include_tag "application" %>
 </body>
 </html>

@@ -11,29 +11,39 @@
     </div>
   <% end %>
 
-        <div class='row'>
-          <div class="small-12 columns">
-            <%= f.label :url %>
-              <%= f.text_field :url %>
-          </div><!-- small-12 columns -->
-        </div><!-- row -->
+  <div class='row'>
+    <div class="small-12 columns">
+      <%= f.text_field :url, :placeholder => "URL"%>
+      <div class='field_valley'>
+        <%= f.label :url, "URL" %>
+      </div>
+    </div><!-- small-12 columns -->
+  </div><!-- row -->
 
-        <div class='row'>
-          <div class="small-12 columns">
-            <%= f.label :title, "Title (optional)" %>
-              <%= f.text_field :title %>
-          </div><!-- small-12 columns -->
-        </div><!-- row -->
+  <div class='row'>
+    <div class="small-12 columns">
+      <%= f.text_field :title, :placeholder => "Title (optional)"%>
+      <div class='field_valley'>
+        <%= f.label :title, "Title (optional)" %>
+      </div>
+    </div><!-- small-12 columns -->
+  </div><!-- row -->
 
-        <div class='row'>
-          <div class="small-12 columns">
-          <%= f.label :summary, "Summary (optional)" %>
-            <%= f.text_area :summary %>
-          </div><!-- small-12 columns -->
-        </div><!-- row -->    
+  <div class='row'>
+    <div class="small-12 columns">
+      <%= f.text_area :summary, :placeholder => "Summary (optional)"%>
+      <div class='field_valley'>
+        <%= f.label :summary, "Summary (optional)" %>
+      </div>
+    </div><!-- small-12 columns -->
+  </div><!-- row -->    
 
-        
-          <%= f.submit 'Share link with other volunteers', :class => "button" %>
-          <div>We'll let you know if someone already shared this.</div>
-        
+  <div class='row'>
+    <div class="small-12 columns">
+      <%= f.submit 'Share link with other volunteers', :class => "button" %>
+      <div>We'll let you know if someone already shared this.</div>
+    </div>
+  </div>
 <% end %>
+
+

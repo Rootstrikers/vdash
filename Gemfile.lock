@@ -193,7 +193,7 @@ DEPENDENCIES
   bourbon
   coffee-rails (~> 3.2.1)
   factory_girl_rails
-  jquery-rails
+  jquery-rails (~> 2.2.1)
   koala
   less
   nokogiri
