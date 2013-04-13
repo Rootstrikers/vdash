@@ -68,5 +68,18 @@ $(document).ready(function(){
      }
   );
 
-  
+
+  /* Reveal article suggestion modal.
+  --------------------------------------------------------------------*/
+  var article_form = {};
+  article_form.init_button = $('#article-suggestion-link');
+  article_form.init_button.click(function(e){
+    e.preventDefault();
+
+    $.get('/links/new', function(data) {
+      // Do nothing~ Handled in links/new.js.erb
+    });
+    //return false;
+  });
+
 });

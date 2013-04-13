@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  respond_to :js, :json, :html, :xml
   before_filter :require_user, except: [:index]
   before_filter :get_link_and_ensure_modifiable, only: [:edit, :update, :destroy]
 
@@ -13,6 +14,11 @@ class LinksController < ApplicationController
 
   def new
     @link = Link.new
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def edit; end
