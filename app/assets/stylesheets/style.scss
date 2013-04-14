@@ -37,9 +37,9 @@ ul {
   max-width: 100%;
 }
 a {    
-  color: #cb2027;
+  color: #0645AD;
   &:hover {
-    color: #cb2027;
+    color: #00358D; 
   }
 }
 p {
@@ -173,6 +173,7 @@ a.more-info-toggle {
   &:hover {
     background: #ECECEC;
     border-bottom: 1px solid rgb(200, 200, 200);
+    cursor: pointer;
   }     
 }/* more info toggle */
 .more-info-title {
@@ -276,8 +277,16 @@ ul.home-options {
     &:hover {
       @include box-shadow(none);
       background-color: #c70109;
+      cursor: pointer;
     }
   }
+
+/* Vote page */
+.post-details {
+   border-bottom: 1px solid silver;
+   margin-bottom: 6px;
+
+}
 
 
 /* Miscellaneous 
@@ -309,7 +318,7 @@ ul.home-options {
     100% {-moz-transform: rotate(0deg); }
 }
 
-#masthead .button, 
+#masthead .button,
 input[type="submit"].button {
   border: 0;
   display: block;
@@ -354,6 +363,18 @@ input[type="submit"].button {
     border: 0;
     margin-top: 2px;
   }
+}
+
+.button.help-edit-post {
+  position: absolute;
+  top: 66px;
+  right: 0px; 
+  width: 200px;
+  line-height: 18px;
+  padding: 0;
+  text-transform: none;
+  font-size: 14px;
+  text-align: center;
 }
 
 .clean-modal.reveal-modal {

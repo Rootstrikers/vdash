@@ -1,15 +1,21 @@
 <li class="links-list">
   <div class="row">
-
-    <div class="small-12 large-10 columns name-and-url">
+    <div class="small-12 large-10 columns post-details">
         <p>Title: <%= link_to link.display_name, link %></p>
+
         <p>Url: <%= link_to link.domain, link.url, target: '_blank' %></p>
+
+        <a class="button help-edit-post">
+          <div>Think you can do better?</div>
+          <div>Help edit the title & summary!</div>
+        </a><!-- help-edit-post -->
     </div><!-- name-and-url -->
 
     <div class="small-12 large-2 columns">
       <%= render partial: 'likes/like_status', locals: { item: link } %>
-    </div>    
+    </div>        
   </div><!-- row -->  
+
   <div class="row">
     <div class="small-12 large-3 columns submitter-info">
         Submitted by <%= link_to link.user.name, link.user %>
