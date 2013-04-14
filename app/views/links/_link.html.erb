@@ -1,9 +1,12 @@
 <li class="links-list">
   <div class="row post-details">
     <div class="small-12 large-10 columns">
-        <p><span class="detail-title">Current title:</span> <%= link_to link.display_name, link %></p>
+        <!--
+	<p><span class="detail-title">Current title:</span> <%= link_to link.display_name, link %></p>
         <p><span class="detail-title">Current Summary:</span> <%= link_to link.display_name, link %></p>  
         <p><span class="detail-title">Source:</span> <%= link_to link.domain, link.url, target: '_blank' %></p>
+	-->
+	<p><span class="detail-title"><%= link_to link.display_name, link, target: '_blank' %> via <%= link_to link.domain, link.url, target: '_blank' %></span></p>
     </div>
     <div class="small-12 large-2 columns">
         <%= render partial: 'likes/like_status', locals: { item: link } %>       
@@ -17,9 +20,21 @@
       </a><!-- help-edit-post -->  
     </div>    
     <div class="small-12 large-3 columns submitter-info">
-        Submitted by <%= link_to link.user.name, link.user %>
-        <%= pluralize link.contents.count, 'Post Idea' %>
-        <% if current_user.try(:admin?) %>
+        Submitted by <%= link_to link.user.name, link.user %><br/>
+		
+        <!--<%= pluralize link.contents.count, 'Post Idea' %>-->
+	Post ideas...[on click, slide down to reveal:
+	<br/>
+	Post idea 1
+	<br/>
+	Post idea 2
+	<br/>
+	Post idea 3
+	<br/>
+	...
+	Write your own post about this article [on click, slide down to reveal post writing form]<br/>
+        
+	<% if current_user.try(:admin?) %>
           <div class="delete-link">
             Admin:
             <%= link_to link, method: :delete, class: 'no-decoration', data: { confirm: 'Are you sure you want to delete this link?' } do %>
