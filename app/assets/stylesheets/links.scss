@@ -1,11 +1,7 @@
 
-  li.links-list {
-    padding: 14px;
-    margin: 30px;
-
-    border: 1px solid #DFDEE3;
-    border-radius: 3px;
-
+  .links-list li {
+      margin: 30px;
+      margin-bottom: -16px;
   }
   li:last-child {
     border-bottom: none;

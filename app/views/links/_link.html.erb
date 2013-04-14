@@ -1,61 +1,60 @@
-<li class="links-list">
-  <div class="row post-details">
-    <div class="small-12 large-10 columns">
-        <!--
-	<p><span class="detail-title">Current title:</span> <%= link_to link.display_name, link %></p>
-        <p><span class="detail-title">Current Summary:</span> <%= link_to link.display_name, link %></p>  
-        <p><span class="detail-title">Source:</span> <%= link_to link.domain, link.url, target: '_blank' %></p>
-	-->
-	<p><span class="detail-title"><%= link_to link.display_name, link, target: '_blank' %> via <%= link_to link.domain, link.url, target: '_blank' %></span></p>
-    </div>
-    <div class="small-12 large-2 columns">
+<ul class="links-list">
+  <li>
+    <div class="row post-details">
+      <div class="small-12 columns">
+          <!--
+  	<p><span class="detail-title">Current title:</span> <%= link_to link.display_name, link %></p>
+          <p><span class="detail-title">Current Summary:</span> <%= link_to link.display_name, link %></p>  
+          <p><span class="detail-title">Source:</span> <%= link_to link.domain, link.url, target: '_blank' %></p>
+  	-->
+  	<p class="detail-title"><%= link_to link.display_name, link, target: '_blank' %> via <%= link_to link.domain, link.url, target: '_blank' %></p>
+
         <%= render partial: 'likes/like_status', locals: { item: link } %>       
-    </div>
-  </div><!-- row -->  
-
-  <div class="row">
-    <div class="small-12 large-9 columns">
-      <a class="button help-refine-post">
-          <i class="icon-pencil"></i> Edit title or summary
-      </a><!-- help-edit-post -->  
-    </div>    
-    <div class="small-12 large-3 columns submitter-info">
-        Submitted by <%= link_to link.user.name, link.user %>
-		
-        <!--<%= pluralize link.contents.count, 'Post Idea' %>-->
-	<div class='more-info'>
-        <a class='more-info-toggle' href='#'>
-          <h4 class="more-info-title">
-            Post Ideas...<i class='icon-chevron-down'></i>
-          </h4>
-          <h4 class='opened-message more-info-title'>Hide <i class='icon-chevron-up'></i></h4>
-        </a>
-        <div class='more-info-content'>
-		Post idea 1<br/>Post idea 2<br/>Post idea 3<br/>
-
-		<div class='more-info'>
-			<a class='more-info-toggle' href='#'>
-				<h4 class='more-info-title'>
-					Write your own post about this article<i class='icon-chevron-down'></i>
-				</h4>
-				<h4 class='opened-message more-info-title'>Hide <i class='icon-chevron-up'></i></h4>
-			</a>
-			<div class='more-info-content'>
-			Post authoring form goes here.
-			</div>
-		</div>
-
-        </div>
-      </div>
         
-	<% if current_user.try(:admin?) %>
-          <div class="delete-link">
-            Admin:
-            <%= link_to link, method: :delete, class: 'no-decoration', data: { confirm: 'Are you sure you want to delete this link?' } do %>
-              <i class="icon-trash"></i>
-          </div>
+        Submitted by <%= link_to link.user.name, link.user %>
+
+      </div><!-- small-12 columns -->
+    </div><!-- row -->  
+
+    <div class="row">
+      <div class="small-12 columns edit-post-section">      
+        <!--<%= pluralize link.contents.count, 'Post Idea' %>-->
+  	     <div class='more-info'>
+          <a class='more-info-toggle' href='#'>
+            <h4 class="more-info-title">
+              Post Ideas...<i class='icon-chevron-down'></i>
+            </h4>
+            <h4 class='opened-message more-info-title'>Hide <i class='icon-chevron-up'></i></h4>
+          </a>
+          <div class='more-info-content'>            
+
+    		    <p>Post idea 1</p>
+            <p>Post idea 2</p>
+            <p>Post idea 3</p>
+
+  		
+  					
+            <a class="button help-refine-post">
+              <i class="icon-pencil"></i> Write your own post about this article
+            </a><!-- help-edit-post -->  
+            
+
+      			<div class='more-info-content'>
+      			Post authoring form goes here.
+      			</div><!-- more-info-content -->
+
+          </div><!-- more-info-content -->
+        </div><!-- more-info -->
+          
+      	  <% if current_user.try(:admin?) %>
+            <div class="delete-link">
+              Admin:
+              <%= link_to link, method: :delete, class: 'no-decoration', data: { confirm: 'Are you sure you want to delete this link?' } do %>
+                <i class="icon-trash"></i>
+            </div>
+            <% end %>
           <% end %>
-        <% end %>
-    </div><!-- submitter-info -->
-  </div>
-</li>
+      </div><!-- submitter-info -->
+    </div>
+  </li>
+</ul>

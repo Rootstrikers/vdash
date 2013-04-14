@@ -179,6 +179,27 @@ a.more-info-toggle {
     cursor: pointer;
   }     
 }/* more info toggle */
+.edit-post-section {
+  a.more-info-toggle {
+    width: auto;
+    float: right;
+    position: relative;
+    z-index: 99;
+  }
+  .more-info-content {
+    background-color: #FDFDFD;
+    @include border-bottom-radius(3px);
+    margin-right: -92px;
+    border:1px solid #C0C0C0;
+    float: right;
+    width: 99%;
+    position: relative;
+    z-index: 98;
+    padding: 16px;
+    padding-bottom: 0px;
+  }
+
+}
 .more-info-title {
   float: right;
   color: #83878D;
@@ -282,13 +303,16 @@ ul.home-options {
 
 /* Vote page */
 .post-details {
-   border-bottom: 1px solid silver;
+  padding: 14px;
+  margin: 30px;
+  border: 1px solid #DFDEE3;    
+  border-radius: 3px;  
 }
 .detail-title {
   display:inline-block;
-  width: 150px;
-  margin-right:14px;
-  text-align: right;
+  width: 700px;
+  margin-right:14px;  
+  height: 55px;
 }
 
 
@@ -373,12 +397,13 @@ input[type="submit"].button {
   }
 }
 .button.help-refine-post {
-  position: absolute;
+  
   text-transform: none;
   font-size: 14px;  
   font-weight: 100;
   border-radius: 3px;
   margin-top:12px;
+  float: left;
   @include box-shadow(none);
   i {
     float: left;
@@ -389,11 +414,12 @@ input[type="submit"].button {
 }
 .button.like-action {
   font-weight: 100;
-  font-size: 28px;
+  font-size: 18px;
   text-shadow: 1px 1px #000000;
-  margin: 0;
+  margin-left: 30px;
   padding: 10px;
   border-radius: 3px;
+  float: right;
   &:hover {
     background-color: #57799c;
     text-shadow: -1px -1px #57799c;

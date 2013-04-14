@@ -8,7 +8,7 @@
         <h2 class="section-title"> <i class="icon-thumbs-up"></i> Vote on articles</h2>
         <%= link_to '<i class="icon-plus-sign"></i> Suggest Article'.html_safe, new_link_path, class: 'button btn-section-header' %>
       </header>
-      <div class='more-3info'>
+      <div class='more-info'>
         <a class='more-info-toggle' href='#'>
           <h4 class="more-info-title">
             More info <i class='icon-chevron-down'></i>
@@ -28,10 +28,9 @@
       <p>Vote for the articles you think Rootstrikers should share over social media.</p>
 
       <p>You can also submit a link of your own to be added to this list.</p>
-     
-      <ul>
-        <%= render @links %>
-      </ul>
+        
+      <%= render @links %>
+
       <%= will_paginate @links %>
   </section><!-- small-12 columns content-box -->
 </div><!-- row -->

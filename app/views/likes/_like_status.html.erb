@@ -1,6 +1,6 @@
 <% if current_user %>
   <%= link_to '#', data: { item_klass: item.class.name, item_id: item.id }, class:  like_action_class(current_user, item,) do %>
-    <i class="icon-thumbs-up"></i>
+    VOTE
    <span class="upvote-count"><%= item.like_count %></span>
   <% end %>
 <% end %>
