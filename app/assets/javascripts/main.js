@@ -51,20 +51,20 @@ $(document).ready(function(){
   var hidden_info = {};
   hidden_info.wrap = $('.more-info');
   hidden_info.toggler = hidden_info.wrap.find('a.more-info-toggle');
-  hidden_info.info_content = hidden_info.toggler.next('.more-info-content')
+  //hidden_info.info_content = hidden_info.toggler.next('.more-info-content')
   
   hidden_info.toggler.css('display','block');
-  hidden_info.info_content.hide();
+  $('.more-info-content').hide();
   hidden_info.toggler.clickToggle(
     function()
     {
-      hidden_info.wrap.addClass('opened-info');
-      hidden_info.info_content.slideDown(500);
+      $(this).parent('.more-info').addClass('opened-info');
+      $(this).next('.more-info-content').slideDown(500);
     },
     function()
     {
-      hidden_info.wrap.removeClass('opened-info');
-      hidden_info.info_content.slideUp(500);
+      $(this).parent('.more-info').removeClass('opened-info');
+      $(this).next('.more-info-content').slideUp(500);
      }
   );
 
