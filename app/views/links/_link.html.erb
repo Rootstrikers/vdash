@@ -20,19 +20,33 @@
       </a><!-- help-edit-post -->  
     </div>    
     <div class="small-12 large-3 columns submitter-info">
-        Submitted by <%= link_to link.user.name, link.user %><br/>
+        Submitted by <%= link_to link.user.name, link.user %>
 		
         <!--<%= pluralize link.contents.count, 'Post Idea' %>-->
-	Post ideas...[on click, slide down to reveal:
-	<br/>
-	Post idea 1
-	<br/>
-	Post idea 2
-	<br/>
-	Post idea 3
-	<br/>
-	...
-	Write your own post about this article [on click, slide down to reveal post writing form]<br/>
+	<div class='more-info'>
+        <a class='more-info-toggle' href='#'>
+          <h4 class="more-info-title">
+            Post Ideas...<i class='icon-chevron-down'></i>
+          </h4>
+          <h4 class='opened-message more-info-title'>Hide <i class='icon-chevron-up'></i></h4>
+        </a>
+        <div class='more-info-content'>
+		Post idea 1<br/>Post idea 2<br/>Post idea 3<br/>
+
+		<div class='more-info'>
+			<a class='more-info-toggle' href='#'>
+				<h4 class='more-info-title'>
+					Write your own post about this article<i class='icon-chevron-down'></i>
+				</h4>
+				<h4 class='opened-message more-info-title'>Hide <i class='icon-chevron-up'></i></h4>
+			</a>
+			<div class='more-info-content>
+			Post authoring form goes here.
+			</div>
+		</div>
+
+        </div>
+      </div>
         
 	<% if current_user.try(:admin?) %>
           <div class="delete-link">
