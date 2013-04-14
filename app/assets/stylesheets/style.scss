@@ -145,7 +145,10 @@ img.header-icon {
   line-height: 36px;
   margin: 0;
   color: white;
-  margin-left: 4px;
+  margin-left: 12px;
+  &:hover {
+    color: #57799c;
+  }
 } 
 div.more-info {
   padding: 0;         
@@ -236,12 +239,8 @@ label {
       to remove nav but also doesnt make sense to have 
       the big buttons under a nav with them. maybe 
       think of something else to put here */
-
       color: #ffffff;
-      margin-top: 22px;
-      margin-left: 96px;
       font-size: 19px;
-      text-align: right;
       a {
         color: #ffffff;
         text-decoration: underline;
@@ -284,9 +283,14 @@ ul.home-options {
 /* Vote page */
 .post-details {
    border-bottom: 1px solid silver;
-   margin-bottom: 6px;
-
 }
+.detail-title {
+  display:inline-block;
+  width: 150px;
+  margin-right:14px;
+  text-align: right;
+}
+
 
 
 /* Miscellaneous 
@@ -318,6 +322,10 @@ ul.home-options {
     100% {-moz-transform: rotate(0deg); }
 }
 
+.button {
+  background-color: #243343;
+  border: none;
+}
 #masthead .button,
 input[type="submit"].button {
   border: 0;
@@ -364,20 +372,35 @@ input[type="submit"].button {
     margin-top: 2px;
   }
 }
-
-.button.help-edit-post {
+.button.help-refine-post {
   position: absolute;
-  top: 66px;
-  right: 0px; 
-  width: 200px;
-  line-height: 18px;
-  padding: 0;
   text-transform: none;
-  font-size: 14px;
-  text-align: center;
+  font-size: 14px;  
+  font-weight: 100;
+  border-radius: 3px;
+  margin-top:12px;
+  @include box-shadow(none);
+  i {
+    float: left;
+  }
+  &:hover {
+    background-color: #57799c;
+  }
+}
+.button.like-action {
+  font-weight: 100;
+  font-size: 28px;
+  text-shadow: 1px 1px #000000;
+  margin: 0;
+  padding: 10px;
+  border-radius: 3px;
+  &:hover {
+    background-color: #57799c;
+    text-shadow: -1px -1px #57799c;
+  }
 }
 
 .clean-modal.reveal-modal {
   padding: 0;
-  
+  background-color: #243343; 
 }

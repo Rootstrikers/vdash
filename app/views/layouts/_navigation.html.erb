@@ -10,7 +10,9 @@
 			<%= nav_item 'Write', "/assets/book_white.svg", '/' %>
 			<%= nav_item 'Vote', "/assets/bulb_white.svg", links_path  %>				
 		<% else %>
+		<li>
 			<h4 class="welcome-message">Hey <%= link_to raw("#{current_user.name}"), current_user %>. What do you feel like doing?!</h4>
+		<li>
 		<% end %>
 	</ul>
 </nav>

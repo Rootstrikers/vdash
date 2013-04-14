@@ -1,22 +1,21 @@
 <li class="links-list">
-  <div class="row">
-    <div class="small-12 large-10 columns post-details">
-        <p>Title: <%= link_to link.display_name, link %></p>
-
-        <p>Url: <%= link_to link.domain, link.url, target: '_blank' %></p>
-
-        <a class="button help-edit-post">
-          <div>Think you can do better?</div>
-          <div>Help edit the title & summary!</div>
-        </a><!-- help-edit-post -->
-    </div><!-- name-and-url -->
-
+  <div class="row post-details">
+    <div class="small-12 large-10 columns">
+        <p><span class="detail-title">Current title:</span> <%= link_to link.display_name, link %></p>
+        <p><span class="detail-title">Current Summary:</span> <%= link_to link.display_name, link %></p>  
+        <p><span class="detail-title">Source:</span> <%= link_to link.domain, link.url, target: '_blank' %></p>
+    </div>
     <div class="small-12 large-2 columns">
-      <%= render partial: 'likes/like_status', locals: { item: link } %>
-    </div>        
+        <%= render partial: 'likes/like_status', locals: { item: link } %>       
+    </div>
   </div><!-- row -->  
 
   <div class="row">
+    <div class="small-12 large-9 columns">
+      <a class="button help-refine-post">
+          <i class="icon-pencil"></i> Edit title or summary
+      </a><!-- help-edit-post -->  
+    </div>    
     <div class="small-12 large-3 columns submitter-info">
         Submitted by <%= link_to link.user.name, link.user %>
         <%= pluralize link.contents.count, 'Post Idea' %>
