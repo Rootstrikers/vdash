@@ -7,7 +7,7 @@ module ApplicationHelper
   end
 
   def like_action_class(user, item)
-    classes = ['button like-action ']
+    classes = ['button', 'like-action']
     classes << 'voted' if user.liked?(item)
     classes.join(' ')
   end
