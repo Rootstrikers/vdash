@@ -47,6 +47,10 @@ class Link < ActiveRecord::Base
     )
   end
 
+  def top_contents(limit = 3)
+    contents.ordered.limit(limit)
+  end
+
   def modifiable_by?(user)
     user.present? && (user.admin? || (!self.contents.exists? && self.user == user))
   end

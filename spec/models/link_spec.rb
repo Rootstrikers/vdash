@@ -62,6 +62,25 @@ describe Link do
     end
   end
 
+  describe '#top_contents(limit)' do
+    let!(:contents) do
+      [
+        FactoryGirl.create(:content, link: link, like_count: 1),
+        FactoryGirl.create(:content, link: link, like_count: 2),
+        FactoryGirl.create(:content, link: link, like_count: 3),
+        FactoryGirl.create(:content, link: link, like_count: 4)
+      ]
+    end
+
+    it 'returns the top three contents by default' do
+      link.top_contents.should == contents.reverse[0...3]
+    end
+
+    it 'returns the top <limit> contents' do
+      link.top_contents(4).should == contents.reverse
+    end
+  end
+
   describe '#modifiable_by?(user)' do
     it 'returns false for a nil user' do
       link.should_not be_modifiable_by(nil)
