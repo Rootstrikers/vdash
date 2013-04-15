@@ -23,7 +23,7 @@ $(document).ready(function(){
           return this;
       };
   }(jQuery));
-  
+
 
 
   /*  Sidebar Flexible Height (TODO: check if this is even necessary...)
@@ -52,7 +52,7 @@ $(document).ready(function(){
   hidden_info.wrap = $('.more-info');
   hidden_info.toggler = hidden_info.wrap.find('a.more-info-toggle');
   //hidden_info.info_content = hidden_info.toggler.next('.more-info-content')
-  
+
   hidden_info.toggler.css('display','block');
   $('.more-info-content').hide();
   hidden_info.toggler.clickToggle(
@@ -67,19 +67,4 @@ $(document).ready(function(){
       $(this).next('.more-info-content').slideUp(500);
      }
   );
-
-
-  /* Reveal article suggestion modal.
-  --------------------------------------------------------------------*/
-  var article_form = {};
-  article_form.init_button = $('#article-suggestion-link');
-  article_form.init_button.click(function(e){
-    e.preventDefault();
-
-    $.get('/links/new', function(data) {
-      // Do nothing~ Handled in links/new.js.erb
-    });
-    //return false;
-  });
-
 });
