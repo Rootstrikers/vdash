@@ -2,11 +2,13 @@
   <%= link_to 'Admin: <i class="icon-trash"></i>  Deleted Links'.html_safe, admin_deleted_things_links_path, class: 'button btn-deleted-links pull-right' if current_user.try(:admin?) %>
 <% end %>
 
-<div class="row">  
+<div class="row">
   <section class="small-12 columns content-box">
-      <header class='section-header'>        
+      <header class='section-header'>
         <h2 class="section-title"> <i class="icon-thumbs-up"></i> Vote on articles</h2>
-        <%= link_to '<i class="icon-plus-sign"></i> Suggest Article'.html_safe, new_link_path, class: 'button btn-section-header' %>
+        <%= link_to '#', class: 'button btn-section-header', data: { reveal_id: 'article-suggestion-modal' } do %>
+          <i class="icon-plus-sign"></i> Suggest Article
+        <% end %>
       </header>
       <div class='more-info'>
         <a class='more-info-toggle' href='#'>
@@ -24,13 +26,21 @@
       	  <p>Rootstrikers wants to share high quality news stories about corruption in Congress (and honest representation too!).  News stories should come from reputable third parties with a strong reputation for accurate reporting.</p>
       	</div>
       </div>
-      
+
       <p>Vote for the articles you think Rootstrikers should share over social media.</p>
 
       <p>You can also submit a link of your own to be added to this list.</p>
-        
+
       <%= render @links %>
 
       <%= will_paginate @links %>
   </section><!-- small-12 columns content-box -->
 </div><!-- row -->
+
+<% if @show_modal %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('a.reveal-link').trigger('click');
+    });
+  </script>
+<% end %>

@@ -4,7 +4,8 @@ class LinksController < ApplicationController
   before_filter :get_link_and_ensure_modifiable, only: [:edit, :update, :destroy]
 
   def index
-    @links = Link.unposted.ordered.paginate(page: params[:page])
+    @links      = Link.unposted.ordered.paginate(page: params[:page])
+    @show_modal = params[:suggest] == 'true'
   end
 
   def show
@@ -14,11 +15,6 @@ class LinksController < ApplicationController
 
   def new
     @link = Link.new
-
-    respond_to do |format|
-      format.js
-      format.html
-    end
   end
 
   def edit; end
