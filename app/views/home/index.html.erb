@@ -1,21 +1,21 @@
 <ul class="small-block-grid-1 large-block-grid-3 home-options">
   <li>
-    <a href="/links" class="button btn-home">
+    <%= link_to links_path, class: 'button btn-home' do %>
       <img src="/assets/axe_white.svg" type="image/svg+xml" class="home-axe">
       <h5>Suggest Article</h5>
-    </a>
+    <% end %>
   </li>
   <li>
-    <a href="/links?write=1" class="button btn-home">
+    <%= link_to links_path(write: true), class: 'button btn-home' do %>
       <img src="/assets/write.png" class="home-write">
       <h5>Write</h5>
-    </a>
+    <% end %>
   </li>
   <li>
-    <a href="/contents" class="button btn-home">
+    <%= link_to contents_path, class: 'button btn-home' do %>
       <img src="/assets/upvote.png" class="home-upvote">
       <%# <h5>Vote</h5>  <!-- haven't decided on vote logo yet -->%>
-    </a>
+    <% end %>
   </li>
 </ul>
 <div class="row">
@@ -31,7 +31,7 @@
           <p>Rootstrikers is a new generation of activists taking on the corrupting influence of money in politics.</p>
 
           <p>The Rootstrikers Volunteer Dashboard is where you can help find and choose important news stories that Rootstrikers will post to our <a href="https://www.facebook.com/rootstrikers">Facebook</a> and <a href="https://twitter.com/rootstrikers">Twitter</a> pages.</p>
-    
+
             <h3>How does it work?</h3>
 
             <p>News stories go through a super simple 5 step process to make sure the best stuff goes to our feeds.</p>
@@ -49,8 +49,8 @@
             <p>
               The process is designed so you can start at the beginning or jump in somewhere along the way, and do as much or as little as you want. Give it a shot!
             </p>
- 
-  
+
+
           <h3>Get Started</h3>
           <p>
             <a href="/links/new">Suggest Links to Share</a><br> <%# TODO nice big butten %>
@@ -59,4 +59,4 @@
 
       -->
 
-    
+
