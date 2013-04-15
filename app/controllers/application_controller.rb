@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   def require_user
     return if current_user
-    session[:after_signin_url] = request.fullpath
+    session[:after_signin_url] = request.fullpath if request.get?
     redirect_to signin_url, alert: 'Please sign in.'
   end
 
