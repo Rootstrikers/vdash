@@ -26,12 +26,12 @@
 			<li>Grammatically correct (free of spelling and grammatical errors),</li>
 			<li>Viral (link to/tag appropriate others. For example, if a story is about Barack Obama, it could include a tag "@BarackObama")</li>
 		</ul>
-          </p>	
+          </p>
         </div>
       </div>
 	<p>Vote for social media posts that you think Rootstrikers should publicize. There may be more than one post for a given news article. Vote for the best one!</p>
       <ul class="social-media-ideas mixed-contents">
-        <%= render @contents %>
+        <%= render partial: 'content', collection: @contents, locals: { include_link: true } %>
       </ul>
 
       <%= will_paginate @contents %>

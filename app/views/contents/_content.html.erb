@@ -11,6 +11,11 @@
   <div class="body">
     <%= content.body %>
   </div>
+  <% if defined?(include_link) && include_link %>
+    <div class="link">
+      <%= link_to content.link.domain, content.link.url %>
+    </div>
+  <% end %>
   <% if current_user.try(:admin?) %>
     <div class="delete-content">
       <div class="pull-right">

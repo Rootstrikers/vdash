@@ -4,7 +4,7 @@ class ContentsController < ApplicationController
   before_filter :get_content, only: [:edit, :update, :destroy]
 
   def index
-    @contents = Content.unposted.ordered.paginate(page: params[:page])
+    @contents = Content.unposted.ordered.includes(:link).paginate(page: params[:page])
   end
 
   def new
