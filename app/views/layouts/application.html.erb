@@ -15,12 +15,18 @@
 
   <!--<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'> -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag "application", :media => "all" %>  
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <!--[if lt IE 9]>
       <%= javascript_include_tag "html5-3.6-respond-1.1.0.min" %>
   <![endif]-->
   <%= csrf_meta_tags %>
   <%= javascript_include_tag "application" %>
+  <script type="text/javascript">
+    $(document).ajaxSend(function(e, xhr, options) {
+      var token = $("meta[name='csrf-token']").attr("content");
+      xhr.setRequestHeader("X-CSRF-Token", token);
+    });
+  </script>
 </head>
 <body>
   <%= render 'layouts/header' %>
@@ -28,13 +34,13 @@
     <section id='body-content' class="small-12 large-12 columns layout-col">
       <%= render 'layouts/notice' if @site_wide_notice %>
       <%= render 'layouts/messages' %>
-      <div class="row">  
+      <div class="row">
         <div class="small-12 large-8 large-offset-2 columns">
           <%= yield %>
         </div>
       </div> <!-- row -->
     </section>
-      
+
   </div><!-- row -->
   <%= render 'layouts/footer'%>
   <script>
