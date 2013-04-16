@@ -1,7 +1,7 @@
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serifsans-serif;  
-    font-weight: 200; 
-    color: #32324E; 
+    font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serifsans-serif;
+    font-weight: 200;
+    color: #32324E;
 }
 h3 {
 	padding-top: 20px;
@@ -10,11 +10,11 @@ section#body-content {
   height: 800px!important; /* put sticky footer once stuff is decided on - keeping it simple for now*/
 }
 body {
-  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   margin: 0;
   padding: 0;
-  background-color: #DFDEE3; 
+  background-color: #DFDEE3;
   background-image: url('/assets/tile_grey.jpeg');
   color: #32324E;
 }
@@ -36,10 +36,10 @@ ul {
   width: 100%;
   max-width: 100%;
 }
-a {    
+a {
   color: #0645AD;
   &:hover {
-    color: #00358D; 
+    color: #00358D;
   }
 }
 p {
@@ -73,21 +73,21 @@ a.no-decoration {
 .black {
   background-color: $primary-color;
 }
-input[type="text"], 
-input[type="password"], 
-input[type="date"], 
-input[type="datetime"], 
-input[type="datetime-local"], 
-input[type="month"], 
-input[type="week"], 
-input[type="email"], 
-input[type="number"], 
-input[type="search"], 
-input[type="tel"], 
-input[type="time"], 
-input[type="url"], 
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
 textarea {
-  
+
 }
 textarea {
   height: 32px;
@@ -103,7 +103,7 @@ section#body-content {
   .columns.content-box {
     background-color: white;
     padding: 0;
-    border-radius: 2px;  
+    border-radius: 2px;
   }
 .content-box > :not(header) {
     padding-left: 12px;
@@ -114,7 +114,7 @@ section#body-content {
 }
 header.section-header {
   background: #243343;
-  border-radius: 2px 2px 0 0;     
+  border-radius: 2px 2px 0 0;
     height: 36px; /* maybe make into mixin, but keep btn-section-header the same as this */
 }
 .button.btn-section-header {
@@ -149,9 +149,9 @@ img.header-icon {
   &:hover {
     color: #57799c;
   }
-} 
+}
 div.more-info {
-  padding: 0;         
+  padding: 0;
   &.opened-info a.more-info-toggle{
     h4 {
       display: none;
@@ -177,7 +177,7 @@ a.more-info-toggle {
     background: #ECECEC;
     border-bottom: 1px solid rgb(200, 200, 200);
     cursor: pointer;
-  }     
+  }
 }/* more info toggle */
 .edit-post-section {
   a.more-info-toggle {
@@ -207,7 +207,7 @@ a.more-info-toggle {
   margin: 0;
   &:hover {
     color: #727272;
-  }       
+  }
   i {
     width: 17px;
     font-size: 16px;
@@ -232,10 +232,10 @@ div.more-info-content {
 
 /* Form Elements
 -------------------------------------------------- */
-input[type="text"], input[type="password"], input[type="date"], 
-input[type="datetime"], input[type="datetime-local"], 
-input[type="month"], input[type="week"], input[type="email"], 
-input[type="number"], input[type="search"], input[type="tel"], 
+input[type="text"], input[type="password"], input[type="date"],
+input[type="datetime"], input[type="datetime-local"],
+input[type="month"], input[type="week"], input[type="email"],
+input[type="number"], input[type="search"], input[type="tel"],
 input[type="time"], input[type="url"], textarea {
   margin-bottom: 0;
 }
@@ -249,16 +249,16 @@ label {
 }
 
 
-/* Home 
+/* Home
 ---------------------------------------------*/
 .home-blurb {
   text-align: center;
   margin-top: 30px;
 }
-.welcome-message { 
-  /*  not sure about this - doesn't make sense 
-      to remove nav but also doesnt make sense to have 
-      the big buttons under a nav with them. maybe 
+.welcome-message {
+  /*  not sure about this - doesn't make sense
+      to remove nav but also doesnt make sense to have
+      the big buttons under a nav with them. maybe
       think of something else to put here */
       color: #ffffff;
       font-size: 19px;
@@ -272,11 +272,11 @@ ul.home-options {
 }
   .home-axe {
       height: 80px;
-      margin: 37px 0 8px 0;      
+      margin: 37px 0 8px 0;
   }
   .home-write {
-      height: 80px; /* resize later */  
-      margin: 43px 0 6px 0;      
+      height: 80px; /* resize later */
+      margin: 43px 0 6px 0;
       border-radius: 2px;
   }
   .home-upvote {
@@ -287,7 +287,7 @@ ul.home-options {
     h5 {
       color: #ffffff;
     }
-    background-color: #db0d16;    
+    background-color: #db0d16;
     border: 8px solid #c70109;
     border-radius: 50%;
     height: 210px;
@@ -305,31 +305,31 @@ ul.home-options {
 .post-details {
   padding: 14px;
   margin: 30px;
-  border: 1px solid #DFDEE3;    
-  border-radius: 3px;  
+  border: 1px solid #DFDEE3;
+  border-radius: 3px;
 }
 .detail-title {
   display:inline-block;
   width: 700px;
-  margin-right:14px;  
+  margin-right:14px;
   height: 55px;
 }
 
 
 
-/* Miscellaneous 
+/* Miscellaneous
 -------------------------------------------------- */
 .hacking-axe{
     -webkit-transition-property: -webkit-transform;
     -webkit-transition-duration: 2s;
     -moz-transition-property: -moz-transform;
     -moz-transition-duration: 2s;
-    -webkit-animation-name: hack; 
-    -webkit-animation-duration: 2s; 
+    -webkit-animation-name: hack;
+    -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;
-    -moz-animation-name: hack; 
-    -moz-animation-duration: 2s; 
+    -moz-animation-name: hack;
+    -moz-animation-duration: 2s;
     -moz-animation-iteration-count: infinite;
     -moz-animation-timing-function: linear;
 }
@@ -359,21 +359,21 @@ input[type="submit"].button {
   padding: 0 15px;
   background: #db0d16;
   border-radius: 2px;
-  -webkit-box-shadow: inset 0 1px 0 rgba(246, 104, 110, 0.5), 
-              inset 0 -1px 0 #C10911, 
-              inset 1px 0 0 #C70109, 
+  -webkit-box-shadow: inset 0 1px 0 rgba(246, 104, 110, 0.5),
+              inset 0 -1px 0 #C10911,
+              inset 1px 0 0 #C70109,
               inset -1px 0 0 #C70109;
-  -moz-box-shadow: inset 0 1px 0 rgba(246, 104, 110, 0.5), 
-              inset 0 -1px 0 #C10911, 
-              inset 1px 0 0 #C70109, 
+  -moz-box-shadow: inset 0 1px 0 rgba(246, 104, 110, 0.5),
+              inset 0 -1px 0 #C10911,
+              inset 1px 0 0 #C70109,
               inset -1px 0 0 #C70109;
-  -o-box-shadow: inset 0 1px 0 rgba(246, 104, 110, 0.5), 
-              inset 0 -1px 0 #C10911, 
-              inset 1px 0 0 #C70109, 
+  -o-box-shadow: inset 0 1px 0 rgba(246, 104, 110, 0.5),
+              inset 0 -1px 0 #C10911,
+              inset 1px 0 0 #C70109,
               inset -1px 0 0 #C70109;
-  box-shadow: inset 0 1px 0 rgba(246, 104, 110, 0.5), 
-              inset 0 -1px 0 #C10911, 
-              inset 1px 0 0 #C70109, 
+  box-shadow: inset 0 1px 0 rgba(246, 104, 110, 0.5),
+              inset 0 -1px 0 #C10911,
+              inset 1px 0 0 #C70109,
               inset -1px 0 0 #C70109;
   border-bottom: 3px solid #c70109;
   text-transform: uppercase;
@@ -397,9 +397,9 @@ input[type="submit"].button {
   }
 }
 .button.help-refine-post {
-  
+
   text-transform: none;
-  font-size: 14px;  
+  font-size: 14px;
   font-weight: 100;
   border-radius: 3px;
   margin-top:12px;
@@ -424,9 +424,12 @@ input[type="submit"].button {
     background-color: #57799c;
     text-shadow: -1px -1px #57799c;
   }
+  &.voted:before {
+    content: 'UNDO';
+  }
 }
 
 .clean-modal.reveal-modal {
   padding: 0;
-  background-color: #243343; 
+  background-color: #243343;
 }
