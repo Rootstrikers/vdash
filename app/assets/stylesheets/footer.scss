@@ -1,0 +1,14 @@
+footer {
+  margin-top: 20px;
+  padding: 0.9375em;
+  background: #626173;
+  color: white;
+  @include linear-gradient(left, #223141, #243343);
+  a {
+    color: white;
+    text-decoration: underline;
+    &:hover {
+      color: rgb(200, 200, 200);
+    }
+  }
+}
