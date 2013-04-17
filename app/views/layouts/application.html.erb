@@ -29,20 +29,26 @@
   </script>
 </head>
 <body>
-  <%= render 'layouts/header' %>
-  <div class="row full-width">
-    <section id='body-content' class="small-12 large-12 columns layout-col">
-      <%= render 'layouts/notice' if @site_wide_notice %>
-      <%= render 'layouts/messages' %>
-      <div class="row">
-        <div class="small-12 large-8 large-offset-2 columns">
-          <%= yield %>
-        </div>
-      </div> <!-- row -->
-    </section>
+  <div id="wrap">
+    <div id="main" class="clearfix">
+      <%= render 'layouts/header' %>
+      <div class="row full-width">
+        <section id='body-content' class="small-12 large-12 columns layout-col">
+          <%= render 'layouts/notice' if @site_wide_notice %>
+          <%= render 'layouts/messages' %>
+          <div class="row">
+            <div class="small-12 large-8 large-offset-2 columns">
+              <%= yield %>
+            </div>
+          </div> <!-- row -->
+        </section>
 
-  </div><!-- row -->
+      </div><!-- row -->
+    </div><!-- main clearfix -->
+  </div><!-- wrap -->
+  <%= render '/links/suggestion_modal' %>
   <%= render 'layouts/footer'%>
+
   <script>
       var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

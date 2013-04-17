@@ -1,3 +1,10 @@
+/* start sticky footer stuff */
+* { margin:0; padding:0; } 
+html, body, #wrap { height: 100%; }
+body > #wrap {height: auto; min-height: 100%;}
+#main { padding-bottom: 150px; }
+/* end sticky footer stuff */
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serifsans-serif;
     font-weight: 200;
@@ -5,9 +12,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 h3 {
 	padding-top: 20px;
-}
-section#body-content {
-  height: 800px!important; /* put sticky footer once stuff is decided on - keeping it simple for now*/
 }
 body {
   font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -315,8 +319,6 @@ ul.home-options {
   height: 55px;
 }
 
-
-
 /* Miscellaneous
 -------------------------------------------------- */
 .hacking-axe{
@@ -432,4 +434,24 @@ input[type="submit"].button {
 .clean-modal.reveal-modal {
   padding: 0;
   background-color: #243343;
+}
+
+
+footer { 
+  /* start sticky footer stuff */
+  position: relative;
+  margin-top: -120px;  
+  height: 100px;
+  padding-top:20px;
+  clear: both; 
+  /* end sticky footer stuff */
+
+  text-align: right;
+  font-size: 13px;
+}
+address {
+  font-style: normal;
+}
+.licence-info {
+  text-align: center;
 }
