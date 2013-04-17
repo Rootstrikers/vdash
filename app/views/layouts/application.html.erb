@@ -8,6 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
 
   <title>
     <%= content_for?(:title) ? yield(:title) : "dash.Rootstrikers" %>
@@ -46,9 +47,10 @@
       </div><!-- row -->
     </div><!-- main clearfix -->
   </div><!-- wrap -->
+
   <%= render '/links/suggestion_modal' %>
   <%= render 'layouts/footer'%>
-
+  
   <script>
       var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

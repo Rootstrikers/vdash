@@ -27,12 +27,12 @@
   // $('.block-grid.five-up>li:nth-child(5n+1)').css({clear: 'both'});
 
   // Hide address bar on mobile devices (except if #hash present, so we don't mess up deep linking).
-  if (Modernizr.touch && !window.location.hash) {
-    $(window).load(function () {
-      setTimeout(function () {
-        window.scrollTo(0, 1);
-      }, 0);
-    });
-  }
+  // if (Modernizr.touch && !window.location.hash) {
+  //   $(window).load(function () {
+  //     setTimeout(function () {
+  //       window.scrollTo(0, 1);
+  //     }, 0);
+  //   });
+  // }
 
 })(jQuery, this);

@@ -38,11 +38,14 @@
     </div><!-- small-12 columns -->
   </div><!-- row -->
 
-  <div class='row'>
+  <div class='row form-footer'>
     <div class="small-12 columns">
-      <%= f.submit 'Share link with other volunteers', :class => "button" %>
-      <a class="close-reveal-modal" href="#">Cancel</a>
-      <div>We'll let you know if someone already shared this.</div>
+      <div class='row'>
+        <%= f.submit 'Share Link with Other Volunteers', :class => "button" %>
+      </div>
+      <div class='footnote'>
+        We'll let you know if someone already shared this.
+      </div>
     </div>
   </div>
 <% end %>

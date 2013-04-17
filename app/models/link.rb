@@ -56,7 +56,11 @@ class Link < ActiveRecord::Base
   end
 
   def display_name
-    title.present? ? title : url_without_protocol
+    if title.present?
+      "#{ellipsize(title)} (from #{domain})"
+    else
+      ellipsize(url_without_protocol)
+    end
   end
 
   def error_due_to_duplicate_url?
@@ -89,6 +93,14 @@ class Link < ActiveRecord::Base
 
   def url_valid
     errors[:url] << "looks like it's not quite right." unless Url.new(url).valid?
+  end
+
+  def ellipsize(str)
+    if str.size > 40
+      str[0..37] + "..."
+    else
+      str
+    end
   end
 
   class DomainName < Struct.new(:url)

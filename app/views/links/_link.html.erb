@@ -1,19 +1,19 @@
 <ul class="links-list">
   <li>
     <div class="row post-details">
-      <div class="small-12 columns">
-          <!--
-  	<p><span class="detail-title">Current title:</span> <%= link_to link.display_name, link %></p>
-          <p><span class="detail-title">Current Summary:</span> <%= link_to link.display_name, link %></p>
-          <p><span class="detail-title">Source:</span> <%= link_to link.domain, link.url, target: '_blank' %></p>
-  	-->
-  	<p class="detail-title"><%= link_to link.display_name, link, target: '_blank' %> via <%= link_to link.domain, link.url, target: '_blank' %></p>
-
+      <div class="small-3 columns">
         <%= render partial: 'likes/like_status', locals: { item: link } %>
+      </div><!-- small-3 columns -->
 
-        Submitted by <%= link_to link.user.name, link.user %>
-
-      </div><!-- small-12 columns -->
+      <div class="small-9 columns">
+        <p class="detail-title">
+          <%= link_to link.display_name, link.url, target: '_blank' %> (opens in new window)
+          <!-- TODO Make "opens in..." smaller or less bold or something -->
+        </p>
+        
+        <p><%= link.summary %></p>
+        <%= link_to "Article details", link %>
+      </div><!-- small-9 columns -->
     </div><!-- row -->
 
     <div class="row">
@@ -27,18 +27,14 @@
             <h4 class='opened-message more-info-title'>Hide <i class='icon-chevron-up'></i></h4>
           </a>
           <div class='more-info-content'>
-            <ul class="social-media-ideas mixed-contents">
-              <%= render link.top_contents %>
-            </ul>
-
-            <a class="button help-refine-post">
-              <i class="icon-pencil"></i> Write your own post about this article
-            </a><!-- help-edit-post -->
-
-      			<div class='more-info-content'>
-      			Post authoring form goes here.
-      			</div><!-- more-info-content -->
-
+            <% if link.top_contents.size > 0 %>
+              <ul class="social-media-ideas mixed-contents">
+                <%= render link.top_contents %>
+              </ul>
+              <a href="/links/<%= link.id %>/contents/new">Write a new post</a>
+            <% else %>
+              This article doesn't have any posts yet. <a href="/links/<%= link.id %>/contents/new">Write one!</a>
+            <% end %>
           </div><!-- more-info-content -->
         </div><!-- more-info -->
 
