@@ -56,7 +56,11 @@ class Link < ActiveRecord::Base
   end
 
   def display_name
-    title.present? ? title : url_without_protocol
+    if title.present?
+      "#{title} (from #{domain})"
+    else
+      url_without_protocol
+    end
   end
 
   def error_due_to_duplicate_url?

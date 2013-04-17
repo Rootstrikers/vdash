@@ -1,19 +1,19 @@
 <ul class="links-list">
   <li>
     <div class="row post-details">
-      <div class="small-12 columns">
-          <!--
-  	<p><span class="detail-title">Current title:</span> <%= link_to link.display_name, link %></p>
-          <p><span class="detail-title">Current Summary:</span> <%= link_to link.display_name, link %></p>
-          <p><span class="detail-title">Source:</span> <%= link_to link.domain, link.url, target: '_blank' %></p>
-  	-->
-  	<p class="detail-title"><%= link_to link.display_name, link, target: '_blank' %> via <%= link_to link.domain, link.url, target: '_blank' %></p>
-
+      <div class="small-3 columns">
         <%= render partial: 'likes/like_status', locals: { item: link } %>
+      </div><!-- small-3 columns -->
 
-        Submitted by <%= link_to link.user.name, link.user %>
-
-      </div><!-- small-12 columns -->
+      <div class="small-9 columns">
+        <p class="detail-title">
+          <%= link_to link.display_name, link.url, target: '_blank' %> (opens in new window)
+          <!-- TODO Make "opens in..." smaller or less bold or something -->
+        </p>
+        
+        <p><%= link.summary %></p>
+        <%= link_to "Link details", link %>
+      </div><!-- small-9 columns -->
     </div><!-- row -->
 
     <div class="row">
