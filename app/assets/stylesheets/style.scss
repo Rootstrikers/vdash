@@ -105,8 +105,8 @@ section#body-content {
 }
 header.section-header {
   background: #243343;
-  border-radius: 2px 2px 0 0;
-    height: 36px; /* maybe make into mixin, but keep btn-section-header the same as this */
+  border-radius: 2px 2px 0 0;     
+    height: 64px; /* maybe make into mixin, but keep btn-section-header the same as this */
 }
 .button.btn-section-header {
   height: 36px;
@@ -123,20 +123,20 @@ header.section-header {
    margin-bottom: -1px; /* (so it doesnt interact with 'add "more info" bit ) */
 }/* button submit link */
 
-img.header-icon {
-    width: 24px;
-    height: 24px;
-    margin: 7px 6px 6px 11px;
-    float: left;
-    display: inline-block;
+.header-icon {
+  width: 24px;
+  height: 24px;
+  margin: 21px 16px 6px 20px;
+  float: left;
+  display: inline-block;
 }
 .section-title {
   display: inline-block;
   font-size: 16px;
-  line-height: 36px;
+  line-height: 64px;
   margin: 0;
   color: white;
-  margin-left: 12px;
+  margin-left: 0px;
   &:hover {
     color: #57799c;
   }
@@ -213,6 +213,9 @@ div.more-info-content {
   margin: 0;
   padding: 32px;
   display: none;
+  h3 {
+    padding-top: 0;
+  }
   p {
     font-size: 16px;
     line-height: 20px;
@@ -229,6 +232,7 @@ input[type="month"], input[type="week"], input[type="email"],
 input[type="number"], input[type="search"], input[type="tel"],
 input[type="time"], input[type="url"], textarea {
   margin-bottom: 0;
+  border-radius: 3px;
 }
 label {
   margin-top: 8px;
@@ -292,7 +296,9 @@ ul.home-options {
     }
   }
 
-/* Vote page */
+
+/* Vote page 
+----------------------------------------------------- */
 .post-details {
   padding: 14px;
   margin: 30px;
@@ -304,6 +310,53 @@ ul.home-options {
   width: 700px;
 }
 
+
+/* Link Modal
+-------------------------------------------------- */
+.clean-modal.reveal-modal {
+  div#form-container {
+    form {
+      margin: 16px;
+      div.row {
+        div.columns {
+          padding-left: 0;
+          padding-right: 0;
+          input[type='text'] {
+            width: 320px;
+          }
+          textarea {
+            min-height: 96px;
+          }
+          div.field_valley {
+            height: 24px;
+          }
+        }
+      }
+      div.form-footer {
+        div div.row {
+          margin: 0;
+          a.close-reveal-modal {
+            float: left;
+            position: relative;
+            left: auto;
+            top: auto;
+            right: auto;
+            line-height: 36px;
+            font-weight: 400;
+            font-size: 16px;
+          }
+          input.button {
+            float: right;
+          }
+        }
+        div.footnote {
+          text-align: right;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
 
 
 /* Miscellaneous
@@ -401,5 +454,81 @@ input[type="submit"].button {
 
 .clean-modal.reveal-modal {
   padding: 0;
-  background-color: #243343;
+  background-color: white;
+  border-radius: 3px;
 }
+
+
+/* Responsive
+-------------------------------------------------- */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+  .clean-modal.reveal-modal {
+    width: 480px;
+    margin-left: -240px;
+  }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+  .clean-modal.reveal-modal {
+    width: 480px;
+    margin-left: -240px;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+  .clean-modal.reveal-modal {
+    width: 480px;
+    margin-left: -240px;
+  }
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+
