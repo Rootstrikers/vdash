@@ -1,16 +1,16 @@
 <li>
-  <div class="like">
+  <span class="like">
     <%= render partial: 'likes/like_status', locals: { item: content } %>
-  </div>
-  <div class="service">
+  </span>
+  <span class="service">
     <% if content.valid_for_twitter? %>
       <img src="/assets/twitter-logo.png" alt="Twitter logo" width="30em">
     <% end %>
     <img src="/assets/facebook-logo.png" alt="Facebook logo" width="30em">
-  </div>
-  <div class="body">
+  </span>
+  <span class="body">
     <%= content.body %>
-  </div>
+  </span>
   <% if defined?(include_link) && include_link %>
     <div class="link">
       <%= link_to content.link.domain, content.link.url %>
