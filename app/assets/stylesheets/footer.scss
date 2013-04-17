@@ -1,9 +1,18 @@
 footer {
-  margin-top: 20px;
-  padding: 0.9375em;
+  /* start sticky footer stuff */
+  position: relative;
+  margin-top: -100px;  
+  height: 100px;
+  clear: both; 
+  /* end sticky footer stuff */
+
+  
+  text-align: right;
+  font-size: 13px;
+  padding: 8px;
+  
   background: #626173;
-  color: white;
-  text-align: center;
+  color: #ffffff;
   @include linear-gradient(left, #223141, #243343);
   a {
     color: white;
@@ -12,4 +21,14 @@ footer {
       color: rgb(200, 200, 200);
     }
   }
+  
+}
+
+address {
+  font-style: normal;
+  font-weight: 100;
+}
+.licence-info {
+  text-align: center;
+  font-weight: 100;
 }
