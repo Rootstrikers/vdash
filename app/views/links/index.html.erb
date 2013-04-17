@@ -5,7 +5,29 @@
 <div class="row">
   <section class="small-12 columns content-box">
       <header class='section-header'>
-        <h2 class="section-title"> <i class="icon-thumbs-up"></i> Vote on articles</h2>
+        <h2 class="section-title"> Suggest an Article</h2>
+      </header>
+
+      <p>Enter links to news stories, essays, and anything else you'd share with your friends about fixing the corrupting influence of money in politics.</p>
+
+      <p>Others will vote on the link and help write the text of the tweet or facebook post.</p>
+
+      <p>News stories should come from reputable third parties with a strong reputation for accurate reporting.</p>
+
+      <div id='form-container'>
+        <%= render 'links/form' %>
+      </div>
+  </section><!-- small-12 columns content-box -->
+</div><!-- row -->
+
+<div class="row">
+  &nbsp;
+</div>
+
+<div class="row">
+  <section class="small-12 columns content-box">
+      <header class='section-header'>
+        <h2 class="section-title"> Articles</h2>
         <%= link_to '#', class: 'button btn-section-header', data: { reveal_id: 'article-suggestion-modal' } do %>
           <i class="icon-plus-sign"></i> Suggest Article
         <% end %>
@@ -18,13 +40,13 @@
           <h4 class='opened-message more-info-title'>Hide <i class='icon-chevron-up'></i></h4>
         </a>
         <div class='more-info-content'>
-      	  <h3>Where did these links come from?</h3>
-      	  <p>Rootstrikers volunteers submitted these links to news articles. They think other Rootstrikers might be interested in them.</p>
+          <h3>Where did these links come from?</h3>
+          <p>Rootstrikers volunteers submitted these links to news articles. They think other Rootstrikers might be interested in them.</p>
           <h3>What can I do to help?</h3>
           <p>Vote for links that you'd like to see Rootstrikers share over social media. Or, submit a link of your own to be added to this list.</p>
-      	  <h3>What kind of news links should I share?</h3>
-      	  <p>Rootstrikers wants to share high quality news stories about corruption in Congress (and honest representation too!).  News stories should come from reputable third parties with a strong reputation for accurate reporting.</p>
-      	</div>
+          <h3>What kind of news links should I share?</h3>
+          <p>Rootstrikers wants to share high quality news stories about corruption in Congress (and honest representation too!).  News stories should come from reputable third parties with a strong reputation for accurate reporting.</p>
+        </div>
       </div>
 
       <p>Vote for the articles you think Rootstrikers should share over social media.</p>
@@ -36,11 +58,3 @@
       <%= will_paginate @links %>
   </section><!-- small-12 columns content-box -->
 </div><!-- row -->
-
-<% if @show_modal %>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('a.reveal-link').trigger('click');
-    });
-  </script>
-<% end %>
