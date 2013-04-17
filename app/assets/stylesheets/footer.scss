@@ -3,6 +3,7 @@ footer {
   padding: 0.9375em;
   background: #626173;
   color: white;
+  text-align: center;
   @include linear-gradient(left, #223141, #243343);
   a {
     color: white;
