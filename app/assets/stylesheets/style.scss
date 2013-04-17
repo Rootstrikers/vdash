@@ -7,7 +7,7 @@ h3 {
 	padding-top: 20px;
 }
 section#body-content {
-  height: 800px!important; /* put sticky footer once stuff is decided on - keeping it simple for now*/
+  min-height: 800px!important; /* put sticky footer once stuff is decided on - keeping it simple for now*/
 }
 body {
   font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -105,7 +105,7 @@ section#body-content {
 }
 header.section-header {
   background: #243343;
-  border-radius: 2px 2px 0 0;     
+  border-radius: 2px 2px 0 0;
     height: 64px; /* maybe make into mixin, but keep btn-section-header the same as this */
 }
 .button.btn-section-header {
@@ -297,7 +297,7 @@ ul.home-options {
   }
 
 
-/* Vote page 
+/* Vote page
 ----------------------------------------------------- */
 .post-details {
   padding: 14px;
@@ -463,35 +463,35 @@ input[type="submit"].button {
 -------------------------------------------------- */
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 320px) 
+@media only screen
+and (min-device-width : 320px)
 and (max-device-width : 480px) {
 /* Styles */
 }
 
 /* Smartphones (landscape) ----------- */
-@media only screen 
+@media only screen
 and (min-width : 321px) {
 /* Styles */
 }
 
 /* Smartphones (portrait) ----------- */
-@media only screen 
+@media only screen
 and (max-width : 320px) {
 /* Styles */
 }
 
 /* iPads (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
+@media only screen
+and (min-device-width : 768px)
 and (max-device-width : 1024px) {
 /* Styles */
 }
 
 /* iPads (landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
 and (orientation : landscape) {
   .clean-modal.reveal-modal {
     width: 480px;
@@ -500,15 +500,15 @@ and (orientation : landscape) {
 }
 
 /* iPads (portrait) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
 and (orientation : portrait) {
 
 }
 
 /* Desktops and laptops ----------- */
-@media only screen 
+@media only screen
 and (min-width : 1224px) {
   .clean-modal.reveal-modal {
     width: 480px;
@@ -517,7 +517,7 @@ and (min-width : 1224px) {
 }
 
 /* Large screens ----------- */
-@media only screen 
+@media only screen
 and (min-width : 1824px) {
   .clean-modal.reveal-modal {
     width: 480px;
