@@ -6,7 +6,14 @@
   <a id="suggest"></a>
   <section class="small-12 columns content-box">
       <header class='section-header'>
+        <!--
         <h2 class="section-title"> Suggest an Article</h2>
+      -->
+        <i class="header-icon icon-thumbs-up"></i>         
+        <h2 class="section-title">Vote on Articles</h2>
+        <%= link_to '#', class: 'button btn-section-header', data: { reveal_id: 'article-suggestion-modal' } do %>
+          <i class="icon-plus-sign"></i> Suggest Article
+        <% end %>
       </header>
 
       <p>Enter links to news stories, essays, and anything else you'd share with your friends about fixing the corrupting influence of money in politics.</p>
@@ -41,3 +48,14 @@
       <%= will_paginate @links %>
   </section><!-- small-12 columns content-box -->
 </div><!-- row -->
+<<<<<<< Updated upstream
+=======
+
+<% if @show_modal %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('a.reveal-link').trigger('click');
+    });
+  </script>
+<% end %>
+>>>>>>> Stashed changes
