@@ -29,14 +29,9 @@ describe LikesController do
         Like.last.item.should == item
       end
 
-      it 'redirects to refering url' do
+      it 'returns appropriate json' do
         action.call
-        response.should redirect_to 'where_i_came_from'
-      end
-
-      it 'sets the flash' do
-        action.call
-        flash[:success].should == 'Liked!'
+        response.body.should == '{"id":' + item.id.to_s + ',"itemKlass":"Link","like_count":1}'
       end
     end
 
@@ -50,14 +45,9 @@ describe LikesController do
         }.to raise_error(ActiveRecord::RecordNotFound)
       end
 
-      it 'redirects to refering url' do
+      it 'returns appropriate json' do
         action.call
-        response.should redirect_to 'where_i_came_from'
-      end
-
-      it 'sets the flash' do
-        action.call
-        flash[:success].should == 'Unliked.'
+        response.body.should == '{"id":' + item.id.to_s + ',"itemKlass":"Link","like_count":0}'
       end
     end
   end

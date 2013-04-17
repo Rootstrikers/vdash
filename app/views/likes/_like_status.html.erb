@@ -1,6 +1,6 @@
 <% if current_user %>
   <%= link_to '#', data: { item_klass: item.class.name, item_id: item.id }, class: like_action_class(current_user, item) do %>
     VOTE
-   (<span class="upvote-count"><%= item.like_count || 0 %></span>)
+   (<span class="upvote-count" id="upvote-count-<%= item.class.name %>-<%= item.id %>"><%= item.like_count || 0 %></span>)
   <% end %>
 <% end %>

@@ -7,11 +7,11 @@ class LikesController < ApplicationController
     # TODO: Come up with something more elegant.
     if current_user.liked?(@item)
       current_user.likes.where(item_type: @item.class.name, item_id: @item.id).first.destroy
-      redirect_to :back, flash: { success: 'Unliked.' }
     else
       @item.likes << Like.new(user: current_user)
-      redirect_to :back, flash: { success: 'Liked!' }
     end
+
+    render json: { id: @item.id, itemKlass: @item.class.name, like_count: @item.likes.count }
   end
 
   private
