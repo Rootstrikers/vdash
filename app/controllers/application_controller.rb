@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :set_current_user, :set_notice, :set_can_signup, :ensure_not_banned, :set_link
+  before_filter :set_current_user, :set_notice, :set_can_signup, :ensure_not_banned, :set_link, :set_content
 
   private
 
@@ -36,6 +36,10 @@ class ApplicationController < ActionController::Base
 
   def set_link
     @link = Link.new
+  end
+
+  def set_content
+    @content = Content.new
   end
 
   helper_method :current_user

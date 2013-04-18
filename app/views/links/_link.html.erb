@@ -10,7 +10,7 @@
           <%= link_to link.display_name, link.url, target: '_blank' %> (opens in new window)
           <!-- TODO Make "opens in..." smaller or less bold or something -->
         </p>
-        
+
         <p><%= link.summary %></p>
         <%= link_to "Article details", link %>
       </div><!-- small-9 columns -->
@@ -31,9 +31,15 @@
               <ul class="social-media-ideas mixed-contents">
                 <%= render link.top_contents %>
               </ul>
-              <a href="/links/<%= link.id %>/contents/new">Write a new post</a>
+              <!-- <a href="/links/<%= link.id %>/contents/new">Write a new post</a> -->
+              <%= link_to new_link_content_path(link), class: 'collapse-toggle', data: { target_selector: "#new-content-form-link-#{link.id}" } do %>
+                Write a new post <i class='icon-chevron-down'></i>
+              <% end %>
+              <div id="new-content-form-link-<%= link.id %>" style="display: none">
+                <%= render partial: 'contents/form', locals: { link: link, content: Content.new } %>
+              </div>
             <% else %>
-              This article doesn't have any posts yet. <a href="/links/<%= link.id %>/contents/new">Write one!</a>
+              <p>This article doesn't have any post suggestions yet. You should probably add one.</p>
             <% end %>
           </div><!-- more-info-content -->
         </div><!-- more-info -->
