@@ -2,24 +2,7 @@
   <%= link_to 'Admin: <i class="icon-trash"></i>  Deleted Links'.html_safe, admin_deleted_things_links_path, class: 'button btn-deleted-links pull-right' if current_user.try(:admin?) %>
 <% end %>
 
-<div class="row">
-  <a id="suggest"></a>
-  <section class="small-12 columns content-box">
-      <header class='section-header'>
-        <h2 class="section-title"> Suggest an Article</h2>
-      </header>
-
-      <p>Enter links to news stories, essays, and anything else you'd share with your friends about fixing the corrupting influence of money in politics.</p>
-
-      <p>Others will vote on the link and help write the text of the tweet or facebook post.</p>
-
-      <p>News stories should come from reputable third parties with a strong reputation for accurate reporting.</p>
-
-      <div id='form-container'>
-        <%= render 'links/form' %>
-      </div>
-  </section><!-- small-12 columns content-box -->
-</div><!-- row -->
+<%= render '/links/suggestion_box' %>
 
 <div class="row">
   &nbsp;
