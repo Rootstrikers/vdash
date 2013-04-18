@@ -63,7 +63,7 @@ describe ContentsController do
 
       it 'renders the create template' do
         action.call
-        response.should render_template :creat
+        response.should render_template :create
       end
     end
 
