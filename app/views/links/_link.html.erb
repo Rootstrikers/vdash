@@ -31,7 +31,6 @@
               <ul class="social-media-ideas mixed-contents">
                 <%= render link.top_contents %>
               </ul>
-              <!-- <a href="/links/<%= link.id %>/contents/new">Write a new post</a> -->
               <%= link_to new_link_content_path(link), class: 'collapse-toggle', data: { target_selector: "#new-content-form-link-#{link.id}" } do %>
                 Write a new post <i class='icon-chevron-down'></i>
               <% end %>
