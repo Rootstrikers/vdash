@@ -48,7 +48,7 @@ describe ContentsController do
 
   describe 'a POST to :create' do
     context 'when the facebook content saves' do
-      let(:action) { ->{ post :create, link_id: link.id, content: { body: "Call your senator now!" } } }
+      let(:action) { ->{ post :create, link_id: link.id, content: { body: "Call your senator now!" }, format: :js } }
 
       it 'creates a facebook content' do
         expect {
@@ -61,14 +61,9 @@ describe ContentsController do
         Content.last.link.should == link
       end
 
-      it 'redirects to the link' do
+      it 'renders the create template' do
         action.call
-        response.should redirect_to link_url(link)
-      end
-
-      it 'sets the flash' do
-        action.call
-        flash[:success].should == 'Post submission created.'
+        response.should render_template :creat
       end
     end
 

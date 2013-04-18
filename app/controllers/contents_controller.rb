@@ -16,7 +16,7 @@ class ContentsController < ApplicationController
   def create
     @content = current_user.contents.new(content_params)
     if @content.save
-      redirect_to link_url(@link), flash: { success: 'Post submission created.' }
+      render :create
     else
       render :new
     end

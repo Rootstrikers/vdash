@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409035703) do
+ActiveRecord::Schema.define(:version => 20130418022514) do
 
   create_table "bans", :force => true do |t|
     t.integer  "user_id"
@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(:version => 20130409035703) do
     t.integer  "link_id"
     t.integer  "user_id"
     t.text     "body"
-    t.integer  "like_count"
+    t.integer  "like_count", :default => 0
     t.datetime "deleted_at"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "contents", ["link_id"], :name => "index_contents_on_link_id"
@@ -51,11 +51,11 @@ ActiveRecord::Schema.define(:version => 20130409035703) do
   create_table "links", :force => true do |t|
     t.string   "url"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "title"
     t.text     "summary"
-    t.integer  "like_count"
+    t.integer  "like_count", :default => 0
     t.datetime "deleted_at"
     t.boolean  "approved"
   end
