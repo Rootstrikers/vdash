@@ -26,15 +26,58 @@ ul {
   list-style-type: none;
 }
 .alert-box {
-  position: absolute;
-  width: 30%;
-  margin-left: -15%;
-  left: 50%;
-  top: 7px;
-  background-color: transparent;
-  border: none;
+  position: relative;
+  width: 100%;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 0px;
+  line-height: 64px;
+  text-align: center;
   font-size: 18px;
-  color: #333333;
+  font-weight: 400;
+  background: white;
+  border-bottom: 1px solid lightgray;
+  box-shadow: 0 3px 7px rgba(165,165,175,.1);
+  -webkit-box-shadow: 0 3px 7px rgba(165,165,175,.1);
+  -moz-box-shadow: 0 3px 7px rgba(165,165,175,.1);
+  -o-box-shadow: 0 3px 7px rgba(165,165,175,.1);
+  box-shadow: 0 3px 7px rgba(165,165,175,.1);
+  -webkit-transition-property: height, line-height;   
+            -webkit-transition-duration: .3s, .3s;   
+            -webkit-transition-timing-function: ease-in, ease-in; 
+               -moz-transition-property: height, line-height;   
+               -moz-transition-duration: .3s, .3s;   
+               -moz-transition-timing-function: ease-in, ease-in; 
+                 -o-transition-property: height, line-height;   
+                 -o-transition-duration: .3s, .3s;   
+                 -o-transition-timing-function: ease-in, ease-in; 
+                    transition-property: height, line-height;   
+                    transition-duration: .3s, .3s;   
+                    transition-timing-function: ease-in, ease-in; 
+  color: #32324E;
+  span.close {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.alert-box.admin-message:before {
+  content: "Notice:";
+  padding: 8px;
+}
+.alert-box.admin-message {
+  color: #ffffff;
+  background-color: #223141;
+  @include border-right-radius(5px);
+  width: 200px;
+  min-height: 40px;    
+  position: absolute;
+  left:0;
+  min-height: 100px;
+  font-weight: 200;
 }
 .full-width {
   width: 100%;

@@ -1,3 +1,13 @@
-<div data-alert class="alert-box">
+<div data-alert class="alert-box admin-message">
   <%= @site_wide_notice.body %>
-</div>
+<span class="close"><i class="icon-remove"></i></span></div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.alert-box').css('height','64px');
+	$('.alert-box').find('.close').click(function(){
+		var self = this;
+		$(self).css('height','0px');
+		setTimeout(function(){$(self).remove();},300);
+	});
+});
+</script>
