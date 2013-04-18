@@ -26,6 +26,7 @@ ul {
   list-style-type: none;
 }
 .alert-box {
+  border: 0;
   position: relative;
   width: 100%;
   left: 0;
@@ -69,37 +70,10 @@ ul {
   padding: 8px;
 }
 .alert-box.admin-message {
-  color: #ffffff;
-  background-color: #223141;
-  @include border-right-radius(5px);
-  width: 200px;
-  min-height: 40px;    
-  position: absolute;
-  left:0;
-  min-height: 100px;
-  font-weight: 200;
+  background-color: #F3CA47;
+  height: 64px;
+  line-height: 64px;
 }
-  .alert-box.admin-message:before {
-    content: "Notice:";
-    padding: 8px;
-  }
-  .alert-box.admin-message {
-    color: #ffffff;
-    background-color: #223141;
-    @include border-right-radius(5px);
-    width: 200px;
-    min-height: 40px;    
-    position: absolute;
-    left:0;
-    min-height: 100px;
-    font-weight: 200;
-  }
-    .alert-box.success {
-      width: 30%;
-      margin: 0 auto;
-      margin-bottom: 30px;
-      border-radius: 4px;
-    }
 
 .full-width {
   width: 100%;
