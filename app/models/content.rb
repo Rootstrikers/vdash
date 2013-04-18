@@ -62,6 +62,7 @@ class Content < ActiveRecord::Base
   end
 
   private
+
   class Poster < Struct.new(:content, :options)
     def run
       ensure_valid_options
