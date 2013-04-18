@@ -34,9 +34,9 @@
     <div id="main" class="clearfix">
       <%= render 'layouts/header' %>
       <div class="row full-width">
+        <%= render 'layouts/notice' if @site_wide_notice %>
+        <%= render 'layouts/messages' %>
         <section id='body-content' class="small-12 large-12 columns layout-col">
-          <%= render 'layouts/notice' if @site_wide_notice %>
-          <%= render 'layouts/messages' %>
           <div class="row">
             <div class="small-12 large-8 large-offset-2 columns">
               <%= yield %>

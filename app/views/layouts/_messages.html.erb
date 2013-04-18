@@ -1,3 +1,16 @@
 <% flash.each do |level, message| %>
-	<div data-alert class="alert-box <%= level %>"><%= message %></div>
+	<div data-alert class="alert-box <%= level %>"><%= message %><span class="close"><i class="icon-remove"></i></span></div>
 <% end %>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.alert-box').css({
+		'height':'64',
+		'line-height':'64px'
+	});
+	$('.alert-box').find('.close').click(function(){
+		var container = $(this).parent('.alert-box');
+		$(container).css('height','0px');
+		setTimeout(function(){$(container).remove();},300);
+	});
+});
+</script>
