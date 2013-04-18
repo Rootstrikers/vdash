@@ -369,6 +369,7 @@ section#article-suggestion {
         div.columns {
           padding-left: 0;
           padding-right: 16px;
+          overflow: hidden;
           input[type='text'] {
             width: 100%;
           }
@@ -377,6 +378,33 @@ section#article-suggestion {
           }
           div.field_valley {
             height: 24px;
+          }
+          &.error-column {
+            overflow: hidden;
+            height: 32px;
+            span.inline-error {
+              background: #E96E73;
+              padding: 7px 32px;
+              max-width: 100%;
+              position: absolute;
+              left: 0;
+              font-weight: 300;
+              color: white;
+              margin-left: 12px;
+              border-radius: 3px;
+              &:after {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                border-width: 8px 8px 8px 0px;
+                border-style: solid;
+                border-color: transparent #E96E73 transparent transparent;
+                left: -7px;
+                top: 7px;
+              }
+            }
           }
         }
       }
