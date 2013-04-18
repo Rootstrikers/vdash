@@ -362,13 +362,15 @@ ul.home-options {
 section#article-suggestion {
   div#form-container {
     form {
-      margin: 16px;
+      margin: 32px 0 32px 0;
+      padding: 0;
       div.row {
+        margin: 0;
         div.columns {
           padding-left: 0;
-          padding-right: 0;
+          padding-right: 16px;
           input[type='text'] {
-            width: 320px;
+            width: 100%;
           }
           textarea {
             min-height: 96px;
