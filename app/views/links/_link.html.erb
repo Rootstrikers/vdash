@@ -28,10 +28,10 @@
           </a>
           <div class='more-info-content'>
             <% if link.top_contents.size > 0 %>
-              <ul class="social-media-ideas mixed-contents">
+              <ul class="social-media-ideas mixed-contents" id="contents-link-<%= link.id %>">
                 <%= render link.top_contents %>
               </ul>
-              <%= link_to new_link_content_path(link), class: 'collapse-toggle', data: { target_selector: "#new-content-form-link-#{link.id}" } do %>
+              <%= link_to new_link_content_path(link), class: 'collapse-toggle', id: "content-form-toggle-link-#{link.id}", data: { target_selector: "#new-content-form-link-#{link.id}" } do %>
                 Write a new post <i class='icon-chevron-down'></i>
               <% end %>
               <div id="new-content-form-link-<%= link.id %>" style="display: none">

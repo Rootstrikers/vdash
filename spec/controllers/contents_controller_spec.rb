@@ -47,11 +47,8 @@ describe ContentsController do
   end
 
   describe 'a POST to :create' do
-    before do
-      request.env["HTTP_REFERER"] = 'http://www.example.com'
-    end
     context 'when the facebook content saves' do
-      let(:action) { ->{ post :create, link_id: link.id, content: { body: "Call your senator now!" } } }
+      let(:action) { ->{ post :create, link_id: link.id, content: { body: "Call your senator now!" }, format: :js } }
 
       it 'creates a facebook content' do
         expect {
@@ -64,14 +61,9 @@ describe ContentsController do
         Content.last.link.should == link
       end
 
-      it 'redirects back to the referer' do
+      it 'renders the create template' do
         action.call
-        response.should redirect_to 'http://www.example.com'
-      end
-
-      it 'sets the flash' do
-        action.call
-        flash[:success].should == 'Post submission created.'
+        response.should render_template :creat
       end
     end
 
