@@ -192,6 +192,9 @@ header.section-header {
    margin-bottom: -1px; /* (so it doesnt interact with 'add "more info" bit ) */
 }/* button submit link */
 
+.page-explanation {
+  margin-left: 45px;
+}
 .header-icon {
   width: 24px;
   height: 24px;
@@ -206,10 +209,11 @@ header.section-header {
   margin: 0;
   color: white;
   margin-left: 0px;
-  &:hover {
-    color: #57799c;
-  }
+  font-weight: 500;
 }
+  .vote {
+    margin-left: 45px;
+  }
 div.more-info {
   padding: 0;
   &.opened-info a.more-info-toggle{
@@ -245,18 +249,20 @@ a.more-info-toggle {
     float: right;
     position: relative;
     z-index: 99;
+    margin-top: -24px;
+    margin-right: -15px;
+    border-top: 1px solid #D3D5D5;
   }
   .more-info-content {
-    background-color: #FDFDFD;
+    background-color: #F5F5F5;
     @include border-bottom-radius(3px);
-    margin-right: -92px;
     border:1px solid #C0C0C0;
     float: right;
     width: 99%;
     position: relative;
     z-index: 98;
     padding: 16px;
-    padding-bottom: 0px;
+    
   }
 
 }
@@ -445,6 +451,10 @@ section#article-suggestion {
           }
           input.button {
             float: right;
+            ;
+          }
+          .button.share-link {
+            background-color: #d10c15;
           }
         }
         div.footnote {
@@ -544,8 +554,8 @@ input[type="submit"].button {
     background-color: #57799c;
     text-shadow: -1px -1px #57799c;
   }
-  &.voted:before {
-    content: 'UNDO';
+  &.voted {
+    background-color: #57799c;
   }
 }
 
