@@ -26,8 +26,6 @@ ul {
   list-style-type: none;
 }
 .alert-box {
-
-
   background-color: transparent;
   border: none;
   
@@ -51,6 +49,12 @@ ul {
     min-height: 100px;
     font-weight: 200;
   }
+    .alert-box.success {
+      width: 30%;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      border-radius: 4px;
+    }
 
 .full-width {
   width: 100%;
