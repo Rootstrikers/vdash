@@ -26,8 +26,10 @@
       <p class="page-explanation">
         Vote for the articles you think Rootstrikers should share on Facebook or Twitter.
       </p>
-
-      <%= render @links %>
+      
+      <ul class="links-list">
+        <%= render @links %>
+      </ul>
 
       <%= will_paginate @links %>
   </section><!-- small-12 columns content-box -->

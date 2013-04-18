@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20130418022514) do
     t.string   "title"
     t.text     "summary"
     t.integer  "like_count", :default => 0
-    t.datetime "deleted_at"
     t.boolean  "approved"
+    t.datetime "deleted_at"
   end
 
   add_index "links", ["user_id"], :name => "index_links_on_user_id"

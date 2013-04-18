@@ -198,6 +198,17 @@ div.more-info {
       }
     }
   }
+  .button.like-action {
+    font-size: 12px;
+    padding: 10px 14px;
+    margin-right: 8px;
+  }
+  .button.btn-suggest-post {
+    margin-top: 10px;
+    &:hover {
+      background-color: #d10c15;
+    }
+  }
 }/* more-info */
 a.more-info-toggle {
   display: none;
@@ -357,6 +368,8 @@ ul.home-options {
 .detail-title {
   display:inline-block;
   width: 700px;
+  padding: 9px 10px 0 0;
+  width: 78%;
 }
 
 /* Links
@@ -424,8 +437,7 @@ section#article-suggestion {
             font-size: 16px;
           }
           input.button {
-            float: right;
-            ;
+            float: right;            
           }
           .button.share-link {
             background-color: #d10c15;
@@ -481,6 +493,7 @@ input[type="submit"].button {
   overflow: hidden;
   padding: 0 15px;
   background: #db0d16;
+  cursor: pointer;
   border-radius: 2px;
   -webkit-box-shadow: inset 0 1px 0 rgba(246, 104, 110, 0.5),
               inset 0 -1px 0 #C10911,

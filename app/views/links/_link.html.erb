@@ -1,11 +1,11 @@
-<ul class="links-list">
+
   <li>
     <div class="row post-details">
-      <div class="small-3 columns">
+      <div class="small-2 columns">
         <%= render partial: 'likes/like_status', locals: { item: link } %>
       </div><!-- small-3 columns -->
 
-      <div class="small-9 columns">
+      <div class="small-10 columns">
         <p class="detail-title">
           <%= link_to link.display_name, link.url, target: '_blank' %>
           <!-- TODO Make "opens in..." smaller or less bold or something -->
@@ -55,4 +55,3 @@
       </div><!-- submitter-info -->
     </div>
   </li>
-</ul>
