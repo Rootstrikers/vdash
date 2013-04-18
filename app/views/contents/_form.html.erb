@@ -1,4 +1,6 @@
-<%= form_for [(defined?(link) && link) || @link, @content], html: { class: 'form-horizontal' }, remote: true do |f| %>
+<% link = (defined?(link) && link) || @link %>
+
+<%= form_for [link, @content], html: { class: 'form-horizontal' }, remote: true do |f| %>
   <% if @content.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@content.errors.count, "error") %> prohibited this Post submission from being saved:</h2>
@@ -19,6 +21,9 @@
   </div>
 
   <div class="controls">
+    <span class="service">
+      <img src="/assets/twitter-logo.png" alt="Twitter logo" width="30em" id="twitter-logo-link-<%= link.id %>">
+      <img src="/assets/facebook-logo.png" alt="Facebook logo" width="30em">
     <%= f.submit "Suggest Post" %>
   </div>
 <% end %>
@@ -28,6 +33,13 @@
   $('#new_content textarea#content_body').keyup(function(event) {
     if ($(this).val() != '') {
       $('#new_content input[type=submit]').prop('disabled', false);
+      console.log($(this).val());
+      console.log($(this).val().length);
+      if ($(this).val().length > 120) {
+        $("#twitter-logo-link-<%= link.id %>").hide();
+      } else {
+        $("#twitter-logo-link-<%= link.id %>").show();
+      }
     } else {
       $('#new_content input[type=submit]').prop('disabled', true);
     }
