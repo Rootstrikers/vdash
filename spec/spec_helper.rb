@@ -40,6 +40,7 @@ end
 # Spec helper methods
 def sign_in(user)
   controller.stub(current_user: user)
+  Thread.current[:current_user] = user
 end
 
 def instance_of_described_class
