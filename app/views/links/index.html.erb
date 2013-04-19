@@ -5,6 +5,7 @@
 <% if current_user %>
   <div class="row">
     <section class="small-12 columns content-box">
+      <a id="suggest"></a>
       <%= render '/links/suggestion_box' %>
     </section>
   </div>
@@ -37,10 +38,11 @@
   </section><!-- small-12 columns content-box -->
 </div><!-- row -->
 
-<% if @show_modal %>
+<% if @expand_all %>
   <script type="text/javascript">
     $(document).ready(function() {
-      $('a.reveal-link').trigger('click');
+      $('.links-list a.more-info-toggle').click();
+      $('.links-list .collapse-toggle').click();
     });
   </script>
 <% end %>

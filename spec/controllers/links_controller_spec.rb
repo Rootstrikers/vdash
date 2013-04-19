@@ -19,6 +19,16 @@ describe LinksController do
       action.call
       assigns(:links).should == links.reverse
     end
+
+    it 'assigns false to expand_all by default' do
+      action.call
+      assigns(:expand_all).should be_false
+    end
+
+    it 'assigns true to expand_all if params[:write] is "true"' do
+      get :index, write: 'true'
+      assigns(:expand_all).should be_true
+    end
   end
 
   describe 'a GET to :new' do
