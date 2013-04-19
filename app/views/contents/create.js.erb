@@ -1,3 +1,4 @@
-$("#contents-link-<%= @content.link.id %>").append("<%= escape_javascript(render @content) %>");
-$("#content-form-toggle-link-<%= @content.link.id %>").click()
-$("#no-posts-paragraph-link-<%= @content.link.id %>").hide()
+$("#contents-link-<%= @content.link.id %>").append("<%= escape_javascript(render @content.reload) %>");
+$("#content-form-toggle-link-<%= @content.link.id %>").click();
+$("#no-posts-paragraph-link-<%= @content.link.id %>").hide();
+window.attachLikeListener();
