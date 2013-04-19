@@ -36,11 +36,11 @@
               <p id="no-posts-paragraph-link-<%= link.id %>">This article doesn't have any post suggestions yet. You should probably add one.</p>
             <% end %>
             <%= link_to new_link_content_path(link), class: 'collapse-toggle', id: "content-form-toggle-link-#{link.id}", data: { target_selector: "#new-content-form-link-#{link.id}" } do %>
-                Write a new post <i class='icon-chevron-down'></i>
-              <% end %>
-              <div id="new-content-form-link-<%= link.id %>" style="display: none">
-                <%= render partial: 'contents/form', locals: { link: link, content: Content.new } %>
-              </div>
+              Write a new post <i class='icon-chevron-down'></i>
+            <% end if current_user %>
+            <div id="new-content-form-link-<%= link.id %>" style="display: none">
+              <%= render partial: 'contents/form', locals: { link: link, content: Content.new } %>
+            </div>
           </div><!-- more-info-content -->
         </div><!-- more-info -->
 

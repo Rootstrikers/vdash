@@ -2,11 +2,13 @@
   <%= link_to 'Admin: <i class="icon-trash"></i>  Deleted Links'.html_safe, admin_deleted_things_links_path, class: 'button btn-deleted-links pull-right' if current_user.try(:admin?) %>
 <% end %>
 
-<div class="row">
-  <section class="small-12 columns content-box">
-    <%= render '/links/suggestion_box' %>
-  </section>
-</div>
+<% if current_user %>
+  <div class="row">
+    <section class="small-12 columns content-box">
+      <%= render '/links/suggestion_box' %>
+    </section>
+  </div>
+<% end %>
 
 <div class="row">
   &nbsp;
@@ -26,7 +28,7 @@
       <p class="page-explanation">
         Vote for the articles you think Rootstrikers should share on Facebook or Twitter.
       </p>
-      
+
       <ul class="links-list">
         <%= render @links %>
       </ul>
