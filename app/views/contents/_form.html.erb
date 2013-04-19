@@ -33,8 +33,6 @@
   $('#new_content textarea#content_body').keyup(function(event) {
     if ($(this).val() != '') {
       $('#new_content input[type=submit]').prop('disabled', false);
-      console.log($(this).val());
-      console.log($(this).val().length);
       if ($(this).val().length > 120) {
         $("#twitter-logo-link-<%= link.id %>").hide();
       } else {

@@ -15,11 +15,7 @@ class ContentsController < ApplicationController
 
   def create
     @content = current_user.contents.new(content_params)
-    if @content.save
-      render :create
-    else
-      render :new
-    end
+    @content.save
   end
 
   def update

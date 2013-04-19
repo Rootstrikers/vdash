@@ -21,11 +21,37 @@ describe Content do
   it { should belong_to :user }
   it { should have_many :posts }
 
+  subject { FactoryGirl.create(:content) }
   it { should validate_presence_of :body }
 
   let(:user) { FactoryGirl.create(:user) }
   let(:content) { FactoryGirl.create(:content) }
   before { Thread.current[:current_user] = user }
+
+  describe 'content creation validations based on if link will accept a new content from user' do
+    let!(:content) { FactoryGirl.build(:content, user: user) }
+
+    context 'when the link says the user can add content' do
+      before { content.link.stub(:can_add_content?).with(user).and_return(true) }
+
+      it 'validates if link says user can add content' do
+        content.should be_valid
+      end
+    end
+
+    context 'when the link says the user cannot add content' do
+      before { content.link.stub(:can_add_content?).with(user).and_return(false) }
+
+      it 'is invalid' do
+        content.should_not be_valid
+      end
+
+      it 'adds an error to :base' do
+        content.valid?
+        content.errors[:base].first.should == "A link can only have #{Link::MAX_CONTENTS} post suggestions, and only #{Link::MAX_CONTENTS_PER_USER} per user."
+      end
+    end
+  end
 
   describe '.unposted' do
     it 'only returns unposted content' do

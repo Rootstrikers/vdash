@@ -8,7 +8,7 @@ describe ContentsController do
   let!(:contents) {
     [
       FactoryGirl.create(:content, link: link, user: user, like_count: 1),
-      FactoryGirl.create(:content, link: link, user: user, like_count: 5)
+      FactoryGirl.create(:content, link: link, like_count: 5)
     ]
   }
   let(:content) { contents.first }
@@ -68,7 +68,7 @@ describe ContentsController do
     end
 
     context 'when the facebook content is invalid' do
-      let(:action) { ->{ post :create, link_id: link.id, content: { body: nil } } }
+      let(:action) { ->{ post :create, link_id: link.id, content: { body: nil }, format: :js } }
 
       it 'does not create a content' do
         expect {
@@ -76,9 +76,9 @@ describe ContentsController do
         }.not_to change(Link, :count)
       end
 
-      it 'renders the new template' do
+      it 'renders the create template' do
         action.call
-        response.should render_template :new
+        response.should render_template :create
       end
     end
   end

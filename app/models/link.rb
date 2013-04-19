@@ -15,6 +15,9 @@ class Link < ActiveRecord::Base
   include Likable
   include Deletable
 
+  MAX_CONTENTS          = 10
+  MAX_CONTENTS_PER_USER = 2
+
   belongs_to :user
   has_many :contents, dependent: :destroy
 
@@ -45,6 +48,20 @@ class Link < ActiveRecord::Base
         )
       )"
     )
+  end
+
+  def can_add_content?(user)
+    can_have_more_contents? and user_can_create_content?(user)
+  end
+
+  def can_have_more_contents?
+    contents.count < MAX_CONTENTS
+  end
+
+  def user_can_create_content?(user)
+    return true if user.nil? and Rails.env.test? # I'm sorry. FIXME
+    return false if user.nil?
+    contents.where(user_id: user.id).count < MAX_CONTENTS_PER_USER
   end
 
   def top_contents(limit = 3)

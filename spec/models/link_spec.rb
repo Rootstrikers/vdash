@@ -62,6 +62,65 @@ describe Link do
     end
   end
 
+  describe '#can_have_more_contents?' do
+    it 'returns true' do
+      link.can_have_more_contents?.should be_true
+    end
+
+    it 'returns true if link has 9 contents' do
+      9.times { FactoryGirl.create(:content, link: link) }
+      link.can_have_more_contents?.should be_true
+    end
+
+    it 'returns false if the link has 10 (or more) contents' do
+      10.times { FactoryGirl.create(:content, link: link) }
+      link.can_have_more_contents?.should be_false
+    end
+  end
+
+  describe '#user_can_create_content?(user)' do
+    let(:user) { FactoryGirl.create(:user) }
+
+    it 'returns true' do
+      link.user_can_create_content?(user).should be_true
+    end
+
+    it 'returns true if user has created 1 content' do
+      FactoryGirl.create(:content, link: link, user: user)
+      link.user_can_create_content?(user).should be_true
+    end
+
+    it 'returns false if user has created 2 (or more) contents' do
+      2.times { FactoryGirl.create(:content, link: link, user: user) }
+      link.user_can_create_content?(user).should be_false
+    end
+
+    it 'returns false if passed nil' do
+      Rails.stub_chain(:env, :test?).and_return(false)
+      link.user_can_create_content?(nil).should be_false
+    end
+  end
+
+  describe '#can_add_content?(user)' do
+    let(:user) { double }
+
+    it 'returns true if can_have_more_contents? and user_can_create_content?' do
+      link.stub(can_have_more_contents?: true, user_can_create_content?: true)
+      link.can_add_content?(double).should be_true
+    end
+
+    it 'returns false if can_have_more_contents? but not user_can_create_content?' do
+      link.stub(can_have_more_contents?: true, user_can_create_content?: false)
+      link.stub(:user_can_create_content?).with(user).and_return(false)
+      link.can_add_content?(double).should be_false
+    end
+
+    it 'returns true if not can_have_more_contents? even though user_can_create_content?' do
+      link.stub(can_have_more_contents?: false, user_can_create_content?: true)
+      link.can_add_content?(double).should be_false
+    end
+  end
+
   describe '#top_contents(limit)' do
     let!(:contents) do
       [

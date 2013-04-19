@@ -1,4 +1,9 @@
-$("#contents-link-<%= @content.link.id %>").append("<%= escape_javascript(render @content.reload) %>");
-$("#content-form-toggle-link-<%= @content.link.id %>").click();
-$("#no-posts-paragraph-link-<%= @content.link.id %>").hide();
-window.attachLikeListener();
+<% if @content.errors.present? %>
+  var errorText = 'The following errors prevented your post suggestion from saving: <%= @content.errors.full_messages.join(";").html_safe %>';
+  alert(errorText);
+<% else %>
+  $("#contents-link-<%= @content.link.id %>").append("<%= escape_javascript(render @content.reload) %>");
+  $("#content-form-toggle-link-<%= @content.link.id %>").click();
+  $("#no-posts-paragraph-link-<%= @content.link.id %>").hide();
+  window.attachLikeListener();
+<% end %>
