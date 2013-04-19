@@ -26,9 +26,9 @@
             <h4 class='opened-message more-info-title'>Hide <i class='icon-chevron-up'></i></h4>
           </a>
           <div class='more-info-content'>
-            <% if link.top_contents.size > 0 %>
+            <% if link.contents.size > 0 %>
               <ul class="social-media-ideas mixed-contents" id="contents-link-<%= link.id %>">
-                <%= render link.top_contents %>
+                <%= render link.contents %>
               </ul>
             <% else %>
               <ul class="social-media-ideas mixed-contents" id="contents-link-<%= link.id %>">
