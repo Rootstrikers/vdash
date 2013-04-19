@@ -11,19 +11,15 @@
     </div>
   <% end %>
 
-  <div class='control-group'>
-    <%= f.label :active, class: 'control-label' %>
-    <div class="controls">
-      <%= f.check_box :active %>
-    </div>
-  </div>
+  <p>
+    <%= f.label :active, class: 'control-label checkbox' %>
+    <%= f.check_box :active %>
+  </p>
 
-  <div class='control-group'>
+  <p>
     <%= f.label :body, class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :body %>
-    </div>
-  </div>
+    <%= f.text_area :body %>
+  </p>
 
   <div class="controls">
     <%= f.submit  %>

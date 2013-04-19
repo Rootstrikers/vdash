@@ -1,5 +1,5 @@
 /* start sticky footer stuff */
-* { margin:0; padding:0; } 
+* { margin:0; padding:0; }
 html, body, #wrap { height: 100%; }
 body > #wrap {height: auto; min-height: 100%;}
 #main { padding-bottom: 150px; }
@@ -46,18 +46,18 @@ ul {
   -moz-box-shadow: 0 3px 7px rgba(165,165,175,.1);
   -o-box-shadow: 0 3px 7px rgba(165,165,175,.1);
   box-shadow: 0 3px 7px rgba(165,165,175,.1);
-  -webkit-transition-property: height, line-height;   
-            -webkit-transition-duration: .3s, .3s;   
-            -webkit-transition-timing-function: ease-in, ease-in; 
-               -moz-transition-property: height, line-height;   
-               -moz-transition-duration: .3s, .3s;   
-               -moz-transition-timing-function: ease-in, ease-in; 
-                 -o-transition-property: height, line-height;   
-                 -o-transition-duration: .3s, .3s;   
-                 -o-transition-timing-function: ease-in, ease-in; 
-                    transition-property: height, line-height;   
-                    transition-duration: .3s, .3s;   
-                    transition-timing-function: ease-in, ease-in; 
+  -webkit-transition-property: height, line-height;
+            -webkit-transition-duration: .3s, .3s;
+            -webkit-transition-timing-function: ease-in, ease-in;
+               -moz-transition-property: height, line-height;
+               -moz-transition-duration: .3s, .3s;
+               -moz-transition-timing-function: ease-in, ease-in;
+                 -o-transition-property: height, line-height;
+                 -o-transition-duration: .3s, .3s;
+                 -o-transition-timing-function: ease-in, ease-in;
+                    transition-property: height, line-height;
+                    transition-duration: .3s, .3s;
+                    transition-timing-function: ease-in, ease-in;
   color: #32324E;
   span.close {
     &:hover {
@@ -246,7 +246,7 @@ a.more-info-toggle {
     position: relative;
     z-index: 98;
     padding: 16px;
-    
+
   }
 
 }
@@ -296,10 +296,13 @@ input[type="time"], input[type="url"], textarea {
 label {
   margin-top: 8px;
   margin-bottom: 24px;
-  font-size: 11px;
   color: #83878D;
   float: right;
   display: none;
+  &.checkbox {
+    display: inline;
+    float: none;
+  }
 }
 
 
@@ -436,7 +439,7 @@ section#article-suggestion {
             font-size: 16px;
           }
           input.button {
-            float: right;            
+            float: right;
           }
           .button.share-link {
             background-color: #d10c15;
