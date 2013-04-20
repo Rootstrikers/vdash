@@ -3,7 +3,7 @@
 		<% if !current_page?(root_url) %>
 			<%= nav_item 'Contribute', '/assets/axe_white.svg', links_path(anchor: 'suggest') %>
 			<%= nav_item 'Write', "/assets/book_white.svg", links_path(anchor: 'articles', write: true) %>
-			<%= nav_item 'Vote', "/assets/bulb_white.svg", contents_path  %>
+			<%= nav_item 'Vote', "/assets/upvote.svg", contents_path, :class => "upvote-nav"  %>
 		<% end %>
 	</ul>
 </nav>

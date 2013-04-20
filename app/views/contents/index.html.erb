@@ -1,14 +1,14 @@
 <div class="row">
   <section class="small-12 columns content-box">
       <header class='section-header'>
-        <img src="/assets/?" class='header-icon ?'>
+        
         <h2 class="section-title">Top Post Ideas</h2>
         <%= link_to '- Deleted Ideas', admin_deleted_things_contents_path, class: 'button btn-section-header' if current_user.try(:admin?) %>
       </header>
       <div class='more-info'>
         <a class='more-info-toggle' href='#'>
           <h4 class="more-info-title">
-            <i class='icon-info-sign'></i>More information...
+            Need a little more information? Click here. <i class="icon-chevron-down"></i>
           </h4>
           <h4 class='opened-message more-info-title'><i class='icon-minus-sign'></i>Hide</h4>
         </a>
@@ -29,7 +29,9 @@
           </p>
         </div>
       </div>
-	<p>Vote for social media posts that you think Rootstrikers should publicize. There may be more than one post for a given news article. Vote for the best one!</p>
+	     
+       <p class="page-explanation">Vote for social media posts that you think Rootstrikers should publicize. There may be more than one post for a given news article. Vote for the best one!</p>
+       
       <ul class="social-media-ideas mixed-contents">
         <%= render partial: 'content', collection: @contents, locals: { include_link: true } %>
       </ul>

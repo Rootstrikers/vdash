@@ -143,7 +143,8 @@ section#body-content {
     padding-left: 12px;
     padding-right: 12px;
 }
-.content-box > .more-info {
+.content-box > .more-info,
+.content-box > #suggest {
   padding: 0;
 }
 header.section-header {

@@ -1,15 +1,27 @@
 <li>
-  <span class="like">
-    <%= render partial: 'likes/like_status', locals: { item: content } %>
-  </span>
-  <span class="body">
-    <%= content.body %>
-  </span>
-  <% if defined?(include_link) && include_link %>
-    <div class="link">
-      <%= link_to content.link.domain, content.link.url %>
-    </div>
-  <% end %>
+<div class="row post-details">
+  <div class="small-2 columns">
+        
+          <span class="like">
+            <%= render partial: 'likes/like_status', locals: { item: content } %>
+          </span>
+    
+      </a>
+  </div><!-- small-2 columns -->
+<div class="small-10 columns">
+        <p class="detail-title">
+          <span class="body">
+            <%= content.body %>
+          </span>
+        </p>
+        <% if defined?(include_link) && include_link %>
+          <div class="link">
+            <%= link_to content.link.domain, content.link.url %>
+          </div>
+        <% end %>
+  </div><!-- small-9 columns -->
+</div><!-- row post-details -->
+ 
   <% if current_user.try(:admin?) %>
     <div class="delete-content">
       <div class="pull-right">
@@ -26,3 +38,6 @@
   <% end %>
   <br style="clear: both" />
 </li>
+
+
+  
