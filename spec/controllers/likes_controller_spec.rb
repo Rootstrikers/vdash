@@ -31,7 +31,7 @@ describe LikesController do
 
       it 'returns appropriate json' do
         action.call
-        response.body.should == '{"id":' + item.id.to_s + ',"itemKlass":"Link","like_count":2}'
+        response.body.should == '{"id":' + item.id.to_s + ',"itemKlass":"Link","like_count":2,"liked":true}'
       end
     end
 
@@ -47,7 +47,7 @@ describe LikesController do
 
       it 'returns appropriate json' do
         action.call
-        response.body.should == '{"id":' + item.id.to_s + ',"itemKlass":"Link","like_count":1}'
+        response.body.should == '{"id":' + item.id.to_s + ',"itemKlass":"Link","like_count":1,"liked":false}'
       end
     end
   end

@@ -11,7 +11,7 @@ class LikesController < ApplicationController
       @item.likes << Like.new(user: current_user)
     end
 
-    render json: { id: @item.id, itemKlass: @item.class.name, like_count: @item.likes.count }
+    render json: { id: @item.id, itemKlass: @item.class.name, like_count: @item.likes.count, liked: current_user.liked?(@item) }
   end
 
   private
