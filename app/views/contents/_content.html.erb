@@ -1,6 +1,6 @@
 <li>
 <div class="row post-details">
-  <div class="small-2 columns">
+  <div class="small-2 columns" style="padding-top: 4px;">
         
           <span class="like">
             <%= render partial: 'likes/like_status', locals: { item: content } %>
@@ -8,14 +8,15 @@
     
       </a>
   </div><!-- small-2 columns -->
+
 <div class="small-10 columns">
-        <p class="detail-title">
+        <p class="detail-title" style="margin-left: -100px">
           <span class="body">
             <%= content.body %>
           </span>
         </p>
         <% if defined?(include_link) && include_link %>
-          <div class="link">
+          <div class="link" style="margin-left: -100px">
             <%= link_to content.link.domain, content.link.url %>
           </div>
         <% end %>

@@ -214,7 +214,7 @@ a.more-info-toggle {
   display: none;
   font-size: 10px;
   text-align: right;
-  padding: 2px 16px;
+  padding: 2px 16px 8px;
   line-height: 10px;
   height: 24px;
   text-decoration: none;
@@ -253,7 +253,8 @@ a.more-info-toggle {
 }
 .more-info-title {
   float: right;
-  color: #83878D;
+  /*color: #83878D;*/
+  font-size: 1.6em;
   padding: 0;
   margin: 0;
   &:hover {

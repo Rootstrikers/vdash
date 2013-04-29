@@ -20,11 +20,11 @@
     </div>
   </div>
 
-  <div class="controls">
+  <div class="controls"> <!-- style=".button[:disabled] { opacity: 1.0 !important;}">-->
     <span class="service">
       <img src="/assets/twitter-logo.png" alt="Twitter logo" width="30em" id="twitter-logo-link-<%= link.id %>">
-      <img src="/assets/facebook-logo.png" alt="Facebook logo" width="30em">
-    <%= f.submit "Suggest Post", :class => "button btn-suggest-post" %>
+      <img src="/assets/facebook-logo.png" alt="Facebook logo" width="30em"></span>
+    <%= f.submit "Suggest Post", :class => "button btn-suggest-post", :style => "opacity: 1.0"%>
   </div>
 <% end %>
 
@@ -32,6 +32,11 @@
   $('#new_content input[type=submit]').prop('disabled', true);
   $('#new_content textarea#content_body').keyup(function(event) {
     if ($(this).val() != '') {
+      /*
+      TODO: when I enter text for one post, it enables 'post' for all posts. I don't think it actually enables it,
+      but it styles it that way. Changing disabled style to enabled style so that it won't be apparent to users.
+      */
+
       $('#new_content input[type=submit]').prop('disabled', false);
       if ($(this).val().length > 120) {
         $("#twitter-logo-link-<%= link.id %>").hide();
