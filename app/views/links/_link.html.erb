@@ -1,13 +1,13 @@
 
   <li>
     <div class="row post-details">
-      <div class="small-2 columns">
+      <div class="small-2 columns" style="padding-top: 4px;">
         <%= render partial: 'likes/like_status', locals: { item: link } %>
       </div><!-- small-3 columns -->
 
       <div class="small-10 columns">
-        <p class="detail-title">
-          <%= link_to link.display_name, link.url, target: '_blank' %>
+        <p class="detail-title" style="margin-left: -100px;">
+          <%= link_to link.display_name, link.url, target: '_blank'%>
           <!-- TODO Make "opens in..." smaller or less bold or something -->
         </p>
         <!-- <p><%= link.summary %></p>
