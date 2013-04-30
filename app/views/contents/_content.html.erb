@@ -1,11 +1,11 @@
 <li>
 <div class="row post-details">
   <div class="small-2 columns" style="padding-top: 4px;">
-        
+
           <span class="like">
             <%= render partial: 'likes/like_status', locals: { item: content } %>
           </span>
-    
+
       </a>
   </div><!-- small-2 columns -->
 
@@ -22,7 +22,7 @@
         <% end %>
   </div><!-- small-9 columns -->
 </div><!-- row post-details -->
- 
+
   <% if current_user.try(:admin?) %>
     <div class="delete-content">
       <div class="pull-right">
@@ -41,4 +41,3 @@
 </li>
 
 
-  

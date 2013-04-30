@@ -5,17 +5,17 @@ class RemoteLink
 
   # Throws SocketError if URL cannot be resolved. Not sure about timeouts.
   def initialize(url)
-    self.url = Url.new(ResolvedUrl.new(url).to_s)
+    self.url = Url.new(resolved_url(url))
     complain_if_bad_url
-    self.document = Nokogiri::HTML(open url.to_s)
+    self.document = Nokogiri::HTML(open url.to_s) rescue nil
   end
 
   def title
-    document.title
+    document.try(:title)
   end
 
   def first_paragraph
-    document.xpath('//p').first.try(:text)
+    document.try(:xpath, '//p').try(:first).try(:text)
   end
 
   def as_json
@@ -27,7 +27,14 @@ class RemoteLink
 
   private
   def complain_if_bad_url
-    raise "Invalid URL" unless url.valid?
+    unless url.valid?
+      puts "Invalid url: #{url.try(:to_s)}"
+      raise "Invalid URL"
+    end
+  end
+
+  def resolved_url(url)
+    ResolvedUrl.new(url).to_s rescue url
   end
 
   class ResolvedUrl
@@ -44,10 +51,14 @@ class RemoteLink
     end
 
     def resolve_url
-      while ((response = Net::HTTP.get_response(URI(url))).is_a? Net::HTTPRedirection)
-        self.attempts += 1
-        self.url = response['location']
-        break if attempts == 10
+      begin
+        while ((response = Net::HTTP.get_response(URI(url))).is_a? Net::HTTPRedirection)
+          self.attempts += 1
+          self.url = response['location']
+          break if attempts == 10
+        end
+      rescue SocketError, RuntimeErorr
+        Rails.logger.warn "Caught exception when trying to fetch #{url}"
       end
     end
   end

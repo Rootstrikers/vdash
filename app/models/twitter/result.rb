@@ -4,10 +4,15 @@ module Twitter
     belongs_to :link
 
     attr_accessible :tweet_created_at, :tweet_from_user, :tweet_from_user_id, :tweet_from_user_name,
-      :tweet_geo, :tweet_id, :tweet_iso_language_code, :tweet_profile_image_url, :tweet_source, :tweet_text
+      :tweet_geo, :tweet_id, :tweet_iso_language_code, :tweet_profile_image_url, :tweet_source, :tweet_text,
+      :content, :link
+
+    def self.unpublished
+      where(content_id: nil)
+    end
 
     def self.from_json(json)
-      return if exists?(tweet_id: json['id'])
+      return find_by_tweet_id(json['id']) if exists?(tweet_id: json['id'])
 
       create(
         tweet_created_at:        json['created_at'],
@@ -21,6 +26,18 @@ module Twitter
         tweet_source:            json['source'],
         tweet_text:              json['text']
       )
+    end
+
+    def url
+      @url ||= URI.extract(tweet_text).select { |link| link =~ /^http/ }.first
+    end
+
+    def content_body
+      url.present? ? tweet_text.gsub(url, '').gsub(/\s\s+/, ' ') : tweet_text
+    end
+
+    def unpublished?
+      content_id.nil?
     end
   end
 end

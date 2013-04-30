@@ -57,5 +57,28 @@ module Twitter
         its(:tweet_text) { should == 'The Need For Transparency in Political Donations http://t.co/vbsP4CpTFu #rootstrikers' }
       end
     end
+
+    describe '.unpublished' do
+      it 'returns only results without an associated content' do
+        published   = FactoryGirl.create(:twitter_result)
+        unpublished = FactoryGirl.create(:twitter_result, content: nil)
+
+        described_class.unpublished.should == [unpublished]
+      end
+    end
+
+    let!(:result) { FactoryGirl.create(:twitter_result, tweet_text: 'The Need For Transparency in Political Donations http://t.co/vbsP4CpTFu #rootstrikers') }
+
+    describe '#url' do
+      it 'returns the first url from the tweet text' do
+        result.url.should == 'http://t.co/vbsP4CpTFu'
+      end
+    end
+
+    describe '#content_body' do
+      it 'returns the tweet text without the url' do
+        result.content_body.should == 'The Need For Transparency in Political Donations #rootstrikers'
+      end
+    end
   end
 end

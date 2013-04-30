@@ -50,6 +50,10 @@ class Link < ActiveRecord::Base
     )
   end
 
+  def self.not_system
+    joins(:user).where('users.provider <> ?', 'system')
+  end
+
   def can_add_content?(user)
     can_have_more_contents? and user_can_create_content?(user)
   end

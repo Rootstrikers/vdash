@@ -7,7 +7,13 @@ module Twitter
 
     DEFAULT_URL = "https://search.twitter.com/search.json?q=%23rootstrikers%20-from%3Arootstrikers%20-%22RT%20%40rootstrikers%22"
 
-    def initialize(url = DEFAULT_URL)
+    def self.run(url = DEFAULT_URL)
+      search = new(url)
+      search.fetch
+      search.results
+    end
+
+    def initialize(url)
       self.url = url
     end
 

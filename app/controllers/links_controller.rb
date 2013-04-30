@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   before_filter :get_link_and_ensure_modifiable, only: [:edit, :update, :destroy]
 
   def index
-    @links      = Link.unposted.ordered.includes(:contents).paginate(page: params[:page])
+    @links      = Link.unposted.ordered.not_system.includes(:contents).paginate(page: params[:page])
     @expand_all = params[:write] == 'true'
   end
 

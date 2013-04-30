@@ -12,7 +12,7 @@ class Content < ActiveRecord::Base
   validates :body, presence: true
   validate :can_add_content_to_link, on: :create
 
-  attr_accessible :body, :link_id
+  attr_accessible :body, :link, :link_id
 
   delegate :url, :domain, to: :link, prefix: true
   delegate :name, to: :user, prefix: true
@@ -65,7 +65,7 @@ class Content < ActiveRecord::Base
   private
 
   def can_add_content_to_link
-    unless link.can_add_content?(User.current)
+    unless link.nil? or link.can_add_content?(User.current)
       errors[:base] << "A link can only have #{Link::MAX_CONTENTS} post suggestions, and only #{Link::MAX_CONTENTS_PER_USER} per user."
     end
   end

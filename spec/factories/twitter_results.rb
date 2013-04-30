@@ -10,5 +10,7 @@ FactoryGirl.define do
     tweet_profile_image_url "MyString"
     tweet_source "MyString"
     tweet_text "MyText"
+    association :link
+    association :content
   end
 end
