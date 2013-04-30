@@ -33,10 +33,10 @@
             <% else %>
               <ul class="social-media-ideas mixed-contents" id="contents-link-<%= link.id %>">
               </ul>
-              <p id="no-posts-paragraph-link-<%= link.id %>">This article doesn't have any post suggestions yet. You should probably add one.</p>
+              <p id="no-posts-paragraph-link-<%= link.id %>">This article doesn't have any headline suggestions yet. You should probably add one.</p>
             <% end %>
             <%= link_to new_link_content_path(link), class: 'collapse-toggle', id: "content-form-toggle-link-#{link.id}", data: { target_selector: "#new-content-form-link-#{link.id}" } do %>
-              Write a new twitter/facebook post for this link <i class='icon-chevron-down'></i>
+              Write a new twitter/facebook headline for this link <i class='icon-chevron-down'></i>
             <% end if current_user %>
             <div id="new-content-form-link-<%= link.id %>" style="display: none">
               <%= render partial: 'contents/form', locals: { link: link, content: Content.new } %>
