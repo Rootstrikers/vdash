@@ -51,7 +51,7 @@ class Link < ActiveRecord::Base
   end
 
   def self.not_system
-    joins(:user).where('users.provider <> ?', 'system')
+    includes(:user).where('users.provider <> ?', 'system')
   end
 
   def can_add_content?(user)
