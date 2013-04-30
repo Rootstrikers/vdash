@@ -84,6 +84,7 @@ describe LinksController do
   describe 'a POST to :create' do
     context 'when the link saves' do
       let(:action) { ->{ post :create, link: { url: "http://www.example.com?bananas=true" } } }
+      before { request.env["HTTP_REFERER"] = "where_i_came_from" }
 
       it 'creates a link' do
         expect {
@@ -91,9 +92,9 @@ describe LinksController do
         }.to change(Link, :count).by(1)
       end
 
-      it 'redirects to the link' do
+      it 'redirects back' do
         action.call
-        response.should redirect_to link_url(Link.last)
+        response.should redirect_to 'where_i_came_from'
       end
 
       it 'sets the flash' do
