@@ -1,8 +1,10 @@
 <div class="row">
-  <section class="small-12 columns content-box">
+
+
+    <section class="small-12 columns content-box">
       <header class='section-header'>
         
-        <h2 class="section-title">Top Post Ideas</h2>
+        <h2 class="section-title" style="padding-left: 30px;">Top Post Ideas</h2>
         <%= link_to '- Deleted Ideas', admin_deleted_things_contents_path, class: 'button btn-section-header' if current_user.try(:admin?) %>
       </header>
       <div class='more-info'>
@@ -30,7 +32,7 @@
         </div>
       </div>
 	     
-       <p class="page-explanation">Vote for social media posts that you think Rootstrikers should publicize. There may be more than one post for a given news article. Vote for the best one!</p>
+       <p class="page-explanation" style="margin-left: 18px;">Vote for social media posts that you think Rootstrikers should publicize. There may be more than one post for a given news article. Vote for the best one!</p>
        
       <ul class="social-media-ideas mixed-contents">
         <%= render partial: 'content', collection: @contents, locals: { include_link: true } %>

@@ -1,7 +1,7 @@
 <nav class="small-12 large-6 columns main-nav" style="padding-left: 400px;float:left;">
 	<ul>
 		<% if !current_page?(root_url) %>
-			<%= nav_item 'Preview', '/assets/axe_white.svg', links_path(anchor: 'suggest') %>
+			<%= nav_item 'Share', '/assets/axe_white.svg', links_path(anchor: 'suggest') %>
 			<%= nav_item 'Write', "/assets/book_white.svg", links_path(anchor: 'articles', write: true) %>
 			<%= nav_item 'Preview', "/assets/upvote.svg", contents_path, :class => "upvote-nav"  %>
 		<% end %>
