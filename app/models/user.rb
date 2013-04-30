@@ -52,6 +52,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.twitter
+    where(name: 'Twitter', provider: 'system').first
+  end
+
   def liked?(item)
     Like.exists?(user_id: self, item_type: item.class.name, item_id: item.id)
   end
