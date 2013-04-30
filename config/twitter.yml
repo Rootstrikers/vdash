@@ -7,5 +7,5 @@ test:
   secret: 7vClwJd1cyvAyQ6GLOfexBNx4dM7Mzj8fx1helmUh8
 
 production:
-  app_key: OK84UbqSyWjD5fCkL1cw
-  secret: 7vClwJd1cyvAyQ6GLOfexBNx4dM7Mzj8fx1helmUh8
+  app_key: ENV['TWITTER_API_KEY']
+  secret: ENV['TWITTER_API_SECRET']
