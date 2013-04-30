@@ -10,9 +10,13 @@ describe RemoteLink do
   end
 
   context 'when dealing with a valid url' do
-    before { RemoteLink.any_instance.stub(:complain_if_bad_url) }
+    let(:fixture_path) { File.join(Rails.root, "spec/fixtures/remote_link.html") }
+    let(:remote_link) { RemoteLink.new(fixture_path) }
 
-    let(:remote_link) { RemoteLink.new(File.join(Rails.root, "spec/fixtures/remote_link.html")) }
+    before do
+      RemoteLink.any_instance.stub(:complain_if_bad_url)
+      RemoteLink::ResolvedUrl.stub_chain(:new).and_return(stub(to_s: fixture_path))
+    end
 
     describe '#title' do
       it 'returns the title of the web page' do
