@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418022514) do
+ActiveRecord::Schema.define(:version => 20130430030535) do
 
   create_table "bans", :force => true do |t|
     t.integer  "user_id"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20130418022514) do
     t.string   "title"
     t.text     "summary"
     t.integer  "like_count", :default => 0
-    t.boolean  "approved"
     t.datetime "deleted_at"
+    t.boolean  "approved"
   end
 
   add_index "links", ["user_id"], :name => "index_links_on_user_id"
@@ -81,6 +81,21 @@ ActiveRecord::Schema.define(:version => 20130418022514) do
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+
+  create_table "twitter_results", :force => true do |t|
+    t.string   "tweet_created_at"
+    t.string   "tweet_from_user"
+    t.string   "tweet_from_user_id"
+    t.string   "tweet_from_user_name"
+    t.string   "tweet_geo"
+    t.string   "tweet_id"
+    t.string   "tweet_iso_language_code"
+    t.string   "tweet_profile_image_url"
+    t.string   "tweet_source"
+    t.text     "tweet_text"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.datetime "created_at",   :null => false
