@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130430030535) do
+ActiveRecord::Schema.define(:version => 20130430045509) do
 
   create_table "bans", :force => true do |t|
     t.integer  "user_id"
@@ -95,7 +95,12 @@ ActiveRecord::Schema.define(:version => 20130430030535) do
     t.text     "tweet_text"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
+    t.integer  "link_id"
+    t.integer  "content_id"
   end
+
+  add_index "twitter_results", ["content_id"], :name => "index_twitter_results_on_content_id"
+  add_index "twitter_results", ["link_id"], :name => "index_twitter_results_on_link_id"
 
   create_table "users", :force => true do |t|
     t.datetime "created_at",   :null => false

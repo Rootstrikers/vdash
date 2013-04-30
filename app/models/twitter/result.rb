@@ -1,5 +1,8 @@
 module Twitter
   class Result < ActiveRecord::Base
+    belongs_to :content
+    belongs_to :link
+
     attr_accessible :tweet_created_at, :tweet_from_user, :tweet_from_user_id, :tweet_from_user_name,
       :tweet_geo, :tweet_id, :tweet_iso_language_code, :tweet_profile_image_url, :tweet_source, :tweet_text
 

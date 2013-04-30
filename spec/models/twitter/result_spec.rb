@@ -2,6 +2,10 @@ require 'spec_helper'
 
 module Twitter
   describe Result do
+
+    it { should belong_to :content }
+    it { should belong_to :link }
+
     RESULT_JSON = JSON.parse('{
       "created_at": "Mon, 29 Apr 2013 19:24:37 +0000",
       "from_user": "TrepLaw",
