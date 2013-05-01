@@ -78,10 +78,14 @@ class Link < ActiveRecord::Base
 
   def display_name
     if title.present?
-      "#{ellipsize(title)} (from #{domain})"
+      "#{ellipsize(title)}"
     else
       ellipsize(url_without_protocol)
     end
+  end
+
+  def display_domain
+    "#{domain}"
   end
 
   def error_due_to_duplicate_url?
@@ -117,8 +121,8 @@ class Link < ActiveRecord::Base
   end
 
   def ellipsize(str)
-    if str.size > 40
-      str[0..37] + "..."
+    if str.size > 80
+      str[0..77] + "..."
     else
       str
     end

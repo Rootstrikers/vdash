@@ -7,7 +7,7 @@
 
       <div class="small-10 columns">
         <p class="detail-title">
-          <%= link_to link.display_name, link.url, target: '_blank'%>
+          <%= link_to link.display_name, link.url, target: '_blank'%> <span style="font-size: .6em;">(<%= link.display_domain %>)</span>
           <!-- TODO Make "opens in..." smaller or less bold or something -->
         </p>
         <!-- <p><%= link.summary %></p>
