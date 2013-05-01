@@ -57,7 +57,7 @@ class RemoteLink
           self.url = response['location']
           break if attempts == 10
         end
-      rescue SocketError, RuntimeErorr
+      rescue SocketError, RuntimeError
         Rails.logger.warn "Caught exception when trying to fetch #{url}"
       end
     end
