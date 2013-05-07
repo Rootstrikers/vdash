@@ -1,1 +1,0 @@
-SIGNUP_TOKEN = 'RootstrikersVDashPrelaunch'

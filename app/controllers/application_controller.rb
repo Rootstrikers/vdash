@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :set_current_user, :set_notice, :set_can_signup, :ensure_not_banned, :set_link, :set_content
+  before_filter :set_current_user, :set_notice, :ensure_not_banned, :set_link, :set_content
 
   private
 
@@ -24,10 +24,6 @@ class ApplicationController < ActionController::Base
 
   def set_notice
     @site_wide_notice = Notice.active
-  end
-
-  def set_can_signup
-    session[:can_sign_up] ||= (params[:secret] == SIGNUP_TOKEN)
   end
 
   def ensure_not_banned
