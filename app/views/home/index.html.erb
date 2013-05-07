@@ -25,24 +25,27 @@
         <% end %>
     </li>
 </ul>
-<div class="row">
-    <div class="small-12 small-centered columns home-blurb">
-        <h3>Sign in with your Twitter, Facebook, or Google account to get started.</h3><br/>
-        <p>
-            <a href="/auth/twitter">
-                <img src="/assets/twitter-logo.png" height="80em" width="80em" alt="Twitter logo"/>
-                            </a>            <a href="/auth/facebook">
-                <img src="/assets/facebook-logo.png" height="80em" width="80em" alt="Facebook logo">
 
-            </a>
-            <a href="/auth/google_oauth2">
-                <img src="/assets/google-logo.png" height="80em" width="80em" alt="Google logo">
+<% unless current_user %>
+  <div class="row">
+      <div class="small-12 small-centered columns home-blurb">
+          <h3>Sign in with your Twitter, Facebook, or Google account to get started.</h3><br/>
+          <p>
+              <a href="/auth/twitter">
+                  <img src="/assets/twitter-logo.png" height="80em" width="80em" alt="Twitter logo"/>
+                              </a>            <a href="/auth/facebook">
+                  <img src="/assets/facebook-logo.png" height="80em" width="80em" alt="Facebook logo">
 
-            </a>
-        </p>
+              </a>
+              <a href="/auth/google_oauth2">
+                  <img src="/assets/google-logo.png" height="80em" width="80em" alt="Google logo">
 
-    </div>
-</div>
+              </a>
+          </p>
+
+      </div>
+  </div>
+<% end %>
 
 
 <!--
