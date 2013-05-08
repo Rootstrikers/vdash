@@ -19,8 +19,8 @@ autotest # to run tests
 ```
 
 
-Deploying to Heroku
-===================
+Deploying to Shared Heroku
+==========================
 To get set up:
 ```
 brew install heroku-toolbelt # for OSX with brew
@@ -40,3 +40,25 @@ If you need to make yourself an admin:
 heroku run rails c
 User.find_by_name('your_name').update_attribute(:admin, true)
 ```
+
+Deploying to Personal Heroku
+============================
+
+If you get:
+```
+$ heroku git:remote --app vdash
+!    You do not have access to the app vdash.
+```
+
+or if you want to have your own personal Heroku instance, do the following.
+
+Assuming your nickname is foo...
+
+```
+$ cd vdash
+$ heroku create vdash-foo
+$ git push heroku master
+$ heroku run rake db:migrate
+```
+
+Your instance is available at http://vdash-foo.heroku.com
