@@ -30,7 +30,7 @@
         <%= link_to admin_posts_path(type: 'facebook', content_id: content.id), class: 'no-decoration', method: :post do %>
           <i class="icon-facebook-sign"></i>
         <% end %>
-        <!--<%= link_to_if content.valid_for_twitter?, '<i class="icon-twitter-sign"></i>'.html_safe, admin_posts_path(type: 'twitter', content_id: content.id), class: 'no-decoration', method: :post %>
+        <%# link_to_if content.valid_for_twitter?, '<i class="icon-twitter-sign"></i>'.html_safe, admin_posts_path(type: 'twitter', content_id: content.id), class: 'no-decoration', method: :post %>
         <%= link_to [content.link, content], method: :delete, class: 'no-decoration', data: { confirm: 'Are you sure you want to delete this content?' } do %>
           <i class="icon-trash"></i>
         <% end %>
