@@ -41,16 +41,16 @@ describe Link do
       Link.unposted.should == [link]
     end
 
-    it 'includes links only posted to twitter' do
+    it 'does not include links only posted to twitter' do
       content = FactoryGirl.create(:content, link: link)
       FactoryGirl.create(:post, type: 'Posts::Twitter', content: content)
-      Link.unposted.should == [link]
+      Link.unposted.should == []
     end
 
-    it 'includes links only posted to facebook' do
+    it 'does not include links only posted to facebook' do
       content = FactoryGirl.create(:content, link: link)
       FactoryGirl.create(:post, type: 'Posts::Facebook', content: content)
-      Link.unposted.should == [link]
+      Link.unposted.should == []
     end
 
     it 'does not include links posted to twitter and facebook' do

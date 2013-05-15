@@ -30,24 +30,11 @@ class Link < ActiveRecord::Base
 
   # Well, this should be improved. Sorry.
   def self.unposted
-    where(
-      "not
-      (
-        exists (
-          select 1 from posts inner join contents
-          on posts.content_id = contents.id
-          where contents.link_id = links.id
-          and posts.type = 'Posts::Twitter'
-        )
-        and
-        exists (
-          select 1 from posts inner join contents
-          on posts.content_id = contents.id
-          where contents.link_id = links.id
-          and posts.type = 'Posts::Facebook'
-        )
-      )"
-    )
+    where("not exists (
+      select 1 from posts inner join contents
+      on posts.content_id = contents.id
+      where contents.link_id = links.id
+    )")
   end
 
   def self.not_system
