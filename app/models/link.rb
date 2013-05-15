@@ -77,11 +77,7 @@ class Link < ActiveRecord::Base
   end
 
   def display_name
-    if title.present?
-      "#{ellipsize(title)}"
-    else
-      ellipsize(url_without_protocol)
-    end
+    title.present? ? title : url_without_protocol
   end
 
   def display_domain
@@ -118,14 +114,6 @@ class Link < ActiveRecord::Base
 
   def url_valid
     errors[:url] << "looks like it's not quite right." unless Url.new(url).valid?
-  end
-
-  def ellipsize(str)
-    if str.size > 80
-      str[0..77] + "..."
-    else
-      str
-    end
   end
 
   class DomainName < Struct.new(:url)

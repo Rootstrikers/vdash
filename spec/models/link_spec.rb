@@ -197,9 +197,9 @@ describe Link do
   end
 
   describe '#display_name' do
-    it 'returns the title with domain when present' do
+    it 'returns the title' do
       link = FactoryGirl.create(:link, title: 'This is the title')
-      link.display_name.should == 'This is the title (from example.com)'
+      link.display_name.should == 'This is the title'
     end
 
     it 'returns the URL when the title is an empty string' do

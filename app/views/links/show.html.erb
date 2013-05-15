@@ -10,7 +10,7 @@
 </div>
 
 <h2>
-  <%= link_to @link.display_name, @link.url %>
+  <%= link_to truncate(link.display_name, length: 80), @link.url %>
 </h2>
 
 <p>
