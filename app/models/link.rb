@@ -19,7 +19,7 @@ class Link < ActiveRecord::Base
   MAX_CONTENTS_PER_USER = 2
 
   belongs_to :user
-  has_many :contents, dependent: :destroy
+  has_many :contents, conditions: { deleted_at: nil }, dependent: :destroy
 
   validates :url, uniqueness: true, presence: true
   validate :url_valid
