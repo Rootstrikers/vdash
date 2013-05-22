@@ -41,6 +41,10 @@ class Link < ActiveRecord::Base
     includes(:user).where('users.provider <> ?', 'system')
   end
 
+  def self.listable
+    where(listable: true)
+  end
+
   def can_add_content?(user)
     can_have_more_contents? and user_can_create_content?(user)
   end

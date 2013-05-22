@@ -20,6 +20,12 @@ describe LinksController do
       assigns(:links).should == links.reverse
     end
 
+    it 'excludes un-listable links' do
+      FactoryGirl.create(:link, user: user, listable: false)
+      action.call
+      assigns(:links).should == links.reverse
+    end
+
     it 'assigns false to expand_all by default' do
       action.call
       assigns(:expand_all).should be_false

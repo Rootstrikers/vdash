@@ -25,12 +25,25 @@ describe Link do
 
   let(:link) { FactoryGirl.create(:link) }
 
-  context 'validations' do
+  describe 'validations' do
     let(:link) { Link.new(url: 'apples') }
     before { link.valid? }
 
     it 'will not accept invald urls' do
       link.errors[:url].should == ["looks like it's not quite right."]
+    end
+  end
+
+  describe '.listable' do
+    it 'includes regular links' do
+      link = FactoryGirl.create(:link)
+      Link.listable.should == [link]
+    end
+
+    it 'excludes non-listable links' do
+      included = FactoryGirl.create(:link)
+      excluded = FactoryGirl.create(:link, listable: false)
+      Link.listable.should == [included]
     end
   end
 
