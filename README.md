@@ -62,3 +62,23 @@ $ heroku run rake db:migrate
 ```
 
 Your instance is available at http://vdash-foo.heroku.com
+
+Setup Twitter Auth
+------------------
+
+You're vdash-foo app isn't setup for any Social Auth, let's fix that.
+
+1. Create a [new Twitter App](https://dev.twitter.com/apps/new)
+2. Callback URL would be `http://vdash-foo.heroku.com/oauth/authenticate` (replace vdash-foo).
+3. Click Create Twitter Application button
+4. **Go back and enable** "Sign in with Twitter" by "editting" the app.
+5. From the command line, provide your Consumer Key and Consumer Secret
+
+```
+$ heroku config:set TWITTER_API_KEY=L8AsSomeLongStringFVg TWITTER_API_SECRET=qqxx9eAnotherBigOne8TUgBcZA0cvf5U
+Setting config vars and restarting vdash-foo... done, v7
+TWITTER_API_KEY:    L8AsSomeLongStringFVg
+TWITTER_API_SECRET: qqxx9eAnotherBigOne8TUgBcZA0cvf5U
+```
+
+You should now be able to use Twitter to sign into your persona vdash instance.
