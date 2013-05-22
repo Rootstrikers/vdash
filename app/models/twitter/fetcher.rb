@@ -17,6 +17,7 @@ module Twitter
     end
 
     def publish_results
+      Thread.current[:current_user] = User.twitter
       results.each { |result| Publisher.new(result).run }
     end
 

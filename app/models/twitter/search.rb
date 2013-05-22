@@ -22,7 +22,7 @@ module Twitter
     end
 
     def results
-      contents['results'].map { |json| Result.from_json(json) }
+      contents['results'].map { |json| Result.from_json(json) }.compact
     end
   end
 end

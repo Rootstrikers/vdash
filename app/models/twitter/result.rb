@@ -11,7 +11,12 @@ module Twitter
       where(content_id: nil)
     end
 
+    def self.extract_url(text)
+      URI.extract(text).select { |link| link =~ /^http/ }.first
+    end
+
     def self.from_json(json)
+      return if extract_url(json['text']).blank? or !Url.new(extract_url(json['text'])).valid?
       return find_by_tweet_id(json['id'].to_s) if exists?(tweet_id: json['id'].to_s)
 
       create(
@@ -29,7 +34,7 @@ module Twitter
     end
 
     def url
-      @url ||= URI.extract(tweet_text).select { |link| link =~ /^http/ }.first
+      @url ||= self.class.extract_url(tweet_text)
     end
 
     def content_body
