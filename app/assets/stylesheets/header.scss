@@ -8,16 +8,19 @@ header#masthead {
   hgroup {
     position: relative;
     display: block;
-    padding-left: 16px;   
+    padding-left: 16px;
     a {
       img {
         height: 30px;
         margin-top: 17px;
       }
-    } 
+    }
   }
 
   nav {
+
+    text-align: center;
+
     ul {
       margin: 0;
       padding: 0;
@@ -50,13 +53,13 @@ header#masthead {
     padding-right: 16px;
     div#session-controls {
       height: 30px;
-      float: right;   
+      float: right;
     }
     ul.menu-options {
           list-style: none;
           margin: 0;
           position: relative;
-          float: right;      
+          float: right;
     }
     .menu-options li {
         float: left;
@@ -93,7 +96,7 @@ header#masthead {
       margin-left: 27px;
       float: left;
     }
-    .social-icon {  
+    .social-icon {
       font-weight: 400;
       color: #ffffff;
 
@@ -109,19 +112,19 @@ header#masthead {
        padding-left: 2px;
        padding-top: 24px;
     }
-    li [class^="icon-"], 
-    li [class*=" icon-"], 
-    .nav li [class^="icon-"], 
+    li [class^="icon-"],
+    li [class*=" icon-"],
+    .nav li [class^="icon-"],
     .nav li [class*=" icon-"] {
         width: 33px;
-    
+
     }
     .social-icon > i {
       height: 65px;
       width: 72px;
     }
     .social-icon > .icon-twitter {
-      background-color: #4099FF;  
+      background-color: #4099FF;
       &:hover {
         background-color: #3887E1;
       }
@@ -142,5 +145,5 @@ header#masthead {
 } /* header#masthead */
 
 .main-nav ul {
-  float: left;
+  display: inline-block;
 }
