@@ -12,7 +12,7 @@ module Twitter
     end
 
     def self.from_json(json)
-      return find_by_tweet_id(json['id']) if exists?(tweet_id: json['id'])
+      return find_by_tweet_id(json['id'].to_s) if exists?(tweet_id: json['id'].to_s)
 
       create(
         tweet_created_at:        json['created_at'],
@@ -20,7 +20,7 @@ module Twitter
         tweet_from_user_id:      json['from_user_id'],
         tweet_from_user_name:    json['from_user_name'],
         tweet_geo:               json['geo'],
-        tweet_id:                json['id'],
+        tweet_id:                json['id'].to_s,
         tweet_iso_language_code: json['iso_language_code'],
         tweet_profile_image_url: json['profile_image_url'],
         tweet_source:            json['source'],
