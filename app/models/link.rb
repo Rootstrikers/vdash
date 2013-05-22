@@ -24,7 +24,7 @@ class Link < ActiveRecord::Base
   validates :url, uniqueness: true, presence: true
   validate :url_valid
 
-  attr_accessible :url, :title, :summary
+  attr_accessible :url, :title, :summary, :listable
 
   delegate :name, to: :user, prefix: true
 

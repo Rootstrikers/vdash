@@ -44,7 +44,7 @@ module Twitter
       end
 
       def create_link
-        User.twitter.links.create(url: url.to_s, title: title, summary: summary)
+        User.twitter.links.create(url: url.to_s, title: title, summary: summary, listable: false)
       end
 
       def existing_content
