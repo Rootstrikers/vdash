@@ -66,12 +66,12 @@ Your instance is available at http://vdash-foo.heroku.com
 Setup Twitter Auth
 ------------------
 
-You're vdash-foo app isn't setup for any Social Auth, let's fix that.
+Your vdash-foo app isn't setup for any Social Auth, let's fix that.
 
 1. Create a [new Twitter App](https://dev.twitter.com/apps/new)
 2. Callback URL would be `http://vdash-foo.heroku.com/oauth/authenticate` (replace vdash-foo).
 3. Click Create Twitter Application button
-4. **Go back and enable** "Sign in with Twitter" by "editting" the app.
+4. **Go back and enable** "Sign in with Twitter" by "editing" the app.
 5. From the command line, provide your Consumer Key and Consumer Secret
 
 ```
@@ -81,4 +81,13 @@ TWITTER_API_KEY:    L8AsSomeLongStringFVg
 TWITTER_API_SECRET: qqxx9eAnotherBigOne8TUgBcZA0cvf5U
 ```
 
-You should now be able to use Twitter to sign into your persona vdash instance.
+If you're developing locally, add these environment variables to your .bashrc / .zshrc:
+
+```
+export TWITTER_API_KEY='L8AsSomeLongStringFVg'
+export TWITTER_API_SECRET='qqxx9eAnotherBigOne8TUgBcZA0cvf5U'
+```
+
+You'll have to `source ~/.bashrc` and then restart your server.
+
+You should now be able to use Twitter to sign into your personal vdash instance.
