@@ -12,7 +12,7 @@ module Likable
 
   module ClassMethods
     def ordered
-      order("#{table_name}.like_count desc")
+      order("#{table_name}.like_count desc, #{table_name}.created_at desc")
     end
   end
 

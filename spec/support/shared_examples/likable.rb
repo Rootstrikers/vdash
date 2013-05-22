@@ -30,5 +30,18 @@ shared_examples "it is likable" do
 
       described_class.ordered.should == [thing_1, thing_3, thing_2]
     end
+
+    it 'orders by created_at secondary to like_count' do
+      thing_1 = instance_of_described_class
+      thing_2 = instance_of_described_class
+      thing_3 = instance_of_described_class
+
+      thing_1.update_attribute(:like_count, 4)
+      thing_2.update_attribute(:like_count, 2)
+      thing_3.update_attribute(:like_count, 4)
+      thing_3.update_attribute(:created_at, 1.second.from_now)
+
+      described_class.ordered.should == [thing_3, thing_1, thing_2]
+    end
   end
 end
