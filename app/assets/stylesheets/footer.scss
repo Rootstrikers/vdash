@@ -1,15 +1,15 @@
 footer {
   /* start sticky footer stuff */
   position: relative;
-  margin-top: -100px;  
+  margin-top: -100px;
   height: 100px;
-  clear: both; 
+  clear: both;
   /* end sticky footer stuff */
-  
-  text-align: right;
+
+  text-align: center;
   font-size: 13px;
   padding: 8px;
-  
+
   background: #626173;
   color: #ffffff;
   @include linear-gradient(left, #223141, #243343);
@@ -20,7 +20,19 @@ footer {
       color: rgb(200, 200, 200);
     }
   }
-  
+
+}
+
+hr {
+  width: 75%;
+  opacity: 50%;
+  color: #525163;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 7px;
+  text-align: center;
+  height: 1px;
 }
 
 address {
