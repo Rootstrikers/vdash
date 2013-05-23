@@ -1,6 +1,6 @@
 <% link = (defined?(link) && link) || @link %>
 
-<%= form_for [link, @content], html: { class: 'form-horizontal' }, remote: true do |f| %>
+<%= form_for [link, @content], html: { class: 'form-horizontal', id: "new_content_#{link.id}" }, remote: true do |f| %>
   <% if @content.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@content.errors.count, "error") %> prohibited this Post submission from being saved:</h2>
@@ -29,22 +29,22 @@
 <% end %>
 
 <script type="text/javascript">
-  $('#new_content input[type=submit]').prop('disabled', true);
-  $('#new_content textarea#content_body').keyup(function(event) {
+  $('#new_content<%= link.id %> input[type=submit]').prop('disabled', true);
+  $('#new_content<%= link.id %> textarea#content_body').keyup(function(event) {
     if ($(this).val() != '') {
       /*
       TODO: when I enter text for one post, it enables 'post' for all posts. I don't think it actually enables it,
       but it styles it that way. Changing disabled style to enabled style so that it won't be apparent to users.
       */
 
-      $('#new_content input[type=submit]').prop('disabled', false);
+      $('#new_content_<%= link.id %> input[type=submit]').prop('disabled', false);
       if ($(this).val().length > 120) {
         $("#twitter-logo-link-<%= link.id %>").hide();
       } else {
         $("#twitter-logo-link-<%= link.id %>").show();
       }
     } else {
-      $('#new_content input[type=submit]').prop('disabled', true);
+      $('#new_content<%= link.id %> input[type=submit]').prop('disabled', true);
     }
   });
 </script>
