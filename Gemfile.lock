@@ -85,6 +85,8 @@ GEM
     less (2.3.1)
       commonjs (~> 0.2.6)
     libv8 (3.11.8.17)
+    license-generator (0.4.1)
+      thor
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -203,6 +205,7 @@ DEPENDENCIES
   jquery-rails (~> 2.2.1)
   koala
   less
+  license-generator (~> 0.4.1)
   nokogiri
   omniauth-facebook
   omniauth-google-oauth2

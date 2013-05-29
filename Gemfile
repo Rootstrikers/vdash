@@ -13,6 +13,7 @@ gem 'nokogiri'
 group :development do
   gem 'annotate'
   gem 'debugger'
+  gem 'license-generator','~> 0.4.1'
 end
 
 # Gems used only for assets and not required
