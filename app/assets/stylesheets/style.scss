@@ -457,6 +457,14 @@ section#article-suggestion {
   }
 }
 
+li.link, li.content {
+  .attribution {
+    float: right;
+    font-size: .8em;
+    padding: 5px;
+  }
+}
+
 /* Miscellaneous
 -------------------------------------------------- */
 .hacking-axe{

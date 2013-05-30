@@ -1,4 +1,4 @@
-<li>
+<li class="content">
 <div class="row post-details">
   <div class="small-2 columns" style="padding-top: 4px;">
 
@@ -20,6 +20,7 @@
             <%= link_to content.link.domain, content.link.url %>
           </div>
         <% end %>
+        <p class="attribution">Submitted by <%= link_to content.user.name, content.user %></p>
   </div><!-- small-9 columns -->
 </div><!-- row post-details -->
 
