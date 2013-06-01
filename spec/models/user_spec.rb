@@ -61,4 +61,10 @@ describe User do
       user.should be_banned
     end
   end
+
+  describe '#public_contact_information?' do
+    it 'should be false by default' do
+      User.new.public_contact_information?.should be_false
+    end
+  end
 end

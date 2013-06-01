@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   has_many :notices
   has_many :bans
 
-  attr_accessible :name
+  attr_accessible :name, :public_contact_information
 
   def self.current
     Thread.current[:current_user]

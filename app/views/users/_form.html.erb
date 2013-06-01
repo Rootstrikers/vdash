@@ -1,9 +1,16 @@
-<%= simple_form_for @user, html: { class: 'horizontal' } do |f| %>
+<%= simple_form_for @user, html: { class: 'regular' } do |f| %>
   <div class='control-group'>
     <div class="controls">
       <%= f.input :name %>
     </div>
   </div>
+
+  <div class='control-group'>
+    <div class="controls">
+      <%= f.input :public_contact_information, label: 'Let other signed in people see my contact information', label_html: { class: 'checkbox' } %>
+    </div>
+  </div>
+
   <div class='form-controls'>
     <%= f.submit %>
   </div>
