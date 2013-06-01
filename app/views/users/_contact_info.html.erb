@@ -1,0 +1,13 @@
+<h6>Contact Information</h6>
+<div>
+  <dl>
+    <% @user.contact_methods.each do |contact_method| %>
+      <dt>
+        <%= contact_method[:label] %>
+      </dt>
+      <dd>
+        <%= link_to contact_method[:value], contact_method[:value], target: '_blank' %>
+      </dd>
+    <% end %>
+  </dl>
+</div>

@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
   has_many :notices
   has_many :bans
 
-  attr_accessible :name, :public_contact_information
+  attr_accessible :name, :google_url, :facebook_url, :twitter_url, :website_url, :email,
+    :public_contact_information
 
   def self.current
     Thread.current[:current_user]
@@ -68,5 +69,34 @@ class User < ActiveRecord::Base
 
   def ban
     bans.unlifted.newest_first.first
+  end
+
+  def possible_contact_methods
+    [
+      {
+        label: 'E-mail',
+        value: email
+      },
+      {
+        label: 'Google+',
+        value: google_url
+      },
+      {
+        label: 'Facebook',
+        value: facebook_url
+      },
+      {
+        label: 'Twitter',
+        value: twitter_url
+      },
+      {
+        label: 'Personal Website',
+        value: website_url
+      }
+    ]
+  end
+
+  def contact_methods
+    possible_contact_methods.reject { |contact_method| contact_method[:value].blank? }
   end
 end

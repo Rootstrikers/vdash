@@ -6,3 +6,9 @@ en:
     attributes:
       link:
         url: "URL"
+      user:
+        google_url: 'Google+ URL'
+        facebook_url: 'Facebook URL'
+        twitter_url: 'Twitter URL'
+        website_url: 'Personal Website URL'
+        email: 'E-mail'

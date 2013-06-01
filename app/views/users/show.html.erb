@@ -16,6 +16,7 @@
       </header>
         <%= render 'admin_tools' if current_user.try(:admin?) %>
         <%= render 'banned' if @user.banned? %>
+        <%= render 'contact_info' if current_user and @user.public_contact_information? %>
 
         <% if @links.any? %>
           <h6>Submitted Links</h6>
