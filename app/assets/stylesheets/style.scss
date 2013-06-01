@@ -310,8 +310,19 @@ label {
   }
 }
 
-label.inline {
-  display: inline;
+form.horizontal {
+  width: 100%;
+  label {
+    display: inline;
+    width: 20%;
+    float: left;
+  }
+  input[type="text"] {
+    width: 80%;
+  }
+  .form-controls {
+    padding-top: 5px;
+  }
 }
 
 

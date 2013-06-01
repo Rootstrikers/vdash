@@ -1,9 +1,10 @@
-<%= simple_form_for @user do |f| %>
+<%= simple_form_for @user, html: { class: 'horizontal' } do |f| %>
   <div class='control-group'>
-    <%= f.label :name, class: 'inline' %>
     <div class="controls">
       <%= f.input :name %>
     </div>
   </div>
-  <%= f.submit %>
+  <div class='form-controls'>
+    <%= f.submit %>
+  </div>
 <% end %>
