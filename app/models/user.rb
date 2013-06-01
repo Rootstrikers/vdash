@@ -19,6 +19,11 @@ class User < ActiveRecord::Base
   has_many :notices
   has_many :bans
 
+  validates :google_url,   format: { with: /google\./ },   allow_blank: true
+  validates :facebook_url, format: { with: /facebook\./ }, allow_blank: true
+  validates :twitter_url,  format: { with: /twitter\./ },  allow_blank: true
+  validates :email,        format: { with: /.+@.+/ },      allow_blank: true
+
   attr_accessible :name, :google_url, :facebook_url, :twitter_url, :website_url, :email,
     :public_contact_information
 

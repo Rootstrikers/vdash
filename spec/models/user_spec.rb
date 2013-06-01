@@ -21,6 +21,22 @@ describe User do
   it { should have_many :notices }
   it { should have_many :bans }
 
+  it { should allow_value('').for(:google_url) }
+  it { should allow_value('http://www.google.com/test').for(:google_url) }
+  it { should_not allow_value('test').for(:google_url) }
+
+  it { should allow_value('').for(:facebook_url) }
+  it { should allow_value('http://www.facebook.com/test').for(:facebook_url) }
+  it { should_not allow_value('test').for(:facebook_url) }
+
+  it { should allow_value('').for(:twitter_url) }
+  it { should allow_value('http://www.twitter.com/test').for(:twitter_url) }
+  it { should_not allow_value('test').for(:twitter_url) }
+
+  it { should allow_value('').for(:email) }
+  it { should allow_value('test@example.com').for(:email) }
+  it { should_not allow_value('test').for(:email) }
+
   it 'is not an admin by default' do
     User.new.should_not be_admin
   end
