@@ -14,7 +14,7 @@ Vdash::Application.routes.draw do
   resources :contents, only: [:index]
 
   # User stuff
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
   resources :likes, only: [:create, :destroy]
 
   # Authentication

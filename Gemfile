@@ -9,6 +9,7 @@ gem 'omniauth-twitter'
 gem 'koala'
 gem 'will_paginate'
 gem 'nokogiri'
+gem 'simple_form'
 
 group :development do
   gem 'annotate'

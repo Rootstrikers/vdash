@@ -2,8 +2,12 @@
   <section class="small-12 columns content-box">
       <header class='section-header'>
         <img src="/assets/tile_grey.jpeg" class='header-icon'>
-        <h2 class="section-title"><%= @user.name %>'s profile</h2>
-        <%#= ?? maybe put here link_to '<i class="icon-plus-sign"></i> Suggest Article'.html_safe, new_link_path, class: 'button btn-submit-link' %>
+        <h2 class="section-title">
+          <%= @user.name %>'s profile
+          <% if @user == current_user %>
+            [<%= link_to 'edit', edit_user_path(current_user) %>]
+          <% end %>
+        </h2>
         <div class="pull-right">
           <% if @user.admin? %>
             <div class="label">Admin</div>
@@ -13,18 +17,18 @@
         <%= render 'admin_tools' if current_user.try(:admin?) %>
         <%= render 'banned' if @user.banned? %>
 
-        <% if @user.links.any? %>
+        <% if @links.any? %>
           <h6>Submitted Links</h6>
           <ul>
-            <%= render @user.links %>
+            <%= render @links %>
           </ul>
         <% end %>
 
-        <% if @user.contents.any? %>
+        <% if @contents.any? %>
           <h6>Submitted Headline Ideas</h6>
 
           <ul class="mixed-contents">
-            <%= render @user.contents %>
+            <%= render @contents %>
           </ul>
         <% end %>
   </section><!-- small-12 columns content-box -->

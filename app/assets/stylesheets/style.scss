@@ -150,7 +150,10 @@ section#body-content {
 header.section-header {
   background: #243343;
   border-radius: 2px 2px 0 0;
-    height: 64px; /* maybe make into mixin, but keep btn-section-header the same as this */
+  height: 64px; /* maybe make into mixin, but keep btn-section-header the same as this */
+  a {
+    color: rgb(244, 0, 0);
+  }
 }
 .button.btn-section-header {
   height: 36px;
@@ -305,6 +308,10 @@ label {
     display: inline;
     float: none;
   }
+}
+
+label.inline {
+  display: inline;
 }
 
 

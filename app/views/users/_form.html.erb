@@ -1,0 +1,9 @@
+<%= simple_form_for @user do |f| %>
+  <div class='control-group'>
+    <%= f.label :name, class: 'inline' %>
+    <div class="controls">
+      <%= f.input :name %>
+    </div>
+  </div>
+  <%= f.submit %>
+<% end %>
