@@ -15,12 +15,12 @@
             <%= content.body %>
           </span>
         </p>
+        <p class="attribution">Submitted by <%= link_to content.user.name, content.user %></p>
         <% if defined?(include_link) && include_link %>
           <div class="link">
             <%= link_to content.link.domain, content.link.url %>
           </div>
         <% end %>
-        <p class="attribution">Submitted by <%= link_to content.user.name, content.user %></p>
   </div><!-- small-9 columns -->
 </div><!-- row post-details -->
 
