@@ -113,9 +113,9 @@ describe LinksController do
       let!(:old_link) { FactoryGirl.create(:link, url: "http://www.example.com?bananas=true" )}
       let(:action) { ->{ post :create, link: { url: "http://www.example.com?bananas=true" } } }
 
-      it 'redirects to links#index' do
+      it 'redirects to the old link' do
         action.call
-        response.should redirect_to links_url
+        response.should redirect_to link_url(old_link)
       end
 
       it 'sets the flash' do
