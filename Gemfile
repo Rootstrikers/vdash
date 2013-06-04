@@ -10,6 +10,7 @@ gem 'koala'
 gem 'will_paginate'
 gem 'nokogiri'
 gem 'simple_form'
+gem 'airbrake'
 
 group :development do
   gem 'annotate'
