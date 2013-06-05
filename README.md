@@ -1,7 +1,7 @@
 vdash
 =====
 
-Rootstrikers volunteer dashboard
+Rootstrikers volunteer dashboard. Currently running at http://vdash.rootstrikers.org
 
 
 Local Setup
