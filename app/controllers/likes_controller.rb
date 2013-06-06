@@ -3,9 +3,14 @@ class LikesController < ApplicationController
   before_filter :get_item, only: [:create]
 
   def create
-    current_user.toggle_like(@item)
+    if !@item.is_a?(Link) || current_user.clicked?(@item)
+      current_user.toggle_like(@item)
+      status = :ok
+    else
+      status = :needs_click
+    end
 
-    render json: { id: @item.id, itemKlass: @item.class.name, like_count: @item.likes.count, liked: current_user.liked?(@item) }
+    render json: { id: @item.id, itemKlass: @item.class.name, like_count: @item.likes.count, liked: current_user.liked?(@item), status: status }
   end
 
   private

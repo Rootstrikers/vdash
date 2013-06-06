@@ -9,42 +9,73 @@ describe LikesController do
   describe 'a POST to :create' do
     let(:action) { ->{ post :create, item_klass: 'Link', item_id: item.id } }
 
-    context 'when the user has not already liked the item' do
-      it 'creates a new Like' do
-        expect {
+    context 'when the user has clicked on the link' do
+      before { user.stub(clicked?: true) }
+
+      context 'when the user has not already liked the item' do
+        it 'creates a new Like' do
+          expect {
+            action.call
+          }.to change(Like, :count).by(1)
+        end
+
+        it 'associates the Like with the current user' do
           action.call
-        }.to change(Like, :count).by(1)
+          Like.last.user.should == user
+        end
+
+        it 'associates the Like with the item' do
+          action.call
+          Like.last.item.should == item
+        end
+
+        it 'returns appropriate json' do
+          action.call
+          response.body.should == '{"id":' + item.id.to_s + ',"itemKlass":"Link","like_count":2,"liked":true,"status":"ok"}'
+        end
       end
 
-      it 'associates the Like with the current user' do
-        action.call
-        Like.last.user.should == user
-      end
+      context 'when the user has already liked the item' do
+        let!(:like) { FactoryGirl.create(:like, user: user, item: item) }
 
-      it 'associates the Like with the item' do
-        action.call
-        Like.last.item.should == item
-      end
+        it 'deletes the Like' do
+          action.call
+          expect {
+            like.reload
+          }.to raise_error(ActiveRecord::RecordNotFound)
+        end
 
-      it 'returns appropriate json' do
-        action.call
-        response.body.should == '{"id":' + item.id.to_s + ',"itemKlass":"Link","like_count":2,"liked":true}'
+        it 'returns appropriate json' do
+          action.call
+          response.body.should == '{"id":' + item.id.to_s + ',"itemKlass":"Link","like_count":1,"liked":false,"status":"ok"}'
+        end
       end
     end
 
-    context 'when the user has already liked the item' do
-      let!(:like) { FactoryGirl.create(:like, user: user, item: item) }
-
-      it 'deletes the Like' do
+    context 'when the user has not clicked on the link' do
+      it 'does not call toggle_like' do
+        user.should_not_receive :toggle_like
         action.call
-        expect {
-          like.reload
-        }.to raise_error(ActiveRecord::RecordNotFound)
       end
 
-      it 'returns appropriate json' do
+      it 'renders with status "needs_click"' do
         action.call
-        response.body.should == '{"id":' + item.id.to_s + ',"itemKlass":"Link","like_count":1,"liked":false}'
+          response.body.should == '{"id":' + item.id.to_s + ',"itemKlass":"Link","like_count":1,"liked":false,"status":"needs_click"}'
+      end
+    end
+
+    context 'when the item is not a link' do
+      let!(:content) { FactoryGirl.create(:content) }
+      let(:action) { ->{ post :create, item_klass: 'Content', item_id: content.id } }
+
+      it 'does not check if the user has clicked on it' do
+        user.should_not_receive :clicked?
+        action.call
+      end
+
+      it 'calls toggle_like' do
+        user.should_receive(:toggle_like).with(content)
+        action.call
       end
     end
   end
