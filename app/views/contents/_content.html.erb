@@ -14,7 +14,7 @@
   <p class="attribution">Submitted by <%= link_to content.user.name, content.user %></p>
   <% if defined?(include_link) && include_link %>
     <div class="link">
-      <%= link_to content.link.domain, content.link.url, data: { item_klass: 'Link', item_id: content.link.id }, class: 'clickable' %>
+      <%= link_to content.link.domain, content.link.url, data: { item_klass: 'Link', item_id: content.link.id }, class: 'clickable', target: '_blank' %>
     </div>
   <% end %>
   </div><!-- small-9 columns -->
