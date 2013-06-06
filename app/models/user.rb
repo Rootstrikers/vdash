@@ -73,6 +73,10 @@ class User < ActiveRecord::Base
     clicks.exists?(item_id: item.id, item_type: item.class.name)
   end
 
+  def toggle_like(item)
+    liked?(item) ? unlike(item) : like(item)
+  end
+
   def banned?
     bans.unlifted.exists?
   end
@@ -108,5 +112,14 @@ class User < ActiveRecord::Base
 
   def contact_methods
     possible_contact_methods.reject { |contact_method| contact_method[:value].blank? }
+  end
+
+  private
+  def unlike(item)
+    likes.where(item_type: item.class.name, item_id: item.id).first.destroy
+  end
+
+  def like(item)
+    likes << Like.new(item: item)
   end
 end

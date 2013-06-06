@@ -42,8 +42,8 @@ describe User do
     User.new.should_not be_admin
   end
 
-  let(:user) { FactoryGirl.create(:user) }
-  let(:link) { FactoryGirl.create(:link) }
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:link) { FactoryGirl.create(:link) }
 
   describe ".current" do
     it "returns the current user" do
@@ -71,6 +71,36 @@ describe User do
     it 'returns true if user has voted for the item' do
       user.clicks << Click.new(item: link)
       user.clicked?(link).should be_true
+    end
+  end
+
+  describe '#toggle_like(item)' do
+    context 'when the user has not liked the item' do
+      it 'creates a like' do
+        expect {
+          user.toggle_like(link)
+        }.to change(Like, :count).by(1)
+      end
+
+      it 'associates the like with the user' do
+        user.toggle_like(link)
+        Like.last.user.should == user
+      end
+
+      it 'associates the like with the item' do
+        user.toggle_like(link)
+        Like.last.item.should == link
+      end
+    end
+
+    context 'when the user has already liked the item' do
+      before { FactoryGirl.create(:like, item: link, user: user) }
+
+      it 'destroys the like' do
+        expect {
+          user.toggle_like(link)
+        }.to change(Like, :count).by(-1)
+      end
     end
   end
 
