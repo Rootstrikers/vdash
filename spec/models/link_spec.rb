@@ -19,6 +19,7 @@ describe Link do
 
   it { should belong_to :user }
   it { should have_many :contents }
+  it { should have_many :clicks }
 
   it { should validate_uniqueness_of :url }
   it { should validate_presence_of :url }

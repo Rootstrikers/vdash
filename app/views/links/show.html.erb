@@ -10,7 +10,7 @@
 </div>
 
 <h2>
-  <%= link_to truncate(@link.display_name, length: 80), @link.url %>
+  <%= link_to truncate(@link.display_name, length: 80), @link.url, data: { item_klass: 'Link', item_id: @link.id }, target: '_blank', class: 'clickable' %>
 </h2>
 
 <p>

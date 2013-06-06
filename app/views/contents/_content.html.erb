@@ -1,26 +1,22 @@
 <li class="content">
 <div class="row post-details">
   <div class="small-2 columns" style="padding-top: 4px;">
-
-          <span class="like">
-            <%= render partial: 'likes/like_status', locals: { item: content } %>
-          </span>
-
-      </a>
+    <span class="like">
+      <%= render partial: 'likes/like_status', locals: { item: content } %>
+    </span>
   </div><!-- small-2 columns -->
-
 <div class="small-10 columns">
-        <p class="detail-title">
-          <span class="body">
-            <%= content.body %>
-          </span>
-        </p>
-        <p class="attribution">Submitted by <%= link_to content.user.name, content.user %></p>
-        <% if defined?(include_link) && include_link %>
-          <div class="link">
-            <%= link_to content.link.domain, content.link.url %>
-          </div>
-        <% end %>
+  <p class="detail-title">
+    <span class="body">
+      <%= content.body %>
+    </span>
+  </p>
+  <p class="attribution">Submitted by <%= link_to content.user.name, content.user %></p>
+  <% if defined?(include_link) && include_link %>
+    <div class="link">
+      <%= link_to content.link.domain, content.link.url, data: { item_klass: 'Link', item_id: content.link.id }, class: 'clickable' %>
+    </div>
+  <% end %>
   </div><!-- small-9 columns -->
 </div><!-- row post-details -->
 

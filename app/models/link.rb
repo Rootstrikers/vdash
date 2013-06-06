@@ -20,6 +20,7 @@ class Link < ActiveRecord::Base
 
   belongs_to :user
   has_many :contents, conditions: { deleted_at: nil }, dependent: :destroy
+  has_many :clicks, as: :item
 
   validates :url, uniqueness: true, presence: true
   validate :url_valid
