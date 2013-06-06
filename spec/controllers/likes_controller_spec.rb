@@ -4,10 +4,7 @@ describe LikesController do
   let(:item) { FactoryGirl.create(:link) }
   let(:user) { FactoryGirl.create(:user) }
 
-  before do
-    sign_in(user)
-    request.env["HTTP_REFERER"] = "where_i_came_from"
-  end
+  before { sign_in(user) }
 
   describe 'a POST to :create' do
     let(:action) { ->{ post :create, item_klass: 'Link', item_id: item.id } }
