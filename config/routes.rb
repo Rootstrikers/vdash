@@ -15,7 +15,8 @@ Vdash::Application.routes.draw do
 
   # User stuff
   resources :users, only: [:show, :edit, :update]
-  resources :likes, only: [:create, :destroy]
+  resources :likes, only: [:create]
+  resources :clicks, only: [:create]
 
   # Authentication
   match 'auth/:provider/callback', to: 'sessions#create'

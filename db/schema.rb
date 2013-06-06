@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130601215046) do
+ActiveRecord::Schema.define(:version => 20130606013540) do
 
   create_table "bans", :force => true do |t|
     t.integer  "user_id"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(:version => 20130601215046) do
 
   add_index "bans", ["created_by_id"], :name => "index_bans_on_created_by_id"
   add_index "bans", ["user_id"], :name => "index_bans_on_user_id"
+
+  create_table "clicks", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.string   "item_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "clicks", ["item_id", "item_type"], :name => "index_clicks_on_item_id_and_item_type"
+  add_index "clicks", ["user_id"], :name => "index_clicks_on_user_id"
 
   create_table "contents", :force => true do |t|
     t.integer  "link_id"

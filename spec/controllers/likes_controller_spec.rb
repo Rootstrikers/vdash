@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe LikesController do
-  let(:item) { FactoryGirl.create(:link) }
-  let(:user) { FactoryGirl.create(:user) }
+  let!(:item) { FactoryGirl.create(:link) }
+  let!(:user) { FactoryGirl.create(:user) }
 
   before { sign_in(user) }
 
@@ -13,7 +13,7 @@ describe LikesController do
       it 'creates a new Like' do
         expect {
           action.call
-        }.to change(Link, :count).by(1)
+        }.to change(Like, :count).by(1)
       end
 
       it 'associates the Like with the current user' do

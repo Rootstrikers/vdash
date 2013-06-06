@@ -14,6 +14,7 @@
 class User < ActiveRecord::Base
   has_many :links
   has_many :likes
+  has_many :clicks
   has_many :posts
   has_many :contents
   has_many :notices
@@ -65,7 +66,11 @@ class User < ActiveRecord::Base
   end
 
   def liked?(item)
-    Like.exists?(user_id: self, item_type: item.class.name, item_id: item.id)
+    likes.exists?(item_id: item.id, item_type: item.class.name)
+  end
+
+  def clicked?(item)
+    clicks.exists?(item_id: item.id, item_type: item.class.name)
   end
 
   def banned?

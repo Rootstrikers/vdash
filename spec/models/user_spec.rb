@@ -16,6 +16,7 @@ require 'spec_helper'
 describe User do
   it { should have_many :links }
   it { should have_many :likes }
+  it { should have_many :clicks }
   it { should have_many :posts }
   it { should have_many :contents }
   it { should have_many :notices }
@@ -59,6 +60,17 @@ describe User do
     it 'returns true if user has voted for the item' do
       user.likes << Like.new(item: link)
       user.liked?(link).should be_true
+    end
+  end
+
+  describe '#clicked?(item)' do
+    it 'returns false' do
+      user.clicked?(link).should be_false
+    end
+
+    it 'returns true if user has voted for the item' do
+      user.clicks << Click.new(item: link)
+      user.clicked?(link).should be_true
     end
   end
 
