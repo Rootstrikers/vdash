@@ -85,6 +85,39 @@ describe User do
     end
   end
 
+  describe '#able_to_like?(item)' do
+    it 'returns false' do
+      user.should_not be_able_to_like(link)
+    end
+
+    it 'returns true if user clicked item' do
+      user.stub(clicked?: true)
+      user.should be_able_to_like(link)
+    end
+
+    it 'returns true if user owns link' do
+      link = FactoryGirl.create(:link, user: user)
+      user.stub(clicked?: false)
+      user.should be_able_to_like(link)
+    end
+
+    it 'can return false for a content' do
+      content = FactoryGirl.create(:content)
+      user.should_not be_able_to_like(content)
+    end
+
+    it 'returns true if the user owns the content' do
+      content = FactoryGirl.create(:content, user: user)
+      user.should be_able_to_like content
+    end
+
+    it 'returns true if user owns associated link' do
+      link = FactoryGirl.create(:link, user: user)
+      content = FactoryGirl.create(:content, link: link)
+      user.should be_able_to_like content
+    end
+  end
+
   describe '#toggle_like(item)' do
     context 'when the user has not liked the item' do
       it 'creates a like' do

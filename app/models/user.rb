@@ -74,6 +74,10 @@ class User < ActiveRecord::Base
     clicks.exists?(item_id: item.id, item_type: item.class.name)
   end
 
+  def able_to_like?(item)
+    clicked?(item) or item.user == self or (item.respond_to?(:link) and item.link.user == self)
+  end
+
   def toggle_like(item)
     liked?(item) ? unlike(item) : like(item)
   end
