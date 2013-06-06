@@ -63,20 +63,5 @@ describe LikesController do
           response.body.should == '{"id":' + item.id.to_s + ',"itemKlass":"Link","like_count":1,"liked":false,"status":"needs_click"}'
       end
     end
-
-    context 'when the item is not a link' do
-      let!(:content) { FactoryGirl.create(:content) }
-      let(:action) { ->{ post :create, item_klass: 'Content', item_id: content.id } }
-
-      it 'does not check if the user has clicked on it' do
-        user.should_not_receive :clicked?
-        action.call
-      end
-
-      it 'calls toggle_like' do
-        user.should_receive(:toggle_like).with(content)
-        action.call
-      end
-    end
   end
 end

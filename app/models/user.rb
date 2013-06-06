@@ -70,6 +70,7 @@ class User < ActiveRecord::Base
   end
 
   def clicked?(item)
+    item = item.link if !item.is_a?(Link) and item.respond_to?(:link)
     clicks.exists?(item_id: item.id, item_type: item.class.name)
   end
 

@@ -72,6 +72,17 @@ describe User do
       user.clicks << Click.new(item: link)
       user.clicked?(link).should be_true
     end
+
+    it 'returns false for a content if link not clicked' do
+      content = FactoryGirl.create(:content)
+      user.clicked?(content).should be_false
+    end
+
+    it 'returns true for a content if link was clicked' do
+      content = FactoryGirl.create(:content, link: link)
+      user.clicks << Click.new(item: link)
+      user.clicked?(content).should be_true
+    end
   end
 
   describe '#toggle_like(item)' do

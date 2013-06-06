@@ -3,7 +3,7 @@ class LikesController < ApplicationController
   before_filter :get_item, only: [:create]
 
   def create
-    if !@item.is_a?(Link) || current_user.clicked?(@item)
+    if current_user.clicked?(@item) or current_user == @item.user
       current_user.toggle_like(@item)
       status = :ok
     else
