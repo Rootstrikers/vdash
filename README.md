@@ -61,7 +61,7 @@ We will develop campaign activities when the we have community support for the a
 Key Assumptions when developing a campaign activity module
 =====
 Participation in any campaign will vary.
-1. Different solutions are necessary for different orders of magnitude of participants. That is, solutions for 10 don't necessarily scale to 100. 100 to 1000, … etc. Rootstrikers currently has ~ 65000 supporters.  We can reasonable assume that ~1-3% will be active participants in any given project, resulting in ~500-1500 participants that need to be supported.  We obviously hope to grow these numbers, but don't necessarily need to be ready for 1 million participants tomorrow.
+1. Different solutions are necessary for different orders of magnitude of participants. That is, solutions for 10 don't necessarily scale to 100. 100 to 1000, … etc. Rootstrikers currently has tens of thousands supporters.  We can reasonable assume that ~1-3% will be active participants in any given project, resulting in ~500-1500 participants that need to be supported.  We obviously hope to grow these numbers, but don't necessarily need to be ready for 1 million participants tomorrow.
 2. These participants have differing skills, levels of motivation, amount of time, and locations.
 3. We assume that they are globally distributed but mostly based in the US. 
 4. We assume that they are all familiar with the basics of email, search, and social media.  
