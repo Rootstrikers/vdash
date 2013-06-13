@@ -8,7 +8,7 @@ Rootstrikers devotes staff and volunteer time to the management, development, an
 Definitions
 =====
 _Campaign:_ An organized series of activities that influence the decision making process of the public and branches of the government.
-Plausible campaign: A plausible campaign has a reasonable chance of success of both altering public opinion and enacting policy changes which result in publicly funded elections.
+_Plausible campaign:_ A plausible campaign has a reasonable chance of success of both altering public opinion and enacting policy changes which result in publicly funded elections.
 _Modern campaign:_ A modern campaign takes place in the public sphere and utilizes the best principles of social and information science to accomplish its goals.
 _Data-driven campaign:_ A data-driven campaign adapts principles of social science to continually adapt its strategies, services, organizational methods, and programming in response to what it is capable of learning from its prior activities.
 _Grass-roots campaign:_ Although initiated by a semi-centralized organization, a public election campaign's strategies, services, and methods must be defined and dependent on its own membership. In practice, this means adapting strategy and services not only to the data and needs, but also to the desires of the community.
@@ -63,8 +63,8 @@ Key Assumptions when developing a campaign activity module
 Participation in any campaign will vary.
 1. Different solutions are necessary for different orders of magnitude of participants. That is, solutions for 10 don't necessarily scale to 100. 100 to 1000, … etc. Rootstrikers currently has tens of thousands supporters.  We can reasonable assume that ~1-3% will be active participants in any given project, resulting in ~500-1500 participants that need to be supported.  We obviously hope to grow these numbers, but don't necessarily need to be ready for 1 million participants tomorrow.
 2. These participants have differing skills, levels of motivation, amount of time, and locations.
-3. We assume that they are globally distributed but mostly based in the US. 
-4. We assume that they are all familiar with the basics of email, search, and social media.  
+3. We assume that they are globally distributed but mostly based in the US.
+4. We assume that they are all familiar with the basics of email, search, and social media.
 5. We assume that levels of motivation and skills vary dramatically
 
 Campaign Strategy
