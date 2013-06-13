@@ -7,11 +7,11 @@ Rootstrikers devotes staff and volunteer time to the management, development, an
 
 Definitions
 =====
-_Campaign:_ An organized series of activities that influence the decision making process of the public and branches of the government.
-_Plausible campaign:_ A plausible campaign has a reasonable chance of success of both altering public opinion and enacting policy changes which result in publicly funded elections.
-_Modern campaign:_ A modern campaign takes place in the public sphere and utilizes the best principles of social and information science to accomplish its goals.
-_Data-driven campaign:_ A data-driven campaign adapts principles of social science to continually adapt its strategies, services, organizational methods, and programming in response to what it is capable of learning from its prior activities.
-_Grass-roots campaign:_ Although initiated by a semi-centralized organization, a public election campaign's strategies, services, and methods must be defined and dependent on its own membership. In practice, this means adapting strategy and services not only to the data and needs, but also to the desires of the community.
+* _Campaign:_ An organized series of activities that influence the decision making process of the public and branches of the government.
+* _Plausible campaign:_ A plausible campaign has a reasonable chance of success of both altering public opinion and enacting policy changes which result in publicly funded elections.
+* _Modern campaign:_ A modern campaign takes place in the public sphere and utilizes the best principles of social and information science to accomplish its goals.
+* _Data-driven campaign:_ A data-driven campaign adapts principles of social science to continually adapt its strategies, services, organizational methods, and programming in response to what it is capable of learning from its prior activities.
+* _Grass-roots campaign:_ Although initiated by a semi-centralized organization, a public election campaign's strategies, services, and methods must be defined and dependent on its own membership. In practice, this means adapting strategy and services not only to the data and needs, but also to the desires of the community.
 
 Problem Statement
 =====
@@ -24,6 +24,7 @@ The Rootstrikers volunteer dashboard is an effort to develop and, where possible
 Strategy
 =====
 In order to both sway public opinion and enact policy changes, it is necessary to:
+
 1. Build the broadest coalition possible;
 2. Support diverse organizations and strategies which are in agreement with Rootstrikers core vision; and
 3. Endorse our own vision by remaining transparent, free (as in speech), and community driven.
@@ -54,6 +55,7 @@ Below is an initial list of potential campaign activity modules. This list is ex
 Campaign Activity Module Prioritization Metrics
 ======
 We will develop campaign activities when the we have community support for the activity, defined as:
+
 1. One or more campaign champion who will outline the requirements and strategy;
 2. An individual or organization willing to run an initial campaign for which to develop the initial software;
 3. Sufficient volunteer software development support or raised money to hire developers to create a minimum viable product.
