@@ -54,6 +54,10 @@ class Content < ActiveRecord::Base
     posted.merge(Post.newest_first)
   end
 
+  def link
+    Link.unscoped { super }
+  end
+
   def post!(options = {})
     Poster.new(self, options).run
   end
