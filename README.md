@@ -4,15 +4,7 @@ Currently running at http://vdash.rootstrikers.org
 
 Overview and Design Goals
 =====
-Rootstrikers devotes staff and volunteer time to the management, development, and integration of the software tools necessary to implement its vision of providing the tools necessary to develop and run a plausible, modern, data-driven, grass-roots advocacy campaign dedicated to building a system for publicly funded elections in the United States.
-
-Definitions
----
-* _Campaign:_ An organized series of activities that influence the decision making process of the public and branches of the government.
-* _Plausible campaign:_ A plausible campaign has a reasonable chance of success of both altering public opinion and enacting policy changes which result in publicly funded elections.
-* _Modern campaign:_ A modern campaign takes place in the public sphere and utilizes the best principles of social and information science to accomplish its goals.
-* _Data-driven campaign:_ A data-driven campaign adapts principles of social science to continually adapt its strategies, services, organizational methods, and programming in response to what it is capable of learning from its prior activities.
-* _Grass-roots campaign:_ Although initiated by a semi-centralized organization, a public election campaign's strategies, services, and methods must be defined and dependent on its own membership. In practice, this means adapting strategy and services not only to the data and needs, but also to the desires of the community.
+Rootstrikers devotes staff and volunteer time to the management, development, and integration of the software tools necessary to implement its vision of mobilizing a new generation of activists to fight the corruption of American government by big moneyed interests.
 
 Problem Statement
 ---
@@ -20,15 +12,14 @@ The information technology required to support Rootstrikers vision is currently 
 
 Solution
 ---
-The Rootstrikers volunteer dashboard is an effort to develop and, where possible, integrate the information technology necessary to support the vision of a plausible, modern, data-driven, grass-roots advocacy campaign.
+The Rootstrikers volunteer dashboard is an effort to develop and, where possible, integrate the information technology necessary to support the vision of a crowdsourced campaign against corruption.
 
 Strategy
 ---
-In order to both sway public opinion and enact policy changes, it is necessary to:
+In order to mobilize a large-scale campaign, it is necessary to:
 
-1. Build the broadest coalition possible;
-2. Support diverse organizations and strategies which are in agreement with Rootstrikers core vision; and
-3. Endorse our own vision by remaining transparent, free (as in speech), and community driven.
+1. Build the broadest coalition possible; and
+2. Endorse our own vision by remaining transparent, free (as in speech), and community driven.
 
 Approach
 ---
