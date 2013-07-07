@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :contents
   has_many :notices
   has_many :bans
+  has_many :linked_accounts
 
   validates :google_url,   format: { with: /google\./ },   allow_blank: true
   validates :facebook_url, format: { with: /facebook\./ }, allow_blank: true
@@ -33,7 +34,7 @@ class User < ActiveRecord::Base
   end
 
   def self.existing_user(auth)
-    where(auth.slice("provider", "uid")).first
+    joins(:linked_accounts).merge(LinkedAccount.for_omniauth(auth)).first
   end
 
   def self.from_omniauth(auth)
@@ -42,8 +43,6 @@ class User < ActiveRecord::Base
 
   def self.create_from_omniauth(auth)
     create! do |user|
-      user.provider     = auth["provider"]
-      user.uid          = auth["uid"]
       user.name         = auth["info"]["nickname"] || auth["info"]["name"]
       user.first_name   = auth['info']['first_name']
       user.last_name    = auth['info']['last_name']
@@ -52,13 +51,17 @@ class User < ActiveRecord::Base
       user.description  = auth['info']['description']
       user.image        = auth['info']['image']
       user.location     = auth['info']['location']
-      user.birthday     = auth['extra']['raw_info']['birthday']
-      user.gender       = auth['extra']['raw_info']['gender']
-      user.google_url   = auth['extra']['raw_info']['link'] if auth['provider'] == 'google_oauth2'
-      user.twitter_url  = auth['info']['urls']['Twitter']   if auth['info']['urls']
-      user.facebook_url = auth['info']['urls']['Facebook']  if auth['info']['urls']
-      user.website_url  = auth['info']['urls']['Website']   if auth['info']['urls']
-    end
+      if auth['extra'].present? and auth['extra']['raw_info'].present?
+        user.birthday     = auth['extra']['raw_info']['birthday']
+        user.gender       = auth['extra']['raw_info']['gender']
+        user.google_url   = auth['extra']['raw_info']['link'] if auth['provider'] == 'google_oauth2'
+      end
+      if auth['info']['urls'].present?
+        user.twitter_url  = auth['info']['urls']['Twitter']
+        user.facebook_url = auth['info']['urls']['Facebook']
+        user.website_url  = auth['info']['urls']['Website']
+      end
+    end.tap { |user| user.linked_accounts.create(provider: auth["provider"], uid: auth["uid"]) }
   end
 
   def self.twitter

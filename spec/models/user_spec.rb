@@ -52,6 +52,54 @@ describe User do
     end
   end
 
+  describe '.existing_user(auth)' do
+    let(:auth) { { 'provider' => 'facebook', 'uid' => '12345' } }
+
+    it 'returns nil' do
+      User.existing_user(auth).should be_nil
+    end
+
+    it 'returns an existing user with a matching linked account' do
+      user = FactoryGirl.create(:user)
+      user.linked_accounts.create(provider: 'facebook', uid: '12345')
+      User.existing_user(auth).should == user
+    end
+  end
+
+  describe '.create_from_omniauth(auth)' do
+    let(:auth) do
+      {
+        'provider' => 'facebook',
+        'uid'      => '12345',
+        'info'     => {
+          'name' => 'George'
+        }
+      }
+    end
+
+    it 'creates a user' do
+      expect {
+        User.create_from_omniauth(auth)
+      }.to change(User, :count).by(1)
+    end
+
+    it 'creates a LinkedAccount' do
+      expect {
+        User.create_from_omniauth(auth)
+      }.to change(LinkedAccount, :count).by(1)
+    end
+
+    it 'associates the linked account with the user' do
+      User.create_from_omniauth(auth)
+      LinkedAccount.last.user.should == User.last
+    end
+
+    it 'sets other attributes on the user' do
+      User.create_from_omniauth(auth)
+      User.last.name.should == 'George'
+    end
+  end
+
   describe '#liked?(item)' do
     it 'returns false' do
       user.liked?(link).should be_false
