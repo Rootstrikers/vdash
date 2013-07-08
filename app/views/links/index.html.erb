@@ -1,4 +1,4 @@
-    <% if current_user.try(:admin?) %>
+<% if current_user.try(:admin?) %>
   <%= link_to 'Admin: <i class="icon-trash"></i>  Deleted Links'.html_safe, admin_deleted_things_links_path, class: 'button btn-deleted-links pull-right' if current_user.try(:admin?) %>
 <% end %>
 

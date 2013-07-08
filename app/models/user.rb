@@ -61,7 +61,12 @@ class User < ActiveRecord::Base
         user.facebook_url = auth['info']['urls']['Facebook']
         user.website_url  = auth['info']['urls']['Website']
       end
-    end.tap { |user| user.linked_accounts.create(provider: auth["provider"], uid: auth["uid"]) }
+    end.tap { |user| user.add_linked_account(auth) }
+  end
+
+  def add_linked_account(auth)
+    return false if linked_accounts.exists?(provider: auth['provider'])
+    linked_accounts.create(provider: auth['provider'], uid: auth['uid'])
   end
 
   def self.twitter

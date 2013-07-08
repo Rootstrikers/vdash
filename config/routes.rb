@@ -24,6 +24,8 @@ Vdash::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
   match 'auth/failure', to: 'sessions#failure'
 
+  resources :linked_accounts, only: [:index]
+
   # Misc
   get 'help', to: 'help#index'
   resource :remote_link
