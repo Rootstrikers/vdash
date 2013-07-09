@@ -22,7 +22,6 @@ module Admin
 
         it 'redirects to facebook' do
           action.call
-          pp response.headers
           response.headers['Location'].should =~ %r(\Ahttps://www.facebook.com/dialog/feed\?app_id=129144613947348&description=MyText&from=380776225267938&link=http%3A%2F%2Fwww.example.com%3Fnumber%3D\d&name=&redirect_uri=http%3A%2F%2Ftest.host%2Fadmin%2Fposts%2Fcallback%3Fservice%3Dfacebook)
         end
       end
@@ -30,7 +29,7 @@ module Admin
 
     describe 'a GET to :callback' do
       let(:content) { FactoryGirl.create(:content) }
-      let(:action) { ->{ get :callback, content_id: content.id, service: 'facebook' }}
+      let(:action) { ->{ get :callback, content_id: content.id, service: 'facebook' } }
 
       it 'calls post on the content' do
         Content.stub(:find).with(content.id.to_s).and_return(content)
