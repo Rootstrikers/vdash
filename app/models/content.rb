@@ -14,7 +14,7 @@ class Content < ActiveRecord::Base
 
   attr_accessible :body, :link, :link_id
 
-  delegate :url, :domain, to: :link, prefix: true
+  delegate :url, :domain, :title, to: :link, prefix: true
   delegate :name, to: :user, prefix: true
 
   # TODO: Need to enable filtering to things that have not been posted to all places they are eligible

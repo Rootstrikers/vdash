@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(:version => 20130707025215) do
     t.string   "title"
     t.text     "summary"
     t.integer  "like_count", :default => 0
-    t.boolean  "approved"
     t.datetime "deleted_at"
+    t.boolean  "approved"
     t.boolean  "listable",   :default => true
   end
 

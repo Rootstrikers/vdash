@@ -16,7 +16,20 @@ module Admin
 
     describe 'a POST to :create' do
       let(:content) { FactoryGirl.create(:content) }
-      let(:action) { ->{ post :create, type: 'twitter', content_id: content.id }}
+
+      context 'when dealing with facebook' do
+        let(:action) { ->{ post :create, type: 'facebook', content_id: content.id }}
+
+        it 'redirects to facebook' do
+          action.call
+          response.should redirect_to "https://www.facebook.com/dialog/feed?app_id=129144613947348&description=MyText&from=380776225267938&link=http%3A%2F%2Fwww.example.com%3Fnumber%3D6&name=&redirect_uri=http%3A%2F%2Ftest.host%2Fadmin%2Fposts%2Ffacebook_callback"
+        end
+      end
+    end
+
+    describe 'a GET to :facebook_callback' do
+      let(:content) { FactoryGirl.create(:content) }
+      let(:action) { ->{ get :facebook_callback, content_id: content.id }}
 
       it 'calls post on the content' do
         Content.stub(:find).with(content.id.to_s).and_return(content)
