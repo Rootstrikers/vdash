@@ -33,7 +33,7 @@ Vdash::Application.routes.draw do
   # Admin things
   namespace :admin do
     resources :posts, only: [:index, :create] do
-      get :facebook_callback, on: :collection
+      get :callback, on: :collection
     end
     resources :notices
     resources :bans, only: [:index]

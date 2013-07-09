@@ -1,8 +1,8 @@
 module Admin
   class PostsController < AdminController
-    skip_before_filter :require_admin, only: [:facebook_callback]
+    skip_before_filter :require_admin, only: [:callback]
 
-    before_filter :find_content, only: [:create, :facebook_callback]
+    before_filter :find_content, only: [:create, :callback]
 
     def index
       @posts = Post.order('created_at desc').paginate(page: params[:page])
@@ -11,13 +11,11 @@ module Admin
     def create
       if params[:type] == 'facebook'
         redirect_to "https://www.facebook.com/dialog/feed?#{facebook_params.to_query}"
-      elsif params[:type] == 'twitter'
-
       end
     end
 
-    def facebook_callback
-      @content.post!(service: :facebook)
+    def callback
+      @content.post!(service: params[:service].to_sym)
       redirect_to contents_url, flash: { success: 'Posted!' }
     end
 
@@ -33,7 +31,7 @@ module Admin
         link:         @content.link_url,
         name:         @content.link_title,
         description:  @content.body,
-        redirect_uri: facebook_callback_admin_posts_url(content_id: @content_id)
+        redirect_uri: callback_admin_posts_url(content_id: @content_id, service: 'facebook')
       }
     end
 
