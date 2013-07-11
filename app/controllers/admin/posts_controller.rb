@@ -31,7 +31,7 @@ module Admin
         link:         @content.link_url,
         name:         @content.link_title,
         description:  @content.body,
-        redirect_uri: callback_admin_posts_url(content_id: @content_id, service: 'facebook')
+        redirect_uri: callback_admin_posts_url(content_id: @content.id, service: 'facebook')
       }
     end
 
